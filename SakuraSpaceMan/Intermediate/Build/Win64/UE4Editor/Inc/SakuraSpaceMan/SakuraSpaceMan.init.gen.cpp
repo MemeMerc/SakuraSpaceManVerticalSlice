@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceMan_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x62622348,
-				0x64A7A9D4,
+				0x21CF7977,
+				0x7E20F3AB,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);
