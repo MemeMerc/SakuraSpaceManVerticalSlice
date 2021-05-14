@@ -76,3 +76,4 @@ DerivedDataCache/*
 SakuraSpaceMan/Saved/AutoScreenshot.png
 *.ini
 *.log
+SakuraSpaceMan/Intermediate/CachedAssetRegistry.bin
