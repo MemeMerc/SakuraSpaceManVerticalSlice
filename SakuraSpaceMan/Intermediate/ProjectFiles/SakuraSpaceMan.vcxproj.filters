@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\SakuraSpaceMan.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{8D680497-8424-4543-912E-942DCABDE692}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\SakuraSpaceManEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{75A5E400-14DA-4704-944B-EB0B4D945984}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\SakuraSpaceMan">
+      <UniqueIdentifier>{6F3A0BD4-E55F-49C5-A117-70C09BFD822B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.cpp">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.h">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.cpp">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.h">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "SakuraSpaceMan",
+			"Path": "C:\\Github\\SakuraSpaceManVerticalSlice\\SakuraSpaceMan\\Source\\SakuraSpaceMan.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "SakuraSpaceManEditor",
+			"Path": "C:\\Github\\SakuraSpaceManVerticalSlice\\SakuraSpaceMan\\Source\\SakuraSpaceManEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
