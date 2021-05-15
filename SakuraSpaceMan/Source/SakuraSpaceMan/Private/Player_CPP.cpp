@@ -63,7 +63,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	Super::Tick(_fDeltaTime);
 
 
-	if (bIsSprinting == false && GetCharacterMovement()->BrakingFrictionFactor <= fFriction && !GetCharacterMovement()->IsFalling())
+	if (bIsRunning == false && GetCharacterMovement()->BrakingFrictionFactor <= fFriction && !GetCharacterMovement()->IsFalling())
 	{
 
 		GetCharacterMovement()->BrakingFrictionFactor = GetCharacterMovement()->BrakingFrictionFactor + (0.3f * _fDeltaTime);
@@ -85,6 +85,9 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 
 	_PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &APlayer_CPP::Sprint);
 	_PlayerInputComponent->BindAction("Sprint", IE_Released, this, &APlayer_CPP::StopSprinting);
+
+	//_PlayerInputComponent->BindAction("SprintCheck", IE_Pressed, this, &APlayer_CPP::Sprint);
+	_PlayerInputComponent->BindAction("SprintCheck", IE_Released, this, &APlayer_CPP::ResetWalkValue);
 
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
 	_PlayerInputComponent->BindAxis("MoveRight", this, &APlayer_CPP::MoveRight);	
@@ -132,6 +135,12 @@ void APlayer_CPP::MoveForward(float _fScale)
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, _fScale, true);
+		bIsRunning = true;
+		
+	}
+	else
+	{
+		bIsRunning = false;
 	}
 }
 
@@ -148,6 +157,16 @@ void APlayer_CPP::MoveRight(float _fScale)
 		// add movement in that direction
 		AddMovementInput(Direction, _fScale, true);
 	}
+}
+
+
+void APlayer_CPP::ResetWalkValue()
+{
+	
+	iCurrentSpeed = 0;
+	GetCharacterMovement()->MaxAcceleration = fDefaultAcceleration;
+	GetCharacterMovement()->MaxWalkSpeed = fMaxWalkSpeed;
+
 }
 
 
@@ -188,10 +207,32 @@ void APlayer_CPP::Sprint()
 {
 	if (Controller != nullptr)
 	{
+		iCurrentSpeed++;
 		bIsSprinting = true;
-		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-		GetCharacterMovement()->MaxAcceleration = fRunAcceleration;
-		GetCharacterMovement()->MaxWalkSpeed = fMaxSprintSpeed;
+		iCurrentSpeed = FMath::Clamp(iCurrentSpeed, 0, 2);
+
+		switch (iCurrentSpeed)
+		{
+		case 1:
+		{
+			GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+			GetCharacterMovement()->MaxAcceleration = fRunAcceleration;
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSprintSpeed/2;
+			break;
+
+
+		}
+		case 2:
+		{
+			//GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+			//GetCharacterMovement()->MaxAcceleration = fRunAcceleration;
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSprintSpeed;
+			break;
+		}
+
+		}
+
+
 	}
 }
 void APlayer_CPP::StopSprinting()
@@ -200,8 +241,8 @@ void APlayer_CPP::StopSprinting()
 	if (Controller != nullptr)
 	{
 		bIsSprinting = false;
-		GetCharacterMovement()->MaxAcceleration = fDefaultAcceleration;
-		GetCharacterMovement()->MaxWalkSpeed = fMaxWalkSpeed;
+		//GetCharacterMovement()->MaxAcceleration = fDefaultAcceleration;
+		//GetCharacterMovement()->MaxWalkSpeed = fMaxWalkSpeed;
 		
 	}
 

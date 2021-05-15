@@ -110,7 +110,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fMaxSprintSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Running\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Running" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fMaxSprintSpeed = { "fMaxSprintSpeed", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, fMaxSprintSpeed), METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fMaxSprintSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fMaxSprintSpeed_MetaData)) };
@@ -126,7 +128,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Ground Friction\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Ground Friction" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction = { "fFriction", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, fFriction), METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction_MetaData)) };
@@ -134,7 +138,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Camera Turn Speed\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Camera Turn Speed" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp = { "fCameraClamp", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, fCameraClamp), METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp_MetaData)) };
@@ -142,7 +148,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fDefaultAcceleration_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Acceleration\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Acceleration" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fDefaultAcceleration = { "fDefaultAcceleration", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, fDefaultAcceleration), METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fDefaultAcceleration_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fDefaultAcceleration_MetaData)) };
@@ -158,7 +166,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Jump Amount (Double Jump)\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Jump Amount (Double Jump)" },
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount = { "iMaxJumpAmount", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, iMaxJumpAmount), METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount_MetaData)) };
@@ -200,7 +210,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 4040238933);
+	IMPLEMENT_CLASS(APlayer_CPP, 3870692400);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

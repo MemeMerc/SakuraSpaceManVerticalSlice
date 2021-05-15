@@ -36,13 +36,7 @@ public:
 	
 protected:
 
-	enum SpeedType
-	{
-		Walk,
-		Stage1,
-		Stage2,
-		Stage3
-	};
+
 
 
 	//FUNCTIONS
@@ -64,6 +58,8 @@ protected:
 	void Sprint();
 	void StopSprinting();
 
+	void ResetWalkValue();
+
 	void LookTurn(float _fScale);
 	void LookUp(float _fScale);
 
@@ -72,7 +68,13 @@ protected:
 	//VARIABLES
 	
 
+	int iCurrentSpeed = 0;
+
 	bool bIsSprinting = false;
+
+	bool bIsRunning = false;
+	bool bRunDoOnce = true;
+
 	int iJumpAmount = 1;
 	
 	//Running
