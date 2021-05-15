@@ -20,6 +20,8 @@ class SAKURASPACEMAN_API APlayer_CPP : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* Camera;
 
+
+
 public:
 	// Sets default values for this character's properties
 	APlayer_CPP();
@@ -58,6 +60,7 @@ protected:
 	void Sprint();
 	void StopSprinting();
 
+	void CheckWalkForward();
 	void ResetWalkValue();
 
 	void LookTurn(float _fScale);
@@ -68,34 +71,43 @@ protected:
 	//VARIABLES
 	
 
-	int iCurrentSpeed = 0;
+	//USTRUCT()
+	//	struct SpeedTypeDetails
+	//{
+	//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	//		float fMaxSpeed;
+	//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	//		float fRunAcceleration;
+	//
+	//};
 
-	bool bIsSprinting = false;
+	int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
 
-	bool bIsRunning = false;
-	bool bRunDoOnce = true;
+	bool bIsSprinting = false;	//Is Using the Sprint Function.
 
-	int iJumpAmount = 1;
+	bool bIsMoving = false;		//Is Moving In A Direction.
+
+	bool bIsForward = false;	//Has Pressed the Move Forward Key (W)
 	
-	//Running
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fMaxSprintSpeed = 6000.0f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fMaxWalkSpeed = 1500.0f;
+
+	int iJumpAmount = 1;	//Number of Jumps Made.
+	
+
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fFriction = 1.8f;
+	float fFriction = 0.8f;		//Ground Friction
 	//Camera Turn Speed
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fCameraClamp = 0.3f;
-	//Acceleration
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fDefaultAcceleration = 2024.f;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fRunAcceleration = 1000.f;
+	float fCameraClamp = 0.3f;	//Camera Move Friction
 	//Jump Amount (Double Jump)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	int iMaxJumpAmount = 2;
+	int iMaxJumpAmount = 2;		//Maximum Jump Count
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	TArray<float> fMaxSpeed;	//Uses iCurrentSpeed variable to iterate through Max Speeds.
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	TArray<float> fMaxAcceleration;		//Uses iCurrentSpeed variable to iterate through Max Accelerations.
 
 
 private:
