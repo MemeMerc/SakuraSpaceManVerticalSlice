@@ -30,11 +30,20 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* _PlayerInputComponent) override;
 
-
-
+	virtual void Landed(const FHitResult& Hit) override;
 
 	
+	
 protected:
+
+	enum SpeedType
+	{
+		Walk,
+		Stage1,
+		Stage2,
+		Stage3
+	};
+
 
 	//FUNCTIONS
 
@@ -55,15 +64,36 @@ protected:
 	void Sprint();
 	void StopSprinting();
 
+	void LookTurn(float _fScale);
+	void LookUp(float _fScale);
+
+	
 
 	//VARIABLES
+	
 
 	bool bIsSprinting = false;
-
+	int iJumpAmount = 1;
+	
+	//Running
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fMaxSprintSpeed = 1000;
+	float fMaxSprintSpeed = 6000.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fMaxWalkSpeed = 500;
+	float fMaxWalkSpeed = 1500.0f;
+	//Ground Friction
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fFriction = 1.8f;
+	//Camera Turn Speed
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fCameraClamp = 0.3f;
+	//Acceleration
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fDefaultAcceleration = 2024.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fRunAcceleration = 1000.f;
+	//Jump Amount (Double Jump)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	int iMaxJumpAmount = 2;
 
 
 private:

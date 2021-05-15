@@ -62,7 +62,12 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(APlayer_CPP, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(APlayer_CPP, Camera); } \
 	FORCEINLINE static uint32 __PPO__fMaxSprintSpeed() { return STRUCT_OFFSET(APlayer_CPP, fMaxSprintSpeed); } \
-	FORCEINLINE static uint32 __PPO__fMaxWalkSpeed() { return STRUCT_OFFSET(APlayer_CPP, fMaxWalkSpeed); }
+	FORCEINLINE static uint32 __PPO__fMaxWalkSpeed() { return STRUCT_OFFSET(APlayer_CPP, fMaxWalkSpeed); } \
+	FORCEINLINE static uint32 __PPO__fFriction() { return STRUCT_OFFSET(APlayer_CPP, fFriction); } \
+	FORCEINLINE static uint32 __PPO__fCameraClamp() { return STRUCT_OFFSET(APlayer_CPP, fCameraClamp); } \
+	FORCEINLINE static uint32 __PPO__fDefaultAcceleration() { return STRUCT_OFFSET(APlayer_CPP, fDefaultAcceleration); } \
+	FORCEINLINE static uint32 __PPO__fRunAcceleration() { return STRUCT_OFFSET(APlayer_CPP, fRunAcceleration); } \
+	FORCEINLINE static uint32 __PPO__iMaxJumpAmount() { return STRUCT_OFFSET(APlayer_CPP, iMaxJumpAmount); }
 
 
 #define SakuraSpaceMan_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG

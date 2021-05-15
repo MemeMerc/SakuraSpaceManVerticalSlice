@@ -9,6 +9,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Math/UnrealMathUtility.h"
 
 // Sets default values
 APlayer_CPP::APlayer_CPP()
@@ -27,8 +28,12 @@ APlayer_CPP::APlayer_CPP()
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 600.f;
-	GetCharacterMovement()->AirControl = 0.2f;
+	GetCharacterMovement()->JumpZVelocity = 900.f;
+	GetCharacterMovement()->AirControl = 1.f;
+	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
+	GetCharacterMovement()->GravityScale = 3.f;
+	GetCharacterMovement()->MaxWalkSpeed = fMaxWalkSpeed;
+	GetCharacterMovement()->MaxAcceleration = fDefaultAcceleration;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -40,6 +45,8 @@ APlayer_CPP::APlayer_CPP()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	Camera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	Camera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+
+	fDefaultAcceleration = GetCharacterMovement()->MaxAcceleration;
 
 }
 
@@ -54,6 +61,15 @@ void APlayer_CPP::BeginPlay()
 void APlayer_CPP::Tick(float _fDeltaTime)
 {
 	Super::Tick(_fDeltaTime);
+
+
+	if (bIsSprinting == false && GetCharacterMovement()->BrakingFrictionFactor <= fFriction && !GetCharacterMovement()->IsFalling())
+	{
+
+		GetCharacterMovement()->BrakingFrictionFactor = GetCharacterMovement()->BrakingFrictionFactor + (0.3f * _fDeltaTime);
+
+	}
+
 
 }
 
@@ -73,10 +89,37 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
 	_PlayerInputComponent->BindAxis("MoveRight", this, &APlayer_CPP::MoveRight);	
 
-	_PlayerInputComponent->BindAxis("LookTurn", this, &APawn::AddControllerYawInput);
-	_PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	_PlayerInputComponent->BindAxis("LookTurn", this, &APlayer_CPP::LookTurn);
+	_PlayerInputComponent->BindAxis("LookUp", this, &APlayer_CPP::LookUp);
 
 }
+
+void APlayer_CPP::LookTurn(float _fScale)
+{
+
+	if ((GetCharacterMovement()->Velocity.Size() > fMaxWalkSpeed) && !GetCharacterMovement()->IsFalling())
+	{
+
+		_fScale = FMath::Clamp(_fScale, -fCameraClamp, fCameraClamp);
+
+	}
+
+
+	APawn::AddControllerYawInput(_fScale);
+
+}
+void APlayer_CPP::LookUp(float _fScale)
+{
+	if ((GetCharacterMovement()->Velocity.Size() > fMaxWalkSpeed) && !GetCharacterMovement()->IsFalling())
+	{
+	
+		_fScale = FMath::Clamp(_fScale, -fCameraClamp, fCameraClamp);
+
+	}
+
+	APawn::AddControllerPitchInput(_fScale);
+}
+
 
 void APlayer_CPP::MoveForward(float _fScale)
 {
@@ -88,7 +131,7 @@ void APlayer_CPP::MoveForward(float _fScale)
 
 		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-		AddMovementInput(Direction, _fScale);
+		AddMovementInput(Direction, _fScale, true);
 	}
 }
 
@@ -103,14 +146,36 @@ void APlayer_CPP::MoveRight(float _fScale)
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
-		AddMovementInput(Direction, _fScale);
+		AddMovementInput(Direction, _fScale, true);
 	}
 }
 
 
 void APlayer_CPP::Jump()
 {
-	ACharacter::Jump();
+	if (iJumpAmount == 1)
+	{
+
+		ACharacter::Jump();
+		iJumpAmount++;
+	}
+	else if (iJumpAmount <= iMaxJumpAmount)
+	{
+		FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
+
+		GetCharacterMovement()->Launch(vJump);
+		iJumpAmount++;
+	}
+	
+}
+
+void APlayer_CPP::Landed(const FHitResult& Hit)
+{
+
+	Super::Landed(Hit);
+
+	iJumpAmount = 1;
+
 }
 
 void APlayer_CPP::StopJumping()
@@ -123,6 +188,9 @@ void APlayer_CPP::Sprint()
 {
 	if (Controller != nullptr)
 	{
+		bIsSprinting = true;
+		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+		GetCharacterMovement()->MaxAcceleration = fRunAcceleration;
 		GetCharacterMovement()->MaxWalkSpeed = fMaxSprintSpeed;
 	}
 }
@@ -131,10 +199,10 @@ void APlayer_CPP::StopSprinting()
 
 	if (Controller != nullptr)
 	{
-
+		bIsSprinting = false;
+		GetCharacterMovement()->MaxAcceleration = fDefaultAcceleration;
 		GetCharacterMovement()->MaxWalkSpeed = fMaxWalkSpeed;
-
-
+		
 	}
 
 
