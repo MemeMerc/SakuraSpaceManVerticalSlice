@@ -71,8 +71,9 @@ APlayer_CPP::APlayer_CPP()
 void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
-	GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
+	
+
+
 }
 
 // Called every frame
@@ -80,17 +81,17 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 {
 	Super::Tick(_fDeltaTime);
 
-
+	//Return friction factor to normal, produce a slide effect when stopping fast movement.
 	if (bIsMoving == false && GetCharacterMovement()->BrakingFrictionFactor < fFriction-0.1	 && !GetCharacterMovement()->IsFalling())
 	{
 
-		float ftemp = GetCharacterMovement()->BrakingFrictionFactor + (1.f * _fDeltaTime);
-		ftemp = FMath::Clamp(ftemp, 0.f, fFriction);
-		if (ftemp > fFriction)
+		float fTemp = GetCharacterMovement()->BrakingFrictionFactor + (1.f * _fDeltaTime);
+		fTemp = FMath::Clamp(fTemp, 0.f, fFriction);
+		if (fTemp > fFriction)
 		{
-			ftemp = fFriction;
+			fTemp = fFriction;
 		}
-		GetCharacterMovement()->BrakingFrictionFactor = ftemp;
+		GetCharacterMovement()->BrakingFrictionFactor = fTemp;
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), GetCharacterMovement()->BrakingFrictionFactor));
 
 	}
@@ -150,7 +151,7 @@ void APlayer_CPP::LookUp(float _fScale)
 	APawn::AddControllerPitchInput(_fScale);
 }
 
-//Move Forward
+//Produce forward and back charadcter movement.
 void APlayer_CPP::MoveForward(float _fScale)
 {
 	if ((Controller != nullptr) && (_fScale != 0.0f))
@@ -171,6 +172,7 @@ void APlayer_CPP::MoveForward(float _fScale)
 	}
 }
 
+//Produce left and right character movement.
 void APlayer_CPP::MoveRight(float _fScale)
 {
 	if ((Controller != nullptr) && (_fScale != 0.0f))
@@ -186,30 +188,34 @@ void APlayer_CPP::MoveRight(float _fScale)
 	}
 }
 
+//
 void APlayer_CPP::CheckWalkForward()
 {
 	bIsForward = true;
-	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
 }
 
 void APlayer_CPP::ResetWalkValue()
 {
 	bIsForward = false;
-	iCurrentSpeed = 0;
-	GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+	if (iCurrentSpeed != 0)
+	{
+		iCurrentSpeed = 0;
+		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
+	}
 }
 
 
 void APlayer_CPP::Jump()
 {
-	if (iJumpAmount == 1)
+	if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
 	{
 
 		ACharacter::Jump();
 		iJumpAmount++;
 	}
-	else if (iJumpAmount <= iMaxJumpAmount)
+	else if (iJumpAmount < iMaxJumpAmount)
 	{
 		FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
 
@@ -224,7 +230,7 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 
 	Super::Landed(Hit);
 
-	iJumpAmount = 1;
+	iJumpAmount = 0;
 
 }
 

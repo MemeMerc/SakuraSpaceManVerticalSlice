@@ -90,7 +90,7 @@ protected:
 	bool bIsForward = false;	//Has Pressed the Move Forward Key (W)
 	
 
-	int iJumpAmount = 1;	//Number of Jumps Made.
+	int iJumpAmount = 0;	//Number of Jumps Made.
 	
 
 	//Ground Friction
