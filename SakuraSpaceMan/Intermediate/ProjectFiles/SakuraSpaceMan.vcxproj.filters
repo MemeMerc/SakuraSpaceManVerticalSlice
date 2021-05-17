@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5860B48F-847C-4710-A58A-52D47AADE376}</UniqueIdentifier>
+      <UniqueIdentifier>{4D05DFB3-E959-4758-9298-F6959972E859}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{EAA21186-615D-469B-8C8C-D30B17FE3BCF}</UniqueIdentifier>
+      <UniqueIdentifier>{5DA8192D-8C1C-417D-8DA0-94248F0E60C4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,8 +23,11 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{7762AD57-68B0-41F0-860F-0BC051D1B5A9}</UniqueIdentifier>
+      <UniqueIdentifier>{F13F2DBD-21DD-4540-A445-A26B664228EB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -42,14 +45,20 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{B1A786AE-F325-4BF7-A711-3D59F25D0595}</UniqueIdentifier>
+      <UniqueIdentifier>{B915BBA6-BBAE-45D3-8347-4EDFD755B98C}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\GrappleLocation_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\Player_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{C6420607-7D95-43E1-9D19-190718F2A9D6}</UniqueIdentifier>
+      <UniqueIdentifier>{5D7EABFE-1AA2-4CAA-8634-C535B6DFF256}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\Player_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>

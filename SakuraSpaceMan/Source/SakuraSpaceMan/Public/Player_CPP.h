@@ -66,7 +66,7 @@ protected:
 	void LookTurn(float _fScale);
 	void LookUp(float _fScale);
 
-	
+	void DashForward();
 
 	//VARIABLES
 	
@@ -92,6 +92,7 @@ protected:
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
 	
+	float fLocalDeltaTime;
 
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
@@ -108,6 +109,19 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	TArray<float> fMaxAcceleration;		//Uses iCurrentSpeed variable to iterate through Max Accelerations.
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fDashSpeed = 8000.f;			//Dash Speed modifier
+	float vPrevSpeed;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	float fDashCooldown = 0.5f;		//seconds
+	bool bHasDashed= false;
+
+	FTimerHandle DashTimer;
+	FTimerHandle DashResetTimer;
+	
 
 
 private:

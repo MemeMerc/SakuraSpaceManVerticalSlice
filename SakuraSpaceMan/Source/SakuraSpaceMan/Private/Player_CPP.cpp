@@ -2,7 +2,7 @@
 
 
 #include "Player_CPP.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+//#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -10,6 +10,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Math/UnrealMathUtility.h"
+#include "GenericPlatform/GenericPlatformProcess.h"
 
 // Sets default values
 APlayer_CPP::APlayer_CPP()
@@ -81,6 +82,8 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 {
 	Super::Tick(_fDeltaTime);
 
+	fLocalDeltaTime = _fDeltaTime;
+
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
 	if (bIsMoving == false && GetCharacterMovement()->BrakingFrictionFactor < fFriction-0.1	 && !GetCharacterMovement()->IsFalling())
 	{
@@ -113,6 +116,8 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 
 	_PlayerInputComponent->BindAction("SprintCheck", IE_Pressed, this, &APlayer_CPP::CheckWalkForward);
 	_PlayerInputComponent->BindAction("SprintCheck", IE_Released, this, &APlayer_CPP::ResetWalkValue);
+
+	_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
 	_PlayerInputComponent->BindAxis("MoveRight", this, &APlayer_CPP::MoveRight);	
@@ -188,12 +193,13 @@ void APlayer_CPP::MoveRight(float _fScale)
 	}
 }
 
-//
+//Check if Player is moving forward
 void APlayer_CPP::CheckWalkForward()
 {
 	bIsForward = true;
 }
 
+//Reset Player movement to default movement parameters if previously sprinting.
 void APlayer_CPP::ResetWalkValue()
 {
 	bIsForward = false;
@@ -206,12 +212,12 @@ void APlayer_CPP::ResetWalkValue()
 	}
 }
 
-
+//Allow player to jump and double jump.
 void APlayer_CPP::Jump()
 {
+	//Check if player hasn't jumped and is not falling
 	if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
 	{
-
 		ACharacter::Jump();
 		iJumpAmount++;
 	}
@@ -225,6 +231,7 @@ void APlayer_CPP::Jump()
 	
 }
 
+//If player has landed, reset jump count to zero.
 void APlayer_CPP::Landed(const FHitResult& Hit)
 {
 
@@ -239,7 +246,7 @@ void APlayer_CPP::StopJumping()
 	ACharacter::StopJumping();
 }
 
-
+//Called when player changes movement type.
 void APlayer_CPP::Sprint()
 {
 	if ((Controller != nullptr) && bIsForward)
@@ -265,3 +272,40 @@ void APlayer_CPP::StopSprinting()
 
 
 }
+
+void APlayer_CPP::DashForward()
+{
+
+	if (Controller != nullptr && !bHasDashed)
+	{
+		
+		
+		FTimerDelegate DashStopDelegate;
+		FTimerDelegate DashResetDelegate;
+		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
+		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
+
+			
+			_GetCMC->Launch(_ForwardVec* _vel);
+			
+		});
+		bool *bHasDashedPtr = &bHasDashed;
+		DashResetDelegate.BindLambda([_HasDashed = bHasDashedPtr]()mutable{
+
+			
+			*_HasDashed = false;
+			
+		});
+
+
+
+		GetCharacterMovement()->Launch(GetActorForwardVector() * (fDashSpeed+GetCharacterMovement()->Velocity.Size()));
+		GetWorldTimerManager().SetTimer(DashTimer, DashStopDelegate, 0.2f, false);
+		bHasDashed = true;
+		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
+		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), test));
+	}
+
+
+}
+
