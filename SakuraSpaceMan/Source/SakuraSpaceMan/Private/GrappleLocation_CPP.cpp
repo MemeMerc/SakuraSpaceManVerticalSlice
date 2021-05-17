@@ -14,6 +14,7 @@ AGrappleLocation_CPP::AGrappleLocation_CPP()
 	SphereGrappleLocation = CreateDefaultSubobject<USphereComponent>(TEXT("GrappleLocation"));
 	SphereGrappleLocation->InitSphereRadius(300.f);
 
+	Tags.Add(FName("Grapple"));
 }
 
 // Called when the game starts or when spawned

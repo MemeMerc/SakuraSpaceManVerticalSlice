@@ -18,6 +18,8 @@ class SAKURASPACEMAN_API AGrappleLocation_CPP : public AActor
 	class USphereComponent* SphereGrappleLocation;
 
 
+
+
 public:	
 	// Sets default values for this actor's properties
 	AGrappleLocation_CPP();

@@ -20,7 +20,8 @@ class SAKURASPACEMAN_API APlayer_CPP : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* Camera;
 
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Grapple, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* GrappleCollisionSphere;
 
 public:
 	// Sets default values for this character's properties
@@ -67,6 +68,9 @@ protected:
 	void LookUp(float _fScale);
 
 	void DashForward();
+
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	void Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	//VARIABLES
 	
@@ -122,7 +126,7 @@ protected:
 	FTimerHandle DashTimer;
 	FTimerHandle DashResetTimer;
 	
-
+	
 
 private:
 

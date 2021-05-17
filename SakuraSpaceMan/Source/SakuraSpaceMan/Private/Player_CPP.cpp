@@ -11,6 +11,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Math/UnrealMathUtility.h"
 #include "GenericPlatform/GenericPlatformProcess.h"
+#include "Components/SphereComponent.h"
+
 
 // Sets default values
 APlayer_CPP::APlayer_CPP()
@@ -61,8 +63,11 @@ APlayer_CPP::APlayer_CPP()
 	Camera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	Camera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	
-
+	GrappleCollisionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("GrappleRange"));
+	GrappleCollisionSphere->InitSphereRadius(3000.f);
+	GrappleCollisionSphere->SetupAttachment(RootComponent);
+	GrappleCollisionSphere->OnComponentBeginOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnBeginOverlap);
+	GrappleCollisionSphere->bHiddenInGame = false;
 
 
 
@@ -309,3 +314,14 @@ void APlayer_CPP::DashForward()
 
 }
 
+void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+
+	if (OtherActor->ActorHasTag(FName("Grapple")))
+	{
+
+
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Collision: "+OtherActor->GetName()));
+
+	}
+}
