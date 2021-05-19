@@ -73,7 +73,6 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 *.bin
 SakuraSpaceMan/Saved/AutoScreenshot.png
-*.ini
 *.log
 SakuraSpaceMan/Intermediate/CachedAssetRegistry.bin
 SakuraSpaceMan/Saved/Autosaves/PackageRestoreData.json
