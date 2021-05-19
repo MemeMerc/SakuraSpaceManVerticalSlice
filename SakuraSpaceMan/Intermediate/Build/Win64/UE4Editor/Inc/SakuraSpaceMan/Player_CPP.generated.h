@@ -19,11 +19,13 @@ struct FHitResult;
 #define SakuraSpaceMan_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceMan_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
 #define SakuraSpaceMan_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 

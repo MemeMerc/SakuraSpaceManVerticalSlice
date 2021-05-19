@@ -67,8 +67,9 @@ APlayer_CPP::APlayer_CPP()
 	GrappleCollisionSphere->InitSphereRadius(3000.f);
 	GrappleCollisionSphere->SetupAttachment(RootComponent);
 	GrappleCollisionSphere->OnComponentBeginOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnBeginOverlap);
+	GrappleCollisionSphere->OnComponentEndOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnOverlapEnd);
 	GrappleCollisionSphere->bHiddenInGame = false;
-
+	
 
 
 }
@@ -88,6 +89,23 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	Super::Tick(_fDeltaTime);
 
 	fLocalDeltaTime = _fDeltaTime;
+
+	if (!bIsGrappleArrayEmpty)
+	{
+		for (AActor* aActor : aGrapplePoints)
+		{
+			if (aSelectedGrapplePoint == nullptr)
+			{
+				aSelectedGrapplePoint = aActor;
+			}
+			else if (FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation()))
+			{
+				aSelectedGrapplePoint = aActor;
+			}
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
+
+	}
 
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
 	if (bIsMoving == false && GetCharacterMovement()->BrakingFrictionFactor < fFriction-0.1	 && !GetCharacterMovement()->IsFalling())
@@ -321,7 +339,29 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 	{
 
 
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Collision: "+OtherActor->GetName()));
-
+		aGrapplePoints.AddUnique(OtherActor);
+		bIsGrappleArrayEmpty = false;
+		for (AActor* aActor : aGrapplePoints)
+		{
+			//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
+		}
 	}
+}
+
+
+void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	
+	if (OtherActor->ActorHasTag(FName("Grapple")))
+	{
+		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
+		if (aGrapplePoints.Num() == 0)
+		{
+			bIsGrappleArrayEmpty = true;
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
+		
+	}
+
+
 }

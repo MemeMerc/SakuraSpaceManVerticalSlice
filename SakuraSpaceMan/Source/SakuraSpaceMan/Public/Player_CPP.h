@@ -72,6 +72,9 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = Properties)
 	void Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	void Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
 	//VARIABLES
 	
 
@@ -93,6 +96,7 @@ protected:
 
 	bool bIsForward = false;	//Has Pressed the Move Forward Key (W)
 	
+	bool bIsGrappleArrayEmpty = true;
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
 	
@@ -127,6 +131,8 @@ protected:
 	FTimerHandle DashResetTimer;
 	
 	
+	TArray<AActor*> aGrapplePoints;
+	AActor* aSelectedGrapplePoint;
 
 private:
 
