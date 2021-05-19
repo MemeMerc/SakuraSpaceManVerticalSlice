@@ -1,9 +1,0 @@
-C:\Github\SakuraSpaceManVerticalSlice\SakuraSpaceMan\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Github\SakuraSpaceManVerticalSlice\SakuraSpaceMan\Source\SakuraSpaceMan/SakuraSpaceManGameModeBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
-C:\Github\SakuraSpaceManVerticalSlice\SakuraSpaceMan\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
