@@ -18,8 +18,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Set mesh
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* Mesh;
+	// Set Box Collision
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
 
@@ -29,6 +31,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UUserWidget* GameOver_Wid;
 
+	// Function Checks for overlaps with other acters/compnents
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
