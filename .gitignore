@@ -48,8 +48,7 @@ SourceArt/**/*.tga
 Binaries/*
 Plugins/*/Binaries/*
 
-# Builds
-Build/*
+
 
 # Whitelist PakBlacklist-<BuildConfiguration>.txt files
 !Build/*/
@@ -71,10 +70,9 @@ Saved/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
-*.bin
 SakuraSpaceMan/Saved/AutoScreenshot.png
+*.bin
 *.log
 SakuraSpaceMan/Intermediate/CachedAssetRegistry.bin
 SakuraSpaceMan/Saved/Autosaves/PackageRestoreData.json
-SakuraSpaceMan/Intermediate/CachedAssetRegistry.bin
-SakuraSpaceMan/Intermediate/CachedAssetRegistry.bin
+
