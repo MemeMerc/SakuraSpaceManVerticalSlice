@@ -103,7 +103,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 				aSelectedGrapplePoint = aActor;
 			}
 		}
-		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
+		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
 
 	}
 

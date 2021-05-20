@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{288B16F4-12F5-4A80-8DAF-A3C2ABD973E0}</UniqueIdentifier>
+      <UniqueIdentifier>{5076E793-4BFE-42CE-86F2-7E30FF2D8612}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{24F4605B-CF56-4671-8B38-3F9987F7806B}</UniqueIdentifier>
+      <UniqueIdentifier>{43D2D0E2-31A3-4CD8-BB12-96296176A592}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{97032AD1-2703-4FE1-A61D-D7451B7166EA}</UniqueIdentifier>
+      <UniqueIdentifier>{C18BDD28-0072-488F-8DD4-F3327A531168}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -47,7 +47,7 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{B00E3F03-9F1F-4ADC-98B3-822EAA1981EF}</UniqueIdentifier>
+      <UniqueIdentifier>{73B0C4FB-7FCB-4A64-B271-BA4963F9E649}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\EndPoint_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
@@ -59,7 +59,7 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{282D67C6-6010-4CD8-8427-736BC3719D6E}</UniqueIdentifier>
+      <UniqueIdentifier>{44C58F36-59E0-4112-B561-D3ECFBF3C886}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\EndPoint_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
