@@ -5,7 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
 #include "UObject/UObjectBaseUtility.h"
-
+#include "Blueprint/UserWidget.h"
 
 // Sets default values
 AEndPoint_CPP::AEndPoint_CPP()
@@ -41,10 +41,13 @@ void AEndPoint_CPP::Tick(float DeltaTime)
 
 void AEndPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor->ActorHasTag(TEXT("Player")))
-	{
+	//if (OtherActor->ActorHasTag(TEXT("Player")))
+	//{
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
-	}
+
+		GameOver_Wid = CreateWidget<UUserWidget>(GetWorld(), GameOver_WidClass);
+		GameOver_Wid->AddToViewport();
+	//}
 
 
 }
