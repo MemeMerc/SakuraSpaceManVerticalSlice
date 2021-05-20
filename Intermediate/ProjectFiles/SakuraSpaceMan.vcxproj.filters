@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\SakuraSpaceMan.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{1E405513-EF61-471D-8762-2A87B28A34E3}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\SakuraSpaceManEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{178D4400-3CAF-4CDB-B5AD-480808C5AEBE}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\SakuraSpaceMan">
+      <UniqueIdentifier>{DDBE4790-A299-409F-AE33-C90DA493A212}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.cpp">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.h">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.cpp">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.h">
+      <Filter>Source\SakuraSpaceMan</Filter>
+    </ClInclude>
+    <Filter Include="Source\SakuraSpaceMan\Private">
+      <UniqueIdentifier>{788C914A-6B17-4416-BE91-8941A3452A2E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\EndPoint_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\GrappleLocation_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\Player_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\SakuraSpaceMan\Public">
+      <UniqueIdentifier>{62291FF9-439E-4AB8-970D-276C8D1A49FB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\EndPoint_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\Player_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
