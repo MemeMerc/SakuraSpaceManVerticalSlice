@@ -13,6 +13,7 @@
 #include "GenericPlatform/GenericPlatformProcess.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/GameplayStatics.h"
 
 
 // Sets default values TEST
@@ -71,7 +72,7 @@ APlayer_CPP::APlayer_CPP()
 	GrappleCollisionSphere->OnComponentEndOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnOverlapEnd);
 	GrappleCollisionSphere->bHiddenInGame = false;
 	
-	
+	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
 }
 
@@ -90,20 +91,22 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	Super::Tick(_fDeltaTime);
 
 	fLocalDeltaTime = _fDeltaTime;
-
+	
 	//Check which grapple point is closest to the player
-	if (!bIsGrappleArrayEmpty)
+	if (!bIsGrappleArrayEmpty && !bIsReelingIn && PlayerController != nullptr)
 	{
 		for (AActor* aActor : aGrapplePoints)
 		{
+			
+			bool bIsOnScreen = PlayerController->ProjectWorldLocationToScreen(aActor->GetActorLocation(), v2d);
 			//If there is no selected grapple point, then select current point.
-			if (aSelectedGrapplePoint == nullptr)
+			if (aSelectedGrapplePoint == nullptr && bIsOnScreen)
 			{
 				aSelectedGrapplePoint = aActor;
 			}
 			//Check if which grapple point is closest.
 			else if ((FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation())) 
-				&& (aActor->GetName() != aSelectedGrapplePoint->GetName()))
+				&& (aActor->GetName() != aSelectedGrapplePoint->GetName()) && bIsOnScreen)
 			{
 				aSelectedGrapplePoint = aActor;
 			}
@@ -141,6 +144,8 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	}
 
 }
+
+
 
 // Called to bind functionality to input
 void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputComponent)
@@ -389,12 +394,13 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	
-	if (OtherActor->ActorHasTag(FName("Grapple")))
+	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
 		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
 		if (aGrapplePoints.Num() == 0)
 		{
 			bIsGrappleArrayEmpty = true;
+			aSelectedGrapplePoint = nullptr;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
 		
@@ -407,39 +413,76 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 
 void APlayer_CPP::GrappleActivate()
 {
+	
 	if (aSelectedGrapplePoint != nullptr)
 	{
-
-		FTimerDelegate GrappleLoopDelegate;
-
-
-
-
-		GrappleLoopDelegate.BindLambda([_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this, _GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
+		if (PlayerController->ProjectWorldLocationToScreen(aSelectedGrapplePoint->GetActorLocation(), v2d))
 		{
-			
-			FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(_Self->GetActorLocation(), _GrapplePoint->GetActorLocation());
-			_GCM->MovementMode = EMovementMode::MOVE_Flying;
-			
-			_GCM->Velocity = (vDistance * _GCM->Velocity.Size());
 
-			if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 50.f))
+			if (bGrappleFlipFlop)
 			{
-				*_IsReelingIn = false;
-				_WorldTimer->ClearTimer(*_Timer);
-				_GCM->MovementMode = EMovementMode::MOVE_Walking;
+				FTimerDelegate GrappleLoopDelegate;
+				fInitVel = GetCharacterMovement()->Velocity.Size();
+
+				//Reels Player to Grapple Point
+				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[2],_InitVel = &fInitVel, 
+					_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this,
+					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint, _flipflop = &bGrappleFlipFlop]()mutable
+				{	
+					FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(_Self->GetActorLocation(), _GrapplePoint->GetActorLocation());
+					_GCM->MovementMode = EMovementMode::MOVE_Flying;
+					*_InitVel += 100;
+				
+					_GCM->Velocity = (vDistance * FMath::Clamp(*_InitVel, *_CurrentMinSpeed, *_CurrentMaxSpeed));
+
+					if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 100.f))
+					{
+						*_InitVel = 0;
+						*_flipflop = true;
+						_GCM->Velocity = FVector(0.f);
+						_GCM->Launch(vDistance * (*_CurrentMaxSpeed*0.5));
+						*_IsReelingIn = false;
+						_WorldTimer->ClearTimer(*_Timer);
+						_GCM->MovementMode = EMovementMode::MOVE_Walking;
+					}
+				
+				});
+				bIsReelingIn = true;
+				bIsSprinting = true;
+				iJumpAmount = 0;
+				//iCurrentSpeed = 2;
+				//GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+				//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[iCurrentSpeed];
+				//GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[iCurrentSpeed];
+				GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
+				GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
+				bGrappleFlipFlop = false;
 			}
-			
-		});
-		bIsReelingIn = true;
-		GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
-		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
+		//else
+		//{
+		//	FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
+		//	GetCharacterMovement()->Velocity = FVector(0.f);
+		//	GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
+		//	bIsReelingIn = false;
+		//	GetWorldTimerManager().ClearTimer(GrappleTimer);
+		//	GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		//	bGrappleFlipFlop = true;
+		//}
+		}
 	}
 }
 
 
 void APlayer_CPP::GrappleDeactivate()
 {
-
-
+	if (bIsReelingIn && !bGrappleFlipFlop)
+	{
+		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
+		GetCharacterMovement()->Velocity = FVector(0.f);
+		GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
+		bIsReelingIn = false;
+		GetWorldTimerManager().ClearTimer(GrappleTimer);
+		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+	}
+	bGrappleFlipFlop = true;
 }

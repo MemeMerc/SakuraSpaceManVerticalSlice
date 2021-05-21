@@ -133,6 +133,13 @@ protected:
 	
 	TArray<AActor*> aGrapplePoints;
 	AActor* aSelectedGrapplePoint;
+	float fInitVel = 0;
+	FVector LaunchVector;
+	bool bGrappleFlipFlop = true;
+
+	FVector2D v2d = FVector2D(0.f);
+
+	APlayerController* PlayerController;
 
 private:
 
