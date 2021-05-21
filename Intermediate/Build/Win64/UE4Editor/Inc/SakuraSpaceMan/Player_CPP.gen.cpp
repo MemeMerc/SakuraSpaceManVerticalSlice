@@ -126,7 +126,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Properties" },
+		{ "Comment", "//Grapple Mechanics\n" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Grapple Mechanics" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "Grapple_OnBeginOverlap", nullptr, nullptr, sizeof(Player_CPP_eventGrapple_OnBeginOverlap_Parms), Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04480401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics::Function_MetaDataParams)) };
@@ -262,7 +264,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 911336332
+		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
 	};
 #if WITH_METADATA
@@ -414,7 +416,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 3908372602);
+	IMPLEMENT_CLASS(APlayer_CPP, 2565994474);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();
