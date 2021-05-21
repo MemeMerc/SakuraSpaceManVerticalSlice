@@ -427,7 +427,7 @@ void APlayer_CPP::GrappleActivate()
 				//Reels Player to Grapple Point
 				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[2],_InitVel = &fInitVel, 
 					_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this,
-					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint, _flipflop = &bGrappleFlipFlop]()mutable
+					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
 				{	
 					FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(_Self->GetActorLocation(), _GrapplePoint->GetActorLocation());
 					_GCM->MovementMode = EMovementMode::MOVE_Flying;
@@ -437,13 +437,7 @@ void APlayer_CPP::GrappleActivate()
 
 					if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 100.f))
 					{
-						*_InitVel = 0;
-						*_flipflop = true;
-						_GCM->Velocity = FVector(0.f);
-						_GCM->Launch(vDistance * (*_CurrentMaxSpeed*0.5));
-						*_IsReelingIn = false;
-						_WorldTimer->ClearTimer(*_Timer);
-						_GCM->MovementMode = EMovementMode::MOVE_Walking;
+						_Self->GrappleDeactivate();
 					}
 				
 				});
