@@ -192,16 +192,18 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Target_MetaData[] = {
 		{ "Category", "Move To" },
-		{ "Comment", "//class UPrimitiveComponent* Target;\n" },
+		{ "Comment", "// Target To follow.\n//class UPrimitiveComponent* Target;\n" },
 		{ "ModuleRelativePath", "Public/BasicCollectable_CPP.h" },
-		{ "ToolTip", "class UPrimitiveComponent* Target;" },
+		{ "ToolTip", "Target To follow.\nclass UPrimitiveComponent* Target;" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000815, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABasicCollectable_CPP, Target), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Target_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Target_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fSpeed_MetaData[] = {
 		{ "Category", "Move To" },
+		{ "Comment", "// Speed To Move At.\n" },
 		{ "ModuleRelativePath", "Public/BasicCollectable_CPP.h" },
+		{ "ToolTip", "Speed To Move At." },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fSpeed = { "fSpeed", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABasicCollectable_CPP, fSpeed), METADATA_PARAMS(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fSpeed_MetaData)) };
@@ -238,7 +240,7 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABasicCollectable_CPP, 3724853392);
+	IMPLEMENT_CLASS(ABasicCollectable_CPP, 1964159010);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ABasicCollectable_CPP>()
 	{
 		return ABasicCollectable_CPP::StaticClass();
