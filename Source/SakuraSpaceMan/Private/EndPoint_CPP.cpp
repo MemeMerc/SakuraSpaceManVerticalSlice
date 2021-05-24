@@ -17,6 +17,7 @@ AEndPoint_CPP::AEndPoint_CPP()
 	RootComponent = Mesh;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComonent"));
+	CollisionBox->SetupAttachment(Mesh);
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
 	CollisionBox->SetCollisionProfileName("Trigger");
 

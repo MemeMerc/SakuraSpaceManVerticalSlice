@@ -93,26 +93,31 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	fLocalDeltaTime = _fDeltaTime;
 	
 	//Check which grapple point is closest to the player
-	if (!bIsGrappleArrayEmpty && !bIsReelingIn && PlayerController != nullptr)
+	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
 		for (AActor* aActor : aGrapplePoints)
 		{
-			
-			bool bIsOnScreen = PlayerController->ProjectWorldLocationToScreen(aActor->GetActorLocation(), v2d);
-			//If there is no selected grapple point, then select current point.
-			if (aSelectedGrapplePoint == nullptr && bIsOnScreen)
+			if (aActor->IsValidLowLevelFast())
 			{
-				aSelectedGrapplePoint = aActor;
-			}
-			//Check if which grapple point is closest.
-			else if ((FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation())) 
-				&& (aActor->GetName() != aSelectedGrapplePoint->GetName()) && bIsOnScreen)
-			{
-				aSelectedGrapplePoint = aActor;
+				//Check if that actor is on screen.
+				if (PlayerController->ProjectWorldLocationToScreen(aActor->GetActorLocation(), v2d))
+				{
+					//If there is no selected grapple point, then select current point.
+					if (aSelectedGrapplePoint == nullptr)
+					{
+						aSelectedGrapplePoint = aActor;
+					}
+					//Check if which grapple point is closest.
+					else if ((FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation())) 
+						&& (aActor->GetName() != aSelectedGrapplePoint->GetName()))
+					{
+						aSelectedGrapplePoint = aActor;
+					}
+				}
 			}
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
-
+	
 	}
 
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
@@ -260,7 +265,7 @@ void APlayer_CPP::ResetWalkValue()
 	if (Controller != nullptr)
 	{
 		bIsForward = false;
-		if (iCurrentSpeed != 0)
+		if (iCurrentSpeed != 0 && !bIsReelingIn && !bHasDashed)
 		{
 			iCurrentSpeed = 0;
 			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
@@ -346,16 +351,15 @@ void APlayer_CPP::DashForward()
 	{
 		
 		
-		FTimerDelegate DashStopDelegate;
-		FTimerDelegate DashResetDelegate;
+		
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
 
 			_GetCMC->Launch(_ForwardVec* _vel);
 			
 		});
-		bool *bHasDashedPtr = &bHasDashed;
-		DashResetDelegate.BindLambda([_HasDashed = bHasDashedPtr]()mutable{
+		
+		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable{
 
 			
 			*_HasDashed = false;
@@ -368,7 +372,7 @@ void APlayer_CPP::DashForward()
 		GetWorldTimerManager().SetTimer(DashTimer, DashStopDelegate, 0.2f, false);
 		bHasDashed = true;
 		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
-		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), test));
+		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
 	}
 
 
@@ -376,16 +380,18 @@ void APlayer_CPP::DashForward()
 
 void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
-	if (OtherActor->ActorHasTag(FName("Grapple")))
+	if (OtherActor->IsValidLowLevelFast())
 	{
-
-
-		aGrapplePoints.AddUnique(OtherActor);
-		bIsGrappleArrayEmpty = false;
-		for (AActor* aActor : aGrapplePoints)
+		if (OtherActor->ActorHasTag(FName("Grapple")))
 		{
-			//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
+	
+	
+			aGrapplePoints.Add(OtherActor);
+			//bIsGrappleArrayEmpty = false;
+			//for (AActor* aActor : aGrapplePoints)
+			//{
+			//	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
+			//}
 		}
 	}
 }
@@ -399,7 +405,7 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
 		if (aGrapplePoints.Num() == 0)
 		{
-			bIsGrappleArrayEmpty = true;
+			//bIsGrappleArrayEmpty = true;
 			aSelectedGrapplePoint = nullptr;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
