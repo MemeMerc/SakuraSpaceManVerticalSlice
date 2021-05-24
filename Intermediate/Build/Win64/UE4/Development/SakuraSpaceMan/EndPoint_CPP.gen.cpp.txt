@@ -1,5 +1,5 @@
-C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan/Public/EndPoint_CPP.h
-C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\EndPoint_CPP.generated.h
+C:\Github\Test\Source\SakuraSpaceMan/Public/EndPoint_CPP.h
+C:\Github\Test\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\EndPoint_CPP.generated.h

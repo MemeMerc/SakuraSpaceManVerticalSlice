@@ -1,0 +1,7 @@
+C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Github\Test\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
+C:\Github\Test\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\MoveingPlatform_CPP.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ShapeComponent.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\BoxComponent.generated.h
