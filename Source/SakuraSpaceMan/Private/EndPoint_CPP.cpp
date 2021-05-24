@@ -42,19 +42,19 @@ void AEndPoint_CPP::Tick(float DeltaTime)
 
 void AEndPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	//if (OverlappedComp->ComponentHasTag(TEXT("Player")))
-	//{
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
-
-	// Check that it can find the widget class and that it can find the world.
-	if (GameOver_WidClass != nullptr && GetWorld() != nullptr)
+	if (OtherComp->ComponentHasTag(TEXT("Player")))
 	{
-		// Create the widget from the class provided.
-		GameOver_Wid = CreateWidget<UUserWidget>(GetWorld(), GameOver_WidClass);
-		// Add widget to viewport.
-		GameOver_Wid->AddToViewport();
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
+	
+		// Check that it can find the widget class and that it can find the world.
+		if (GameOver_WidClass != nullptr && GetWorld() != nullptr)
+		{
+			// Create the widget from the class provided.
+			GameOver_Wid = CreateWidget<UUserWidget>(GetWorld(), GameOver_WidClass);
+			// Add widget to viewport.
+			GameOver_Wid->AddToViewport();
+		}
 	}
-	//}
 
 
 }

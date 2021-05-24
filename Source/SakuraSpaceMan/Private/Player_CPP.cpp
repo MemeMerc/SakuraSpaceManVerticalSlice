@@ -74,6 +74,8 @@ APlayer_CPP::APlayer_CPP()
 	
 	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
+	this->GetCapsuleComponent()->ComponentTags.Add((FName("Player")));
+
 }
 
 // Called when the game starts or when spawned
