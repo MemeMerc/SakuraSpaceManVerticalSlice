@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5076E793-4BFE-42CE-86F2-7E30FF2D8612}</UniqueIdentifier>
+      <UniqueIdentifier>{22957842-78BD-4140-9D05-F41956EC96CC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{43D2D0E2-31A3-4CD8-BB12-96296176A592}</UniqueIdentifier>
+      <UniqueIdentifier>{E836DD7C-158D-454C-98E2-073DD1EE5E91}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{C18BDD28-0072-488F-8DD4-F3327A531168}</UniqueIdentifier>
+      <UniqueIdentifier>{647B0F4E-F571-4B84-863B-7E6DE16A7D95}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -47,8 +47,11 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{73B0C4FB-7FCB-4A64-B271-BA4963F9E649}</UniqueIdentifier>
+      <UniqueIdentifier>{5A5A7A9A-CEC9-4A08-A05F-AE10CA717EFA}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\BasicCollectable_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\EndPoint_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
@@ -59,8 +62,11 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{44C58F36-59E0-4112-B561-D3ECFBF3C886}</UniqueIdentifier>
+      <UniqueIdentifier>{45808EFE-FE9E-4AE9-8DBB-69D7370EA21F}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\EndPoint_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>

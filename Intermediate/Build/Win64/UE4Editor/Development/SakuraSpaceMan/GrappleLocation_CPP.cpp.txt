@@ -1,7 +1,7 @@
-C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
-C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\GrappleLocation_CPP.generated.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
+E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
+E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SphereComponent.generated.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\GrappleLocation_CPP.generated.h
