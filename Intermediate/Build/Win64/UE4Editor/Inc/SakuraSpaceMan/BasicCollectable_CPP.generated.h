@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef SAKURASPACEMAN_BasicCollectable_CPP_generated_h
 #error "BasicCollectable_CPP.generated.h already included, missing '#pragma once' in BasicCollectable_CPP.h"
 #endif
 #define SAKURASPACEMAN_BasicCollectable_CPP_generated_h
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnOverlapBegin);
+
+
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnOverlapBegin);
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABasicCollectable_CPP(); \
