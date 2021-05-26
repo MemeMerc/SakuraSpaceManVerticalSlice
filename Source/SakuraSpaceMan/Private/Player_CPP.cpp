@@ -135,9 +135,13 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
 		if (SelectActor != nullptr)
 		{
+			if (SelectedGrapplePoint != nullptr)
+			{
+				SelectedGrapplePoint->SetWidgetVisibility(false);
+			}
 			aSelectedGrapplePoint = SelectActor;
+			Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint)->SetWidgetVisibility(true);
 			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + SelectActor->GetName()));
-			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, FString::Printf(TEXT("Num: %f"), aGrapplePoints.Num()));
 		}
 	}
 
@@ -156,7 +160,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	}
 
-
+	//Debug Stuff
 	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
 
 	if (bIsReelingIn)
