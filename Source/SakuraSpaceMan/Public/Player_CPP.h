@@ -39,9 +39,7 @@ public:
 	
 protected:
 
-
-
-
+	
 	//FUNCTIONS
 
 	// Called when the game starts or when spawned
@@ -64,29 +62,29 @@ protected:
 	void CheckWalkForward();
 	void ResetWalkValue();
 
+	//Camera
 	void LookTurn(float _fScale);
 	void LookUp(float _fScale);
 
+	//Dash
 	void DashForward();
 
+
+	//Grapple Mechanics
 	UFUNCTION(BlueprintCallable, Category = Properties)
 	void Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION(BlueprintCallable, Category = Properties)
 	void Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
-	//VARIABLES
+	void GrappleActivate();
 	
+	void GrappleDeactivate();
 
-	//USTRUCT()
-	//	struct SpeedTypeDetails
-	//{
-	//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	//		float fMaxSpeed;
-	//	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	//		float fRunAcceleration;
-	//
-	//};
+	float FindDistanceToCenterScreen(AActor* _aActor);
+
+	//VARIABLES
+
 
 	int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
 
@@ -97,6 +95,9 @@ protected:
 	bool bIsForward = false;	//Has Pressed the Move Forward Key (W)
 	
 	bool bIsGrappleArrayEmpty = true;
+	bool bIsReelingIn = false;
+
+
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
 	
@@ -120,8 +121,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashSpeed = 8000.f;			//Dash Speed modifier
-	float vPrevSpeed;
-
+	float vPrevSpeed = 0;
+	FTimerDelegate DashStopDelegate;
+	FTimerDelegate DashResetDelegate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashCooldown = 0.5f;		//seconds
@@ -129,10 +131,18 @@ protected:
 
 	FTimerHandle DashTimer;
 	FTimerHandle DashResetTimer;
+	FTimerHandle GrappleTimer;
 	
 	
 	TArray<AActor*> aGrapplePoints;
 	AActor* aSelectedGrapplePoint;
+	float fInitVel = 0;
+	FVector LaunchVector;
+	bool bGrappleFlipFlop = true;
+
+	FVector2D v2d = FVector2D(0.f);
+
+	APlayerController* PlayerController;
 
 private:
 

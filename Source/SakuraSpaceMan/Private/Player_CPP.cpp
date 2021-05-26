@@ -12,6 +12,9 @@
 #include "Math/UnrealMathUtility.h"
 #include "GenericPlatform/GenericPlatformProcess.h"
 #include "Components/SphereComponent.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Kismet/GameplayStatics.h"
+#include "GrappleLocation_CPP.h"
 
 
 // Sets default values TEST
@@ -70,7 +73,11 @@ APlayer_CPP::APlayer_CPP()
 	GrappleCollisionSphere->OnComponentEndOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnOverlapEnd);
 	GrappleCollisionSphere->bHiddenInGame = false;
 	
+	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
+	
+
+	this->GetCapsuleComponent()->ComponentTags.Add((FName("Player")));
 
 }
 
@@ -89,22 +96,49 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	Super::Tick(_fDeltaTime);
 
 	fLocalDeltaTime = _fDeltaTime;
-
-	if (!bIsGrappleArrayEmpty)
+	
+	//Check which grapple point is closest to the player
+	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
+		AActor* SelectActor = nullptr;
+
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
+		//SelectedGrapplePoint->fScreenLength = 1;//FindDistanceToCenterScreen(aSelectedGrapplePoint));
 		for (AActor* aActor : aGrapplePoints)
 		{
-			if (aSelectedGrapplePoint == nullptr)
+			if (aActor->IsValidLowLevelFast())
 			{
-				aSelectedGrapplePoint = aActor;
-			}
-			else if (FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation()))
-			{
-				aSelectedGrapplePoint = aActor;
+				AGrappleLocation_CPP *GrapplePoint = Cast<AGrappleLocation_CPP>(aActor);
+				
+				//Check if that actor is on screen.
+				if (PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc()))
+				{
+					GrapplePoint->SetScreenLen(FindDistanceToCenterScreen(GrapplePoint));
+					//if (GrapplePoint->GetScreenLen() < 300)
+					//{
+						//If there is no selected grapple point, then select current point.
+						if (aSelectedGrapplePoint == nullptr)
+						{
+							SelectActor = aActor;
+						}
+						//Check if which grapple point is closest.
+						//else if ((FVector::Dist(GrapplePoint->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation()))
+						else if((SelectedGrapplePoint->GetScreenLen() > GrapplePoint->GetScreenLen())
+						&& (GrapplePoint->GetName() != SelectedGrapplePoint->GetName()))
+						{
+							SelectActor = aActor;
+						}	
+					//}
+				}
 			}
 		}
-		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
-
+		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
+		if (SelectActor != nullptr)
+		{
+			aSelectedGrapplePoint = SelectActor;
+			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + SelectActor->GetName()));
+			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, FString::Printf(TEXT("Num: %f"), aGrapplePoints.Num()));
+		}
 	}
 
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
@@ -122,7 +156,46 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	}
 
+
+	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
+
+	if (bIsReelingIn)
+	{
+
+		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, TEXT("IsReelingIn: True"));
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, TEXT("IsReelingIn: False"));
+	}
+
+	if (aSelectedGrapplePoint != nullptr)
+	{
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
+		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Current Screen Length: %f"), SelectedGrapplePoint->GetScreenLen()));
+	}
+
 }
+
+float APlayer_CPP::FindDistanceToCenterScreen(AActor* _aActor)
+{
+	FVector2D viewportDimensions;
+	FVector2D ResultVector;
+
+	float ResultLength;
+	int viewportX;
+	int viewportY;
+
+	AGrappleLocation_CPP* GrapplePoint = Cast<AGrappleLocation_CPP>(_aActor);
+	PlayerController->GetViewportSize(viewportX, viewportY);
+	viewportDimensions = FVector2D(viewportX, viewportY);
+	PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc());
+
+	ResultVector = (viewportDimensions/2) - *GrapplePoint->GetScreenLoc();
+	ResultLength = ResultVector.Size();
+	return(ResultLength);
+}
+
 
 // Called to bind functionality to input
 void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputComponent)
@@ -139,6 +212,9 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 
 	_PlayerInputComponent->BindAction("SprintCheck", IE_Pressed, this, &APlayer_CPP::CheckWalkForward);
 	_PlayerInputComponent->BindAction("SprintCheck", IE_Released, this, &APlayer_CPP::ResetWalkValue);
+
+	_PlayerInputComponent->BindAction("Grapple", IE_Pressed, this, &APlayer_CPP::GrappleActivate);
+	_PlayerInputComponent->BindAction("Grapple", IE_Released, this, &APlayer_CPP::GrappleDeactivate);
 
 	_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
@@ -182,28 +258,31 @@ void APlayer_CPP::LookUp(float _fScale)
 //Produce forward and back charadcter movement.
 void APlayer_CPP::MoveForward(float _fScale)
 {
-	if ((Controller != nullptr) && (_fScale != 0.0f))
+	if (Controller != nullptr && !bIsReelingIn)
 	{
-		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
+		if (_fScale != 0.0f)
+		{
+			// find out which way is forward
+			const FRotator Rotation = Controller->GetControlRotation();
+			const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get forward vector
-		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-		AddMovementInput(Direction, _fScale, true);
-		bIsMoving = true;
-		
-	}
-	else if (bIsMoving)	//Set Moving to false
-	{
-		bIsMoving = false;
+			// get forward vector
+			const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+			AddMovementInput(Direction, _fScale, true);
+			bIsMoving = true;
+
+		}
+		else if (bIsMoving)	//Set Moving to false
+		{
+			bIsMoving = false;
+		}
 	}
 }
 
 //Produce left and right character movement.
 void APlayer_CPP::MoveRight(float _fScale)
 {
-	if ((Controller != nullptr) && (_fScale != 0.0f))
+	if ((Controller != nullptr) && (_fScale != 0.0f) && !bIsReelingIn)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -219,60 +298,74 @@ void APlayer_CPP::MoveRight(float _fScale)
 //Check if Player is moving forward
 void APlayer_CPP::CheckWalkForward()
 {
-	bIsForward = true;
+	if (Controller != nullptr && !bIsReelingIn)
+	{
+		bIsForward = true;
+	}
 }
 
 //Reset Player movement to default movement parameters if previously sprinting.
 void APlayer_CPP::ResetWalkValue()
 {
-	bIsForward = false;
-	if (iCurrentSpeed != 0)
+	if (Controller != nullptr)
 	{
-		iCurrentSpeed = 0;
-		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
+		bIsForward = false;
+		if (iCurrentSpeed != 0 && !bIsReelingIn && !bHasDashed)
+		{
+			iCurrentSpeed = 0;
+			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+			//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
+		}
 	}
 }
 
 //Allow player to jump and double jump.
 void APlayer_CPP::Jump()
 {
-	//Check if player hasn't jumped and is not falling
-	if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
+	if (Controller != nullptr && !bIsReelingIn)
 	{
-		ACharacter::Jump();
-		iJumpAmount++;
-	}
-	else if (iJumpAmount < iMaxJumpAmount)
-	{
-		FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
+		//Check if player hasn't jumped and is not falling
+		if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
+		{
+			ACharacter::Jump();
+			iJumpAmount++;
+		}
+		else if (iJumpAmount < iMaxJumpAmount)
+		{
+			FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
 
-		GetCharacterMovement()->Launch(vJump);
-		iJumpAmount++;
+			GetCharacterMovement()->Launch(vJump);
+			iJumpAmount++;
+		}
 	}
-	
 }
 
 //If player has landed, reset jump count to zero.
 void APlayer_CPP::Landed(const FHitResult& Hit)
 {
+	if (Controller != nullptr)
+	{
 
-	Super::Landed(Hit);
+		Super::Landed(Hit);
 
-	iJumpAmount = 0;
+		iJumpAmount = 0;
+	}
 
 }
 
 void APlayer_CPP::StopJumping()
 {
-	ACharacter::StopJumping();
+	if (Controller != nullptr)
+	{
+		ACharacter::StopJumping();
+	}
 }
 
 //Called when player changes movement type.
 void APlayer_CPP::Sprint()
 {
-	if ((Controller != nullptr) && bIsForward)
+	if ((Controller != nullptr) && bIsForward && !bIsReelingIn)
 	{
 		iCurrentSpeed++;
 		bIsSprinting = true;
@@ -299,21 +392,19 @@ void APlayer_CPP::StopSprinting()
 void APlayer_CPP::DashForward()
 {
 
-	if (Controller != nullptr && !bHasDashed)
+	if (Controller != nullptr && !bHasDashed && !bIsReelingIn)
 	{
 		
 		
-		FTimerDelegate DashStopDelegate;
-		FTimerDelegate DashResetDelegate;
+		
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
 
-			
 			_GetCMC->Launch(_ForwardVec* _vel);
 			
 		});
-		bool *bHasDashedPtr = &bHasDashed;
-		DashResetDelegate.BindLambda([_HasDashed = bHasDashedPtr]()mutable{
+		
+		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable{
 
 			
 			*_HasDashed = false;
@@ -326,7 +417,7 @@ void APlayer_CPP::DashForward()
 		GetWorldTimerManager().SetTimer(DashTimer, DashStopDelegate, 0.2f, false);
 		bHasDashed = true;
 		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
-		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), test));
+		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
 	}
 
 
@@ -334,16 +425,18 @@ void APlayer_CPP::DashForward()
 
 void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-
-	if (OtherActor->ActorHasTag(FName("Grapple")))
+	if (OtherActor->IsValidLowLevelFast())
 	{
-
-
-		aGrapplePoints.AddUnique(OtherActor);
-		bIsGrappleArrayEmpty = false;
-		for (AActor* aActor : aGrapplePoints)
+		if (OtherActor->ActorHasTag(FName("Grapple")))
 		{
-			//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
+	
+	
+			aGrapplePoints.Add(OtherActor);
+			//bIsGrappleArrayEmpty = false;
+			//for (AActor* aActor : aGrapplePoints)
+			//{
+			//	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
+			//}
 		}
 	}
 }
@@ -352,16 +445,90 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	
-	if (OtherActor->ActorHasTag(FName("Grapple")))
+	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
 		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
 		if (aGrapplePoints.Num() == 0)
 		{
-			bIsGrappleArrayEmpty = true;
+			//bIsGrappleArrayEmpty = true;
+			aSelectedGrapplePoint = nullptr;
 		}
-		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
+		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
 		
 	}
 
 
+}
+
+
+
+void APlayer_CPP::GrappleActivate()
+{
+	
+	if (aSelectedGrapplePoint != nullptr)
+	{
+		if (PlayerController->ProjectWorldLocationToScreen(aSelectedGrapplePoint->GetActorLocation(), v2d))
+		{
+
+			if (bGrappleFlipFlop)
+			{
+				FTimerDelegate GrappleLoopDelegate;
+				fInitVel = GetCharacterMovement()->Velocity.Size();
+
+				//Reels Player to Grapple Point
+				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[2],_InitVel = &fInitVel, 
+					_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this,
+					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
+				{	
+					FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(_Self->GetActorLocation(), _GrapplePoint->GetActorLocation());
+					_GCM->MovementMode = EMovementMode::MOVE_Flying;
+					*_InitVel += 100;
+				
+					_GCM->Velocity = (vDistance * FMath::Clamp(*_InitVel, *_CurrentMinSpeed, *_CurrentMaxSpeed));
+
+					if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 100.f))
+					{
+						_Self->GrappleDeactivate();
+					}
+				
+				});
+				bIsReelingIn = true;
+				bIsSprinting = true;
+				iJumpAmount = 0;
+				//iCurrentSpeed = 2;
+				//GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+				//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[iCurrentSpeed];
+				//GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[iCurrentSpeed];
+				GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
+				GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
+				bGrappleFlipFlop = false;
+			}
+		//else
+		//{
+		//	FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
+		//	GetCharacterMovement()->Velocity = FVector(0.f);
+		//	GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
+		//	bIsReelingIn = false;
+		//	GetWorldTimerManager().ClearTimer(GrappleTimer);
+		//	GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		//	bGrappleFlipFlop = true;
+		//}
+		}
+	}
+}
+
+
+void APlayer_CPP::GrappleDeactivate()
+{
+	if (bIsReelingIn && !bGrappleFlipFlop)
+	{
+		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
+		GetCharacterMovement()->Velocity = FVector(0.f);
+		GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
+		bIsReelingIn = false;
+		GetWorldTimerManager().ClearTimer(GrappleTimer);
+		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		aSelectedGrapplePoint = nullptr;
+	}
+	bGrappleFlipFlop = true;
 }

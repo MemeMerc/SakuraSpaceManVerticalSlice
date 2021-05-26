@@ -27,9 +27,20 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	FVector2D* GetScreenLoc();
+	void SetScreenLoc(FVector2D _ScreenLoc);
+
+	float GetScreenLen();
+	void SetScreenLen(float _ScreenLen);
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	UPROPERTY(EditAnywhere)
+	FVector2D vScreenLocation = FVector2D(0.f);
+	UPROPERTY(EditAnywhere)
+	float fScreenLength = 0.f;
 
 private:	
 	
