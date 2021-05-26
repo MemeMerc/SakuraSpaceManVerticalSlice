@@ -39,6 +39,7 @@ public:
 	
 protected:
 
+	
 	//FUNCTIONS
 
 	// Called when the game starts or when spawned
@@ -80,6 +81,7 @@ protected:
 	
 	void GrappleDeactivate();
 
+	float FindDistanceToCenterScreen(AActor* _aActor);
 
 	//VARIABLES
 
