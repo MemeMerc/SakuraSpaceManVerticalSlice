@@ -14,6 +14,7 @@
 #include "Components/SphereComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "GrappleLocation_CPP.h"
 
 
 // Sets default values TEST
@@ -74,6 +75,8 @@ APlayer_CPP::APlayer_CPP()
 	
 	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
+	
+
 	this->GetCapsuleComponent()->ComponentTags.Add((FName("Player")));
 
 }
@@ -97,29 +100,45 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	//Check which grapple point is closest to the player
 	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
+		AActor* SelectActor = nullptr;
+
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
+		//SelectedGrapplePoint->fScreenLength = 1;//FindDistanceToCenterScreen(aSelectedGrapplePoint));
 		for (AActor* aActor : aGrapplePoints)
 		{
 			if (aActor->IsValidLowLevelFast())
 			{
+				AGrappleLocation_CPP *GrapplePoint = Cast<AGrappleLocation_CPP>(aActor);
+				
 				//Check if that actor is on screen.
-				if (PlayerController->ProjectWorldLocationToScreen(aActor->GetActorLocation(), v2d))
+				if (PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc()))
 				{
-					//If there is no selected grapple point, then select current point.
-					if (aSelectedGrapplePoint == nullptr)
-					{
-						aSelectedGrapplePoint = aActor;
-					}
-					//Check if which grapple point is closest.
-					else if ((FVector::Dist(aActor->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation())) 
-						&& (aActor->GetName() != aSelectedGrapplePoint->GetName()))
-					{
-						aSelectedGrapplePoint = aActor;
-					}
+					GrapplePoint->SetScreenLen(FindDistanceToCenterScreen(GrapplePoint));
+					//if (GrapplePoint->GetScreenLen() < 300)
+					//{
+						//If there is no selected grapple point, then select current point.
+						if (aSelectedGrapplePoint == nullptr)
+						{
+							SelectActor = aActor;
+						}
+						//Check if which grapple point is closest.
+						//else if ((FVector::Dist(GrapplePoint->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation()))
+						else if((SelectedGrapplePoint->GetScreenLen() > GrapplePoint->GetScreenLen())
+						&& (GrapplePoint->GetName() != SelectedGrapplePoint->GetName()))
+						{
+							SelectActor = aActor;
+						}	
+					//}
 				}
 			}
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
-	
+		if (SelectActor != nullptr)
+		{
+			aSelectedGrapplePoint = SelectActor;
+			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + SelectActor->GetName()));
+			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, FString::Printf(TEXT("Num: %f"), aGrapplePoints.Num()));
+		}
 	}
 
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
@@ -150,8 +169,32 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, TEXT("IsReelingIn: False"));
 	}
 
+	if (aSelectedGrapplePoint != nullptr)
+	{
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
+		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Current Screen Length: %f"), SelectedGrapplePoint->GetScreenLen()));
+	}
+
 }
 
+float APlayer_CPP::FindDistanceToCenterScreen(AActor* _aActor)
+{
+	FVector2D viewportDimensions;
+	FVector2D ResultVector;
+
+	float ResultLength;
+	int viewportX;
+	int viewportY;
+
+	AGrappleLocation_CPP* GrapplePoint = Cast<AGrappleLocation_CPP>(_aActor);
+	PlayerController->GetViewportSize(viewportX, viewportY);
+	viewportDimensions = FVector2D(viewportX, viewportY);
+	PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc());
+
+	ResultVector = (viewportDimensions/2) - *GrapplePoint->GetScreenLoc();
+	ResultLength = ResultVector.Size();
+	return(ResultLength);
+}
 
 
 // Called to bind functionality to input
@@ -485,6 +528,7 @@ void APlayer_CPP::GrappleDeactivate()
 		bIsReelingIn = false;
 		GetWorldTimerManager().ClearTimer(GrappleTimer);
 		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		aSelectedGrapplePoint = nullptr;
 	}
 	bGrappleFlipFlop = true;
 }

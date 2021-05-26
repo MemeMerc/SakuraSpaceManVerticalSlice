@@ -31,3 +31,19 @@ void AGrappleLocation_CPP::Tick(float DeltaTime)
 
 }
 
+FVector2D* AGrappleLocation_CPP::GetScreenLoc()
+{
+	return(&vScreenLocation);
+}
+void AGrappleLocation_CPP::SetScreenLoc(FVector2D _ScreenLoc)
+{
+	vScreenLocation = _ScreenLoc;
+}
+float AGrappleLocation_CPP::GetScreenLen()
+{
+	return(fScreenLength);
+}
+void AGrappleLocation_CPP::SetScreenLen(float _ScreenLen)
+{
+	fScreenLength = _ScreenLen;
+}

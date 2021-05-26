@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeGrappleLocation_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_SakuraSpaceMan();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 // End Cross Module References
 	void AGrappleLocation_CPP::StaticRegisterNativesAGrappleLocation_CPP()
 	{
@@ -36,6 +37,14 @@ void EmptyLinkFunctionForGeneratedCodeGrappleLocation_CPP() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SphereGrappleLocation_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SphereGrappleLocation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_vScreenLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_vScreenLocation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_fScreenLength_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_fScreenLength;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -59,8 +68,24 @@ void EmptyLinkFunctionForGeneratedCodeGrappleLocation_CPP() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_SphereGrappleLocation = { "SphereGrappleLocation", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrappleLocation_CPP, SphereGrappleLocation), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_SphereGrappleLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_SphereGrappleLocation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_vScreenLocation_MetaData[] = {
+		{ "Category", "GrappleLocation_CPP" },
+		{ "ModuleRelativePath", "Public/GrappleLocation_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_vScreenLocation = { "vScreenLocation", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrappleLocation_CPP, vScreenLocation), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_vScreenLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_vScreenLocation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_fScreenLength_MetaData[] = {
+		{ "Category", "GrappleLocation_CPP" },
+		{ "ModuleRelativePath", "Public/GrappleLocation_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_fScreenLength = { "fScreenLength", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrappleLocation_CPP, fScreenLength), METADATA_PARAMS(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_fScreenLength_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_fScreenLength_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGrappleLocation_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_SphereGrappleLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_vScreenLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrappleLocation_CPP_Statics::NewProp_fScreenLength,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGrappleLocation_CPP_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGrappleLocation_CPP>::IsAbstract,
@@ -89,7 +114,7 @@ void EmptyLinkFunctionForGeneratedCodeGrappleLocation_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrappleLocation_CPP, 1338090570);
+	IMPLEMENT_CLASS(AGrappleLocation_CPP, 152630886);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<AGrappleLocation_CPP>()
 	{
 		return AGrappleLocation_CPP::StaticClass();
