@@ -451,10 +451,18 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 	
 	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(OtherActor);
+
+
 		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
+
+		SelectedGrapplePoint->SetWidgetVisibility(false);
+
 		if (aGrapplePoints.Num() == 0)
 		{
+			
 			//bIsGrappleArrayEmpty = true;
+			SelectedGrapplePoint->SetWidgetVisibility(false);
 			aSelectedGrapplePoint = nullptr;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
@@ -532,6 +540,8 @@ void APlayer_CPP::GrappleDeactivate()
 		bIsReelingIn = false;
 		GetWorldTimerManager().ClearTimer(GrappleTimer);
 		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
+		SelectedGrapplePoint->SetWidgetVisibility(false);
 		aSelectedGrapplePoint = nullptr;
 	}
 	bGrappleFlipFlop = true;
