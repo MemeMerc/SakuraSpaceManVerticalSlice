@@ -1,7 +1,7 @@
-C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Github\Test\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
-C:\Github\Test\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h

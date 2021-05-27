@@ -164,9 +164,9 @@
 /FI"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /Yu"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /Fp"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Github\Test\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceMan.init.gen.cpp"
+"C:\Github\Test\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\BasicCollectable_CPP.gen.cpp"
 /FI"C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h"
-/Fo"C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\SakuraSpaceMan.init.gen.cpp.obj"
+/Fo"C:\Github\Test\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\BasicCollectable_CPP.gen.cpp.obj"
 /TP
 /GR-
 /W4
