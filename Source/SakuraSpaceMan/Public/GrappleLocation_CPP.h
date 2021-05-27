@@ -33,6 +33,8 @@ public:
 	float GetScreenLen();
 	void SetScreenLen(float _ScreenLen);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = Grapple)
+	void SetWidgetVisibility(bool _bIsVisible);
 
 protected:
 	// Called when the game starts or when spawned
