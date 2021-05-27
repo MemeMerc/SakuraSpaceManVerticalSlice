@@ -16,6 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA
 #define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS
 #define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS \
+	struct GrappleLocation_CPP_eventSetWidgetVisibility_Parms \
+	{ \
+		bool _bIsVisible; \
+	};
+
+
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS
 #define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGrappleLocation_CPP(); \
@@ -64,13 +72,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGrappleLocation_CPP); \
 	FORCEINLINE static uint32 __PPO__fScreenLength() { return STRUCT_OFFSET(AGrappleLocation_CPP, fScreenLength); }
 
 
-#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_10_PROLOG
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_10_PROLOG \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS
+
+
 #define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_STANDARD_CONSTRUCTORS \
 public: \
@@ -83,6 +95,7 @@ public: \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
 	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
