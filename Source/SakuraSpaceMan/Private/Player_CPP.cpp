@@ -66,6 +66,7 @@ APlayer_CPP::APlayer_CPP()
 	Camera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	Camera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	//Create Grapple Range Sphere
 	GrappleCollisionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("GrappleRange"));
 	GrappleCollisionSphere->InitSphereRadius(3000.f);
 	GrappleCollisionSphere->SetupAttachment(RootComponent);
@@ -73,10 +74,10 @@ APlayer_CPP::APlayer_CPP()
 	GrappleCollisionSphere->OnComponentEndOverlap.AddDynamic(this, &APlayer_CPP::Grapple_OnOverlapEnd);
 	GrappleCollisionSphere->bHiddenInGame = false;
 	
+	//Allocate player controller variable.
 	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
-	
-
+	//Give Capsule Component the "Player" Tag (Used when identifing the player).
 	this->GetCapsuleComponent()->ComponentTags.Add((FName("Player")));
 
 }
@@ -85,9 +86,6 @@ APlayer_CPP::APlayer_CPP()
 void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
-	
-
-
 }
 
 // Called every frame
@@ -97,13 +95,12 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	fLocalDeltaTime = _fDeltaTime;
 	
-	//Check which grapple point is closest to the player
+	//Check which grapple point is closest to the center of the screen.
 	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
 		AActor* SelectActor = nullptr;
 
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
-		//SelectedGrapplePoint->fScreenLength = 1;//FindDistanceToCenterScreen(aSelectedGrapplePoint));
 		for (AActor* aActor : aGrapplePoints)
 		{
 			if (aActor->IsValidLowLevelFast())
@@ -121,8 +118,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 						{
 							SelectActor = aActor;
 						}
-						//Check if which grapple point is closest.
-						//else if ((FVector::Dist(GrapplePoint->GetActorLocation(), this->GetActorLocation()) < FVector::Dist(aSelectedGrapplePoint->GetActorLocation(), this->GetActorLocation()))
+						//Check if which grapple point is closest to center screen.
 						else if((SelectedGrapplePoint->GetScreenLen() > GrapplePoint->GetScreenLen())
 						&& (GrapplePoint->GetName() != SelectedGrapplePoint->GetName()))
 						{
@@ -133,8 +129,10 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 			}
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + aSelectedGrapplePoint->GetName()));
+		//Set new Grapple Location as target for player
 		if (SelectActor != nullptr)
 		{
+			//Make Target Widget for previous grapple location invisible
 			if (SelectedGrapplePoint != nullptr)
 			{
 				SelectedGrapplePoint->SetWidgetVisibility(false);
@@ -160,7 +158,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	}
 
-	//Debug Stuff
+	//Debug Stuff//
 	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
 
 	if (bIsReelingIn)
@@ -181,23 +179,24 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 }
 
+//Find the distance of an actor to the center of the screen.
 float APlayer_CPP::FindDistanceToCenterScreen(AActor* _aActor)
 {
-	FVector2D viewportDimensions;
-	FVector2D ResultVector;
+	FVector2D vViewportDimensions;
+	FVector2D vResultVector;
 
-	float ResultLength;
-	int viewportX;
-	int viewportY;
+	float fResultLength;
+	int iViewportX;
+	int iViewportY;
 
 	AGrappleLocation_CPP* GrapplePoint = Cast<AGrappleLocation_CPP>(_aActor);
-	PlayerController->GetViewportSize(viewportX, viewportY);
-	viewportDimensions = FVector2D(viewportX, viewportY);
+	PlayerController->GetViewportSize(iViewportX, iViewportY);
+	vViewportDimensions = FVector2D(iViewportX, iViewportY);
 	PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc());
 
-	ResultVector = (viewportDimensions/2) - *GrapplePoint->GetScreenLoc();
-	ResultLength = ResultVector.Size();
-	return(ResultLength);
+	vResultVector = (vViewportDimensions /2) - *GrapplePoint->GetScreenLoc();
+	fResultLength = vResultVector.Size();
+	return(fResultLength);
 }
 
 
@@ -233,7 +232,7 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 //Mouse Look left-right
 void APlayer_CPP::LookTurn(float _fScale)
 {
-
+	//When moving quickly, slow camera movement
 	if ((GetCharacterMovement()->Velocity.Size() > fMaxSpeed[0]) && !GetCharacterMovement()->IsFalling())
 	{
 
@@ -249,6 +248,7 @@ void APlayer_CPP::LookTurn(float _fScale)
 //Mouse Look Up
 void APlayer_CPP::LookUp(float _fScale)
 {
+	//When moving quickly, slow camera movement
 	if ((GetCharacterMovement()->Velocity.Size() > fMaxSpeed[0]) && !GetCharacterMovement()->IsFalling())
 	{
 	
@@ -335,6 +335,7 @@ void APlayer_CPP::Jump()
 			ACharacter::Jump();
 			iJumpAmount++;
 		}
+		//Allow player to make a second jump while in the air.
 		else if (iJumpAmount < iMaxJumpAmount)
 		{
 			FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
@@ -358,6 +359,7 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 
 }
 
+//Stop jumping
 void APlayer_CPP::StopJumping()
 {
 	if (Controller != nullptr)
@@ -369,6 +371,7 @@ void APlayer_CPP::StopJumping()
 //Called when player changes movement type.
 void APlayer_CPP::Sprint()
 {
+	//Move up speed rank and adjust associated varibles.
 	if ((Controller != nullptr) && bIsForward && !bIsReelingIn)
 	{
 		iCurrentSpeed++;
@@ -381,6 +384,7 @@ void APlayer_CPP::Sprint()
 
 	}
 }
+//Stop Sprinting
 void APlayer_CPP::StopSprinting()
 {
 
@@ -393,6 +397,7 @@ void APlayer_CPP::StopSprinting()
 
 }
 
+//Called when player dashes forward quickly.
 void APlayer_CPP::DashForward()
 {
 
@@ -400,14 +405,15 @@ void APlayer_CPP::DashForward()
 	{
 		
 		
-		
+		//Store Players Current Speed before dash.
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
+		//Reset players speed to previous speed
 		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
 
 			_GetCMC->Launch(_ForwardVec* _vel);
 			
 		});
-		
+		//Allow player to dash again.
 		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable{
 
 			
@@ -416,12 +422,13 @@ void APlayer_CPP::DashForward()
 		});
 
 
-
+		//Launch Player Forward (Dashing)
 		GetCharacterMovement()->Launch(GetActorForwardVector() * (fDashSpeed+GetCharacterMovement()->Velocity.Size()));
+		//Set Timers for player reset
 		GetWorldTimerManager().SetTimer(DashTimer, DashStopDelegate, 0.2f, false);
 		bHasDashed = true;
 		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
-		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
+		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
 	}
 
 
@@ -429,18 +436,12 @@ void APlayer_CPP::DashForward()
 
 void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	//Find grapple point that has moved in range and add it to aGrapplePoints array
 	if (OtherActor->IsValidLowLevelFast())
 	{
 		if (OtherActor->ActorHasTag(FName("Grapple")))
 		{
-	
-	
 			aGrapplePoints.Add(OtherActor);
-			//bIsGrappleArrayEmpty = false;
-			//for (AActor* aActor : aGrapplePoints)
-			//{
-			//	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Collision: "+ aActor->GetName()));
-			//}
 		}
 	}
 }
@@ -448,7 +449,7 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	
+	//Find Grapple point that has moved out of range and remove it from aGrapplePoints array
 	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(OtherActor);
@@ -460,20 +461,16 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 
 		if (aGrapplePoints.Num() == 0)
 		{
-			
-			//bIsGrappleArrayEmpty = true;
-			SelectedGrapplePoint->SetWidgetVisibility(false);
 			aSelectedGrapplePoint = nullptr;
 		}
 		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
-		
 	}
 
 
 }
 
 
-
+//Grapple Mechanic Start
 void APlayer_CPP::GrappleActivate()
 {
 	
@@ -481,23 +478,24 @@ void APlayer_CPP::GrappleActivate()
 	{
 		if (PlayerController->ProjectWorldLocationToScreen(aSelectedGrapplePoint->GetActorLocation(), v2d))
 		{
-
 			if (bGrappleFlipFlop)
 			{
 				FTimerDelegate GrappleLoopDelegate;
 				fInitVel = GetCharacterMovement()->Velocity.Size();
-
+				GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Flying;
 				//Reels Player to Grapple Point
 				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[2],_InitVel = &fInitVel, 
 					_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this,
 					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
 				{	
+					//Get Direction Vector between player and Grapple Location
 					FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(_Self->GetActorLocation(), _GrapplePoint->GetActorLocation());
-					_GCM->MovementMode = EMovementMode::MOVE_Flying;
+					//Accelerate Velocity
 					*_InitVel += 100;
-				
+					//Set Player Velocity
 					_GCM->Velocity = (vDistance * FMath::Clamp(*_InitVel, *_CurrentMinSpeed, *_CurrentMaxSpeed));
 
+					//Stop Player Reeling in when reached grapple location.
 					if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 100.f))
 					{
 						_Self->GrappleDeactivate();
@@ -507,42 +505,33 @@ void APlayer_CPP::GrappleActivate()
 				bIsReelingIn = true;
 				bIsSprinting = true;
 				iJumpAmount = 0;
-				//iCurrentSpeed = 2;
-				//GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-				//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[iCurrentSpeed];
-				//GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[iCurrentSpeed];
+				//Start Reel In.
 				GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
-				GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
+				//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
 				bGrappleFlipFlop = false;
 			}
-		//else
-		//{
-		//	FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
-		//	GetCharacterMovement()->Velocity = FVector(0.f);
-		//	GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
-		//	bIsReelingIn = false;
-		//	GetWorldTimerManager().ClearTimer(GrappleTimer);
-		//	GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
-		//	bGrappleFlipFlop = true;
-		//}
 		}
 	}
 }
 
-
+//Grapple Mechanic End
 void APlayer_CPP::GrappleDeactivate()
 {
+	//Resets values
 	if (bIsReelingIn && !bGrappleFlipFlop)
 	{
+		//Give Player slight boost at end of grapple
 		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
 		GetCharacterMovement()->Velocity = FVector(0.f);
 		GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
-		bIsReelingIn = false;
-		GetWorldTimerManager().ClearTimer(GrappleTimer);
 		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
+		//Stop Timer
+		GetWorldTimerManager().ClearTimer(GrappleTimer);
+		//Widget Visibility
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		SelectedGrapplePoint->SetWidgetVisibility(false);
 		aSelectedGrapplePoint = nullptr;
+		bIsReelingIn = false;
 	}
 	bGrappleFlipFlop = true;
 }
