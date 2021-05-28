@@ -15,6 +15,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "GrappleLocation_CPP.h"
+#include "TimerManager.h"
 
 
 // Sets default values TEST
@@ -404,7 +405,8 @@ void APlayer_CPP::DashForward()
 	if (Controller != nullptr && !bHasDashed && !bIsReelingIn)
 	{
 		
-		
+		FTimerDelegate DashStopDelegate;
+		FTimerDelegate DashResetDelegate;
 		//Store Players Current Speed before dash.
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		//Reset players speed to previous speed
