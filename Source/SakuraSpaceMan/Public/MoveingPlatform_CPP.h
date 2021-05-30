@@ -26,12 +26,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
 
+	// Create a vector that can be moved around in the world.
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Meta = (MakeEditWidget = true))
 	FVector LocationOne;
 
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Meta = (MakeEditWidget = true))
 	FVector LocationTwo;
 
+	// Speed for the actor to move at.
 	UPROPERTY(EditAnywhere)
 	float InterpSpeed = 50;
 

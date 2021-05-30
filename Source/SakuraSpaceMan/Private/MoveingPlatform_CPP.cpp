@@ -13,9 +13,12 @@ AMoveingPlatform_CPP::AMoveingPlatform_CPP()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Create a Mesh and set it as the root component.
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = Mesh;
 
+
+	// Create a box collider.
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComonent"));
 	CollisionBox->SetupAttachment(Mesh);
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
