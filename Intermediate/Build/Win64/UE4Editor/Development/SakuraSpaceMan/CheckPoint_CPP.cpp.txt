@@ -1,0 +1,3 @@
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\CheckPoint_CPP.generated.h

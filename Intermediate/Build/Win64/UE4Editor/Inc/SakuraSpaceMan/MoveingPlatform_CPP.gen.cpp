@@ -91,8 +91,10 @@ void EmptyLinkFunctionForGeneratedCodeMoveingPlatform_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_LocationOne_MetaData[] = {
 		{ "Category", "MoveingPlatform_CPP" },
+		{ "Comment", "// Create a vector that can be moved around in the world.\n" },
 		{ "MakeEditWidget", "TRUE" },
 		{ "ModuleRelativePath", "Public/MoveingPlatform_CPP.h" },
+		{ "ToolTip", "Create a vector that can be moved around in the world." },
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_LocationOne = { "LocationOne", nullptr, (EPropertyFlags)0x0010000000000815, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMoveingPlatform_CPP, LocationOne), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_LocationOne_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_LocationOne_MetaData)) };
@@ -107,7 +109,9 @@ void EmptyLinkFunctionForGeneratedCodeMoveingPlatform_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_InterpSpeed_MetaData[] = {
 		{ "Category", "MoveingPlatform_CPP" },
+		{ "Comment", "// Speed for the actor to move at.\n" },
 		{ "ModuleRelativePath", "Public/MoveingPlatform_CPP.h" },
+		{ "ToolTip", "Speed for the actor to move at." },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_InterpSpeed = { "InterpSpeed", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMoveingPlatform_CPP, InterpSpeed), METADATA_PARAMS(Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_InterpSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMoveingPlatform_CPP_Statics::NewProp_InterpSpeed_MetaData)) };
@@ -145,7 +149,7 @@ void EmptyLinkFunctionForGeneratedCodeMoveingPlatform_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMoveingPlatform_CPP, 736815757);
+	IMPLEMENT_CLASS(AMoveingPlatform_CPP, 3510872172);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<AMoveingPlatform_CPP>()
 	{
 		return AMoveingPlatform_CPP::StaticClass();
