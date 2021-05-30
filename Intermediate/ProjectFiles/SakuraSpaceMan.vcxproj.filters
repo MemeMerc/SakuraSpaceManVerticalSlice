@@ -3,7 +3,11 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
+<<<<<<< HEAD
       <UniqueIdentifier>{A1241DFC-ABA7-4554-A310-8C61A99A3AF2}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{C372BD1D-EF52-438A-AB1C-9774D3BC22E2}</UniqueIdentifier>
+>>>>>>> main
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +18,11 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
+<<<<<<< HEAD
       <UniqueIdentifier>{91B5175E-E436-4545-A6D8-10ECF9EDB7F2}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{A15D068F-04C2-43A8-AC1E-2F35D32FE73F}</UniqueIdentifier>
+>>>>>>> main
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +37,11 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
+<<<<<<< HEAD
       <UniqueIdentifier>{9983DFB4-61CD-4E9C-BF17-16D1707EC85A}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{EB0B99ED-7E59-4657-8C01-AF9740D29846}</UniqueIdentifier>
+>>>>>>> main
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -47,7 +59,11 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
+<<<<<<< HEAD
       <UniqueIdentifier>{A8D212AA-5CE6-4254-BFA4-37527A45E6AF}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{13A1C3F7-4A5B-4812-BEB0-220083AC3D2F}</UniqueIdentifier>
+>>>>>>> main
     </Filter>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\BasicCollectable_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
@@ -65,7 +81,11 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
+<<<<<<< HEAD
       <UniqueIdentifier>{4E61E201-A137-484B-90CA-253E281BDD15}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{292088DD-C68B-4608-AD1D-85213DE2A42C}</UniqueIdentifier>
+>>>>>>> main
     </Filter>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
