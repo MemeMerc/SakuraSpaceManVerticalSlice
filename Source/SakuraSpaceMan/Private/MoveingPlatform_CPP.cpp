@@ -38,15 +38,17 @@ void AMoveingPlatform_CPP::Tick(float DeltaTime)
 
 	CurrentLocation = GetActorLocation();
 
+	// Switch Between locations for this actor to move to.
 	if (CurrentLocation == LocationOne)
 	{
 		TargetLocation = LocationTwo;
 	}
-	else
+	else if(CurrentLocation == LocationTwo)
 	{
 		TargetLocation = LocationOne;
 	}
 
+	// This moves the Actor in litte incraments towards the desired destanation.
 	SetActorLocation(FMath::VInterpConstantTo(CurrentLocation, TargetLocation, DeltaTime, InterpSpeed));
 
 }
