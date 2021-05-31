@@ -468,6 +468,7 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Blue, TEXT("Triggered"));
 	//Find Grapple point that has moved out of range and remove it from aGrapplePoints array
 	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
@@ -482,7 +483,7 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 		{
 			aSelectedGrapplePoint = nullptr;
 		}
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
+		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Deleted"));
 	}
 
 
