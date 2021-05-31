@@ -15,6 +15,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "GrappleLocation_CPP.h"
+#include "TimerManager.h"
 
 
 // Sets default values TEST
@@ -33,15 +34,11 @@ APlayer_CPP::APlayer_CPP()
 
 	//Define Movement Stages
 
-	//Walk-Default
+	//Platforming Mode
 	fMaxSpeed.Add(1300.f);
 	fMaxAcceleration.Add(2024.f);
 
-	//Stage 1 Run
-	fMaxSpeed.Add(3000.f);
-	fMaxAcceleration.Add(1000.f);
-
-	//Stage 2 Run
+	//Sprinting Mode
 	fMaxSpeed.Add(6000.f);
 	fMaxAcceleration.Add(800.f);
 
@@ -99,7 +96,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
 		AActor* SelectActor = nullptr;
-
+	
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		for (AActor* aActor : aGrapplePoints)
 		{
@@ -144,7 +141,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	}
 
 	//Return friction factor to normal, produce a slide effect when stopping fast movement.
-	if (bIsMoving == false && GetCharacterMovement()->BrakingFrictionFactor < fFriction-0.1	 && !GetCharacterMovement()->IsFalling())
+	if ((bIsMoving == false || bIsSprinting == false) && GetCharacterMovement()->BrakingFrictionFactor < fFriction-0.1 && !GetCharacterMovement()->IsFalling())
 	{
 
 		float fTemp = GetCharacterMovement()->BrakingFrictionFactor + (1.f * _fDeltaTime);
@@ -314,13 +311,13 @@ void APlayer_CPP::ResetWalkValue()
 	if (Controller != nullptr)
 	{
 		bIsForward = false;
-		if (iCurrentSpeed != 0 && !bIsReelingIn && !bHasDashed)
-		{
-			iCurrentSpeed = 0;
-			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-			//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
-		}
+		//if (iCurrentSpeed != 0 && !bIsReelingIn && !bHasDashed)
+		//{
+		//	iCurrentSpeed = 0;
+		//	GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+		//	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+		//	//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
+		//}
 	}
 }
 
@@ -372,27 +369,34 @@ void APlayer_CPP::StopJumping()
 void APlayer_CPP::Sprint()
 {
 	//Move up speed rank and adjust associated varibles.
-	if ((Controller != nullptr) && bIsForward && !bIsReelingIn)
+	if ((Controller != nullptr) && !bIsReelingIn)
 	{
-		iCurrentSpeed++;
-		bIsSprinting = true;
-		iCurrentSpeed = FMath::Clamp(iCurrentSpeed, 0, 2);
-
-		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[iCurrentSpeed];
-		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[iCurrentSpeed];
-
+		switch (bIsSprinting)
+		{
+		case true:
+		
+			bIsSprinting = false;
+			//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
+			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
+			break;
+		case false:
+		
+			bIsSprinting = true;
+			GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
+			break;
+		}
 	}
 }
 //Stop Sprinting
 void APlayer_CPP::StopSprinting()
 {
 
-	if (Controller != nullptr)
-	{
-		bIsSprinting = false;
-		
-	}
+	
 
 
 }
@@ -404,7 +408,8 @@ void APlayer_CPP::DashForward()
 	if (Controller != nullptr && !bHasDashed && !bIsReelingIn)
 	{
 		
-		
+		FTimerDelegate DashStopDelegate;
+		FTimerDelegate DashResetDelegate;
 		//Store Players Current Speed before dash.
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		//Reset players speed to previous speed
@@ -484,8 +489,7 @@ void APlayer_CPP::GrappleActivate()
 				fInitVel = GetCharacterMovement()->Velocity.Size();
 				GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Flying;
 				//Reels Player to Grapple Point
-				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[2],_InitVel = &fInitVel, 
-					_WorldTimer = &GetWorldTimerManager(), _Timer = &GrappleTimer, _IsReelingIn = &bIsReelingIn, _Self = this,
+				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[1],_InitVel = &fInitVel, _IsReelingIn = &bIsReelingIn, _Self = this,
 					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
 				{	
 					//Get Direction Vector between player and Grapple Location
@@ -494,7 +498,7 @@ void APlayer_CPP::GrappleActivate()
 					*_InitVel += 100;
 					//Set Player Velocity
 					_GCM->Velocity = (vDistance * FMath::Clamp(*_InitVel, *_CurrentMinSpeed, *_CurrentMaxSpeed));
-
+				
 					//Stop Player Reeling in when reached grapple location.
 					if (_Self->GetActorLocation().Equals( _GrapplePoint->GetActorLocation(), 100.f))
 					{
@@ -503,7 +507,7 @@ void APlayer_CPP::GrappleActivate()
 				
 				});
 				bIsReelingIn = true;
-				bIsSprinting = true;
+				
 				iJumpAmount = 0;
 				//Start Reel In.
 				GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
