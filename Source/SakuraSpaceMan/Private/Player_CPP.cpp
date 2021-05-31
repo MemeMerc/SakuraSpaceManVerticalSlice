@@ -116,7 +116,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 						}
 						//Check if which grapple point is closest to center screen.
 						else if((SelectedGrapplePoint->GetScreenLen() > GrapplePoint->GetScreenLen())
-						&& (GrapplePoint->GetName() != SelectedGrapplePoint->GetName()))
+							&& (GrapplePoint->GetName() != SelectedGrapplePoint->GetName()))
 						{
 							SelectActor = aActor;
 						}	
