@@ -30,7 +30,7 @@
 /wd4244
 /wd4838
 /I .
-/I C:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Private
+/I D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Private
 /I ..\Intermediate\Build\Win64\UE4\Inc\Engine
 /I Runtime
 /I Runtime\Engine\Classes
@@ -117,9 +117,9 @@
 /I Developer\TargetPlatform\Public
 /I ..\Intermediate\Build\Win64\UE4\Inc\AnimationCore
 /I Runtime\AnimationCore\Public
-/I C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan
-/I C:\Github\SakuraSpaceManVerticalSlice\Source
-/I C:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public
+/I D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan
+/I D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source
+/I D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public
 /I ..\Intermediate\Build\Win64\UE4\Inc\UMG
 /I Runtime\UMG\Public
 /I Runtime\Online
@@ -155,18 +155,18 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\RenderDebug\public
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\PairFilter\include
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
-/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\INCLUDE"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.28.29910\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\EndPoint_CPP.gen.cpp"
-/FI"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h"
-/Fo"C:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\EndPoint_CPP.gen.cpp.obj"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
+/FI"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceMan\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\EndPoint_CPP.gen.cpp"
+/FI"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h"
+/Fo"D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\EndPoint_CPP.gen.cpp.obj"
 /TP
 /GR-
 /W4

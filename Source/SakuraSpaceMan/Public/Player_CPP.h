@@ -122,8 +122,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashSpeed = 8000.f;			//Dash Speed modifier
 	float vPrevSpeed = 0;
-	FTimerDelegate DashStopDelegate;
-	FTimerDelegate DashResetDelegate;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashCooldown = 0.5f;		//seconds

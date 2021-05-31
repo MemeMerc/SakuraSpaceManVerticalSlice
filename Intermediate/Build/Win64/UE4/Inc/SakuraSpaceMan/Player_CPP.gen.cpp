@@ -278,7 +278,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_CameraBoom_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-		{ "Comment", "/** Camera boom positioning the camera behind the character */" },
+		{ "Comment", "// Camera boom positioning the camera behind the character\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
 		{ "ToolTip", "Camera boom positioning the camera behind the character" },
@@ -289,7 +289,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_Camera_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-		{ "Comment", "/** Follow camera */" },
+		{ "Comment", "// Follow camera \n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
 		{ "ToolTip", "Follow camera" },
@@ -300,8 +300,10 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Grapple" },
+		{ "Comment", "// Grapple Range Sphere Collision\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Grapple Range Sphere Collision" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere = { "GrappleCollisionSphere", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData)) };
@@ -416,7 +418,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 2565994474);
+	IMPLEMENT_CLASS(APlayer_CPP, 2044495492);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();
