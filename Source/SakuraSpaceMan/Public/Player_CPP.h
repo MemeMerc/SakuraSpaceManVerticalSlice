@@ -135,6 +135,10 @@ protected:
 	
 	TArray<AActor*> aGrapplePoints;
 	AActor* aSelectedGrapplePoint;
+
+	float *fCurrentMaxReelSpeed;
+	float fMaxReelDashSpeed;
+
 	float fInitVel = 0;
 	FVector LaunchVector;
 	bool bGrappleFlipFlop = true;

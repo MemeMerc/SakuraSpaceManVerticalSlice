@@ -96,7 +96,6 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 	if ( !bIsReelingIn && PlayerController != nullptr && aGrapplePoints.Num() != 0)
 	{
 		AActor* SelectActor = nullptr;
-	
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		for (AActor* aActor : aGrapplePoints)
 		{
@@ -108,8 +107,8 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 				if (PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc()))
 				{
 					GrapplePoint->SetScreenLen(FindDistanceToCenterScreen(GrapplePoint));
-					//if (GrapplePoint->GetScreenLen() < 300)
-					//{
+					if (GrapplePoint->GetScreenLen() < 300)
+					{
 						//If there is no selected grapple point, then select current point.
 						if (aSelectedGrapplePoint == nullptr)
 						{
@@ -121,7 +120,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 						{
 							SelectActor = aActor;
 						}	
-					//}
+					}
 				}
 			}
 		}
@@ -137,6 +136,15 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 			aSelectedGrapplePoint = SelectActor;
 			Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint)->SetWidgetVisibility(true);
 			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + SelectActor->GetName()));
+			
+		}
+		else if (SelectedGrapplePoint != nullptr)
+		{
+			if (SelectedGrapplePoint->GetScreenLen() > 300)
+			{
+				SelectedGrapplePoint->SetWidgetVisibility(false);
+				aSelectedGrapplePoint = nullptr;
+			}
 		}
 	}
 
@@ -435,7 +443,13 @@ void APlayer_CPP::DashForward()
 		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
 	}
-
+	else if (bIsReelingIn)
+	{
+		bHasDashed = true;
+		fMaxReelDashSpeed = fDashSpeed + GetCharacterMovement()->Velocity.Size();
+		fCurrentMaxReelSpeed = &fMaxReelDashSpeed;
+		fInitVel = fDashSpeed;
+	}
 
 }
 
@@ -487,9 +501,12 @@ void APlayer_CPP::GrappleActivate()
 			{
 				FTimerDelegate GrappleLoopDelegate;
 				fInitVel = GetCharacterMovement()->Velocity.Size();
+				
 				GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Flying;
+
+				fCurrentMaxReelSpeed = &fMaxSpeed[1];
 				//Reels Player to Grapple Point
-				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = &fMaxSpeed[1],_InitVel = &fInitVel, _IsReelingIn = &bIsReelingIn, _Self = this,
+				GrappleLoopDelegate.BindLambda([_CurrentMinSpeed = &fMaxSpeed[0],_CurrentMaxSpeed = fCurrentMaxReelSpeed,_InitVel = &fInitVel, _IsReelingIn = &bIsReelingIn, _Self = this,
 					_GCM = GetCharacterMovement(), _GrapplePoint = aSelectedGrapplePoint]()mutable
 				{	
 					//Get Direction Vector between player and Grapple Location
@@ -527,7 +544,15 @@ void APlayer_CPP::GrappleDeactivate()
 		//Give Player slight boost at end of grapple
 		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
 		GetCharacterMovement()->Velocity = FVector(0.f);
-		GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[iCurrentSpeed] * 0.5));
+		if (bHasDashed)
+		{
+			GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[1] * 0.5));
+			bHasDashed = false;
+		}
+		else
+		{
+			GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[0] * 0.5));
+		}
 		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
 		//Stop Timer
 		GetWorldTimerManager().ClearTimer(GrappleTimer);
