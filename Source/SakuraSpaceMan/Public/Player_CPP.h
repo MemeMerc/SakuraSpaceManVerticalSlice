@@ -96,7 +96,9 @@ protected:
 	
 	bool bIsGrappleArrayEmpty = true;
 	bool bIsReelingIn = false;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	bool bIsBoosting = false;
 
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
