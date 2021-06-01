@@ -96,7 +96,9 @@ protected:
 	
 	bool bIsGrappleArrayEmpty = true;
 	bool bIsReelingIn = false;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	bool bIsBoosting = false;
 
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
@@ -122,8 +124,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashSpeed = 8000.f;			//Dash Speed modifier
 	float vPrevSpeed = 0;
-	FTimerDelegate DashStopDelegate;
-	FTimerDelegate DashResetDelegate;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	float fDashCooldown = 0.5f;		//seconds
@@ -136,6 +137,10 @@ protected:
 	
 	TArray<AActor*> aGrapplePoints;
 	AActor* aSelectedGrapplePoint;
+
+	float *fCurrentMaxReelSpeed;
+	float fMaxReelDashSpeed;
+
 	float fInitVel = 0;
 	FVector LaunchVector;
 	bool bGrappleFlipFlop = true;

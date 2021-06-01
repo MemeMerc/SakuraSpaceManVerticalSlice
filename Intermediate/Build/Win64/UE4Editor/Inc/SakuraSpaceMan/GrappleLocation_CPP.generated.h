@@ -13,18 +13,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SAKURASPACEMAN_GrappleLocation_CPP_generated_h
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS \
 	struct GrappleLocation_CPP_eventSetWidgetVisibility_Parms \
 	{ \
 		bool _bIsVisible; \
 	};
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGrappleLocation_CPP(); \
 	friend struct Z_Construct_UClass_AGrappleLocation_CPP_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(AGrappleLocation_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAGrappleLocation_CPP(); \
 	friend struct Z_Construct_UClass_AGrappleLocation_CPP_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(AGrappleLocation_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_STANDARD_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AGrappleLocation_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AGrappleLocation_CPP) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_ENHANCED_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AGrappleLocation_CPP(AGrappleLocation_CPP&&); \
@@ -66,38 +66,38 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGrappleLocation_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGrappleLocation_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SphereGrappleLocation() { return STRUCT_OFFSET(AGrappleLocation_CPP, SphereGrappleLocation); } \
 	FORCEINLINE static uint32 __PPO__vScreenLocation() { return STRUCT_OFFSET(AGrappleLocation_CPP, vScreenLocation); } \
 	FORCEINLINE static uint32 __PPO__fScreenLength() { return STRUCT_OFFSET(AGrappleLocation_CPP, fScreenLength); }
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_10_PROLOG \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_10_PROLOG \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_EVENT_PARMS
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_GENERATED_BODY_LEGACY \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_STANDARD_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_GENERATED_BODY \
+#define Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_ENHANCED_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_CALLBACK_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_INCLASS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -105,7 +105,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class AGrappleLocation_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h
+#define CURRENT_FILE_ID Test_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
