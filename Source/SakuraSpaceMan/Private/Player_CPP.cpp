@@ -163,6 +163,22 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	}
 
+	if (bIsBoosting && (GetCharacterMovement()->Velocity.Size() < fMaxSpeed[1]))
+	{
+		switch (bIsSprinting)
+		{
+		case true:
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+
+			break;
+		case false:
+			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+
+			break;
+		}
+		bIsBoosting = false;
+	}
+
 	//Debug Stuff//
 	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
 
@@ -319,13 +335,20 @@ void APlayer_CPP::ResetWalkValue()
 	if (Controller != nullptr)
 	{
 		bIsForward = false;
-		//if (iCurrentSpeed != 0 && !bIsReelingIn && !bHasDashed)
-		//{
-		//	iCurrentSpeed = 0;
-		//	GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-		//	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-		//	//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, FString::Printf(TEXT("%f"), iCurrentSpeed));
-		//}
+		if (GetCharacterMovement()->MaxWalkSpeed > fMaxSpeed[1] && !bIsReelingIn && !bHasDashed)
+		{
+			switch (bIsSprinting)
+			{
+			case true:
+				GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+				
+				break;
+			case false:
+				GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+				
+				break;
+			}
+		}
 	}
 }
 
@@ -385,7 +408,7 @@ void APlayer_CPP::Sprint()
 		
 			bIsSprinting = false;
 			//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
-			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
 			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
 			break;
@@ -393,7 +416,7 @@ void APlayer_CPP::Sprint()
 		
 			bIsSprinting = true;
 			GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
 			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
 			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
 			break;
@@ -468,6 +491,7 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Blue, TEXT("Triggered"));
 	//Find Grapple point that has moved out of range and remove it from aGrapplePoints array
 	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
@@ -482,7 +506,7 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 		{
 			aSelectedGrapplePoint = nullptr;
 		}
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Deleted"));
+		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Deleted"));
 	}
 
 

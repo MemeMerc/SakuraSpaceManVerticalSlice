@@ -259,19 +259,11 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-<<<<<<< HEAD
-/I D:\Users\MDS00001VJ\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine
-/Yc"D:\Users\MDS00001VJ\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"D:\Users\MDS00001VJ\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"D:\Users\MDS00001VJ\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
-/Fo"D:\Users\MDS00001VJ\Documents\GitHub\SSMVS\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
-=======
 /I C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine
 /Yc"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /Fp"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
 "C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
 /Fo"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
->>>>>>> main
 /TP
 /GR-
 /W4

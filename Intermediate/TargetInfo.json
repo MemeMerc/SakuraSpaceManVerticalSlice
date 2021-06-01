@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "SakuraSpaceMan",
-			"Path": "D:\\Users\\MDS00001VJ\\Documents\\GitHub\\SSMVS\\Source\\SakuraSpaceMan.Target.cs",
+			"Path": "C:\\Github\\Test\\Source\\SakuraSpaceMan.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "SakuraSpaceManEditor",
-			"Path": "D:\\Users\\MDS00001VJ\\Documents\\GitHub\\SSMVS\\Source\\SakuraSpaceManEditor.Target.cs",
+			"Path": "C:\\Github\\Test\\Source\\SakuraSpaceManEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]
