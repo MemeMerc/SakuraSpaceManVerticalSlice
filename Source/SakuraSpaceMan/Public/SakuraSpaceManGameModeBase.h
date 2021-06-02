@@ -13,5 +13,14 @@ UCLASS()
 class SAKURASPACEMAN_API ASakuraSpaceManGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+
+	void SetRespawnLocation(FVector _RespawnLocation);
+	FVector GetRespawnLocation() const;
+
+protected:
+
+	FVector RespawnLocation;
 	
 };
