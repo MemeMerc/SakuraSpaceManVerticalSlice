@@ -1,5 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+//Grapple Location was created and coded by Lucas Mcalpine 
 
 #include "GrappleLocation_CPP.h"
 
@@ -16,7 +16,9 @@ AGrappleLocation_CPP::AGrappleLocation_CPP()
 
 	Tags.Add(FName("Grapple"));
 
-
+	fScreenLength = 0.f;
+	vScreenLocation = FVector2D(0.f);
+	bCanLaunchFurther = false;
 
 }
 
@@ -49,4 +51,11 @@ float AGrappleLocation_CPP::GetScreenLen()
 void AGrappleLocation_CPP::SetScreenLen(float _ScreenLen)
 {
 	fScreenLength = _ScreenLen;
+}
+
+bool AGrappleLocation_CPP::GetLaunch()
+{
+
+	return(bCanLaunchFurther);
+
 }

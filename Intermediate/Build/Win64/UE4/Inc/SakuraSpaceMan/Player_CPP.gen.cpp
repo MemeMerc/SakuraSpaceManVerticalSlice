@@ -226,6 +226,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrappleCollisionSphere;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsBoosting_MetaData[];
+#endif
+		static void NewProp_bIsBoosting_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsBoosting;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_fFriction_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_fFriction;
@@ -278,7 +283,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_CameraBoom_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-		{ "Comment", "/** Camera boom positioning the camera behind the character */" },
+		{ "Comment", "// Camera boom positioning the camera behind the character\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
 		{ "ToolTip", "Camera boom positioning the camera behind the character" },
@@ -289,7 +294,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_Camera_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-		{ "Comment", "/** Follow camera */" },
+		{ "Comment", "// Follow camera \n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
 		{ "ToolTip", "Follow camera" },
@@ -300,11 +305,25 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Grapple" },
+		{ "Comment", "// Grapple Range Sphere Collision\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Grapple Range Sphere Collision" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere = { "GrappleCollisionSphere", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerMovement" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_SetBit(void* Obj)
+	{
+		((APlayer_CPP*)Obj)->bIsBoosting = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting = { "bIsBoosting", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayer_CPP), &Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -379,6 +398,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_Camera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount,
@@ -416,7 +436,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 2565994474);
+	IMPLEMENT_CLASS(APlayer_CPP, 161210783);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

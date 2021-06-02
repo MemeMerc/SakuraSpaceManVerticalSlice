@@ -36,13 +36,18 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = Grapple)
 	void SetWidgetVisibility(bool _bIsVisible);
 
+	bool GetLaunch();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UPROPERTY(EditAnywhere)
-	FVector2D vScreenLocation = FVector2D(0.f);
+	FVector2D vScreenLocation;
 	UPROPERTY(EditAnywhere)
-	float fScreenLength = 0.f;
+	float fScreenLength;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Launch, meta = (AllowPrivateAccess = "true"))
+	bool bCanLaunchFurther;
 
 private:	
 	
