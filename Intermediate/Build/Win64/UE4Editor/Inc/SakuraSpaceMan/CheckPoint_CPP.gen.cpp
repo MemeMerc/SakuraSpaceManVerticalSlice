@@ -112,7 +112,9 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Collison function\n" },
 		{ "ModuleRelativePath", "Public/CheckPoint_CPP.h" },
+		{ "ToolTip", "Collison function" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACheckPoint_CPP, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(CheckPoint_CPP_eventOnOverlapBegin_Parms), Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams)) };
@@ -153,7 +155,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACheckPoint_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 252461733
+		{ &Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 3961684557
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACheckPoint_CPP_Statics::Class_MetaDataParams[] = {
@@ -212,7 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACheckPoint_CPP, 3724400865);
+	IMPLEMENT_CLASS(ACheckPoint_CPP, 3053207296);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ACheckPoint_CPP>()
 	{
 		return ACheckPoint_CPP::StaticClass();

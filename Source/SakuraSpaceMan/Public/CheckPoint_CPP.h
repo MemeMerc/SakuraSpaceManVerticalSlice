@@ -27,6 +27,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UBoxComponent* CollisionBox;
 
+	// Collison function
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
@@ -34,7 +35,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	//ASakuraSpaceManGameModeBase* GameMode;
-	FVector RespaenLocation;
+	// Init game mode
+	ASakuraSpaceManGameModeBase* GameMode;
+
+	// Init location Vector
+	FVector RespawnLocation;
 
 };
