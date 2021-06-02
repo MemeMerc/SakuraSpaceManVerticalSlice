@@ -78,8 +78,8 @@
 "setupapi.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"C:\Github\Test\Binaries\Win64\UE4Editor-SakuraSpaceMan.dll"
-/IMPLIB:"C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\UE4Editor-SakuraSpaceMan.suppressed.lib"
-/PDB:"C:\Github\Test\Binaries\Win64\UE4Editor-SakuraSpaceMan.pdb"
+/OUT:"C:\Github\Test\Binaries\Win64\UE4Editor-SakuraSpaceMan-7614.dll"
+/IMPLIB:"C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\UE4Editor-SakuraSpaceMan-7614.suppressed.lib"
+/PDB:"C:\Github\Test\Binaries\Win64\UE4Editor-SakuraSpaceMan-7614.pdb"
 /ignore:4078
 /INCLUDE:IMPLEMENT_MODULE_SakuraSpaceMan

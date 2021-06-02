@@ -39,7 +39,7 @@ APlayer_CPP::APlayer_CPP()
 	fMaxAcceleration.Add(2024.f);
 
 	//Sprinting Mode
-	fMaxSpeed.Add(6000.f);
+	fMaxSpeed.Add(4000.f);
 	fMaxAcceleration.Add(800.f);
 
 	// Configure character movement
@@ -49,8 +49,9 @@ APlayer_CPP::APlayer_CPP()
 	GetCharacterMovement()->AirControl = 1.f;
 	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
 	GetCharacterMovement()->GravityScale = 3.f;
-	GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+	//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+	GetCharacterMovement()->JumpZVelocity = 1300;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
