@@ -19,12 +19,14 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execActivateTeleporter); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterTwo); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterOne);
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execActivateTeleporter); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterTwo); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterOne);
 

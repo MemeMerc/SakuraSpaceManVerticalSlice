@@ -41,13 +41,12 @@ ATeleporter_CPP::ATeleporter_CPP()
 	TeleporterTwoCollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
 	TeleporterTwoCollisionBox->SetCollisionProfileName("TeleporterTwoTrigger");
 
-	//TeleporterOneLocation = 
-	//TeleporterTwoLocation = TeleporterTwoMesh->GetRelativeLocation();
-
+	// Bind collision functions to the collision boxes.
 	TeleporterOneCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterOne);
 	TeleporterTwoCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterTwo);
 
 	bCanTeleport = true;
+
 }
 
 // Called when the game starts or when spawned
@@ -68,10 +67,12 @@ void ATeleporter_CPP::OnOverlapBeginTeleporterOne(class UPrimitiveComponent* Ove
 {
 	if (OtherComp->ComponentHasTag("Player") && bCanTeleport)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides One");
 		bCanTeleport = false;
+		// Change Players location.
 		OtherComp->GetAttachmentRootActor()->SetActorLocation(TeleporterTwolocation->GetComponentLocation());
-		
+
+		// Start Timer.
+		GetWorld()->GetTimerManager().SetTimer(TeleportTimerHandle, this, &ATeleporter_CPP::ActivateTeleporter, fDelayTime, false);	
 	}
 }
 
@@ -79,11 +80,20 @@ void ATeleporter_CPP::OnOverlapBeginTeleporterTwo(class UPrimitiveComponent* Ove
 {
 	if (OtherComp->ComponentHasTag("Player") && bCanTeleport)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides Two");
 		bCanTeleport = false;
+		// Change Players location.
 		OtherComp->GetAttachmentRootActor()->SetActorLocation(TeleporterOnelocation->GetComponentLocation());
 		
+		// Start Timer.
+		GetWorld()->GetTimerManager().SetTimer(TeleportTimerHandle, this, &ATeleporter_CPP::ActivateTeleporter, fDelayTime, false);
 	}
+}
 
-	
+void ATeleporter_CPP::ActivateTeleporter()
+{
+	// Clear timer.
+	GetWorld()->GetTimerManager().ClearTimer(TeleportTimerHandle);
+	bCanTeleport = true;
+
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Can teleport");
 }

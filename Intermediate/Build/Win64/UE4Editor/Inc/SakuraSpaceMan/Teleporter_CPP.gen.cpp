@@ -23,6 +23,13 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ATeleporter_CPP::execActivateTeleporter)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateTeleporter();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ATeleporter_CPP::execOnOverlapBeginTeleporterTwo)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp);
@@ -53,10 +60,35 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 	{
 		UClass* Class = ATeleporter_CPP::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateTeleporter", &ATeleporter_CPP::execActivateTeleporter },
 			{ "OnOverlapBeginTeleporterOne", &ATeleporter_CPP::execOnOverlapBeginTeleporterOne },
 			{ "OnOverlapBeginTeleporterTwo", &ATeleporter_CPP::execOnOverlapBeginTeleporterTwo },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Set bCanTeleport to trues\n" },
+		{ "ModuleRelativePath", "Public/Teleporter_CPP.h" },
+		{ "ToolTip", "Set bCanTeleport to trues" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATeleporter_CPP, nullptr, "ActivateTeleporter", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ATeleporter_CPP_OnOverlapBeginTeleporterOne_Statics
 	{
@@ -251,6 +283,10 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TeleporterTwoCollisionBox_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TeleporterTwoCollisionBox;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_fDelayTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_fDelayTime;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -260,6 +296,7 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ATeleporter_CPP_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ATeleporter_CPP_ActivateTeleporter, "ActivateTeleporter" }, // 970870404
 		{ &Z_Construct_UFunction_ATeleporter_CPP_OnOverlapBeginTeleporterOne, "OnOverlapBeginTeleporterOne" }, // 1327866658
 		{ &Z_Construct_UFunction_ATeleporter_CPP_OnOverlapBeginTeleporterTwo, "OnOverlapBeginTeleporterTwo" }, // 86177476
 	};
@@ -309,11 +346,21 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterTwoCollisionBox = { "TeleporterTwoCollisionBox", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATeleporter_CPP, TeleporterTwoCollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterTwoCollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterTwoCollisionBox_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_fDelayTime_MetaData[] = {
+		{ "Category", "Teleporter_CPP" },
+		{ "Comment", "// Delay between teleports.\n" },
+		{ "ModuleRelativePath", "Public/Teleporter_CPP.h" },
+		{ "ToolTip", "Delay between teleports." },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_fDelayTime = { "fDelayTime", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATeleporter_CPP, fDelayTime), METADATA_PARAMS(Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_fDelayTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_fDelayTime_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATeleporter_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterOneMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterTwoMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterOneCollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_TeleporterTwoCollisionBox,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATeleporter_CPP_Statics::NewProp_fDelayTime,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ATeleporter_CPP_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ATeleporter_CPP>::IsAbstract,
@@ -342,7 +389,7 @@ void EmptyLinkFunctionForGeneratedCodeTeleporter_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATeleporter_CPP, 3915696315);
+	IMPLEMENT_CLASS(ATeleporter_CPP, 50988319);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ATeleporter_CPP>()
 	{
 		return ATeleporter_CPP::StaticClass();

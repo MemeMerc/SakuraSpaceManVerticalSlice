@@ -34,6 +34,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* TeleporterTwoCollisionBox;
 
+	// Delay between teleports.
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	float fDelayTime = 2.f;
+
 	// Collison function for teleporter one.
 	UFUNCTION()
 	void OnOverlapBeginTeleporterOne(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -42,15 +46,20 @@ public:
 	UFUNCTION()
 	void OnOverlapBeginTeleporterTwo(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-
+	// Set bCanTeleport to trues
+	UFUNCTION()
+	void ActivateTeleporter();
 
 protected:
 	// Called when the game starts or when spawned.
 	virtual void BeginPlay() override;
 
+	// Init Teleport Locations.
 	USceneComponent* TeleporterOnelocation;
 	USceneComponent* TeleporterTwolocation;
 
 	bool bCanTeleport;
 
+	// TimerHandle
+	FTimerHandle TeleportTimerHandle;
 };
