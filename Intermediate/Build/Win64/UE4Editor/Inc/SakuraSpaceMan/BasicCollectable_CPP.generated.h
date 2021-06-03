@@ -19,11 +19,13 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
