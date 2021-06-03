@@ -32,6 +32,33 @@ APlayer_CPP::APlayer_CPP()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 
+	//Initiate Variables
+
+	bIsSprinting = false;	
+	bIsMoving = false;		 
+	bIsForward = false;	
+	bIsGrappleArrayEmpty = true;
+	bIsReelingIn = false;
+	bIsBoosting = false;
+
+	iJumpAmount = 0;
+
+	fFriction = 0.8f;
+
+	fCameraClamp = 0.3f;
+
+	iMaxJumpAmount = 2;
+
+	fDashSpeed = 8000.f;
+	vPrevSpeed = 0;
+
+	fDashCooldown = 0.5f;
+	bHasDashed = false;
+
+	fInitVel = 0;
+
+	bGrappleFlipFlop = true;
+
 	//Define Movement Stages
 
 	//Platforming Mode
@@ -39,7 +66,7 @@ APlayer_CPP::APlayer_CPP()
 	fMaxAcceleration.Add(2024.f);
 
 	//Sprinting Mode
-	fMaxSpeed.Add(6000.f);
+	fMaxSpeed.Add(4000.f);
 	fMaxAcceleration.Add(800.f);
 
 	// Configure character movement
@@ -49,8 +76,9 @@ APlayer_CPP::APlayer_CPP()
 	GetCharacterMovement()->AirControl = 1.f;
 	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
 	GetCharacterMovement()->GravityScale = 3.f;
-	GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+	//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+	GetCharacterMovement()->JumpZVelocity = 1300;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -177,6 +205,11 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 			break;
 		}
 		bIsBoosting = false;
+	}
+
+	if (GetCharacterMovement()->IsFalling())
+	{
+		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
 	}
 
 	//Debug Stuff//
@@ -381,7 +414,7 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 	{
 
 		Super::Landed(Hit);
-
+		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
 	}
 
@@ -566,9 +599,10 @@ void APlayer_CPP::GrappleDeactivate()
 	if (bIsReelingIn && !bGrappleFlipFlop)
 	{
 		//Give Player slight boost at end of grapple
+		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
 		GetCharacterMovement()->Velocity = FVector(0.f);
-		if (bHasDashed)
+		if (bHasDashed || SelectedGrapplePoint->GetLaunch())
 		{
 			GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[1] * 0.5));
 			bHasDashed = false;
@@ -581,10 +615,11 @@ void APlayer_CPP::GrappleDeactivate()
 		//Stop Timer
 		GetWorldTimerManager().ClearTimer(GrappleTimer);
 		//Widget Visibility
-		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		SelectedGrapplePoint->SetWidgetVisibility(false);
 		aSelectedGrapplePoint = nullptr;
 		bIsReelingIn = false;
 	}
 	bGrappleFlipFlop = true;
 }
+
+

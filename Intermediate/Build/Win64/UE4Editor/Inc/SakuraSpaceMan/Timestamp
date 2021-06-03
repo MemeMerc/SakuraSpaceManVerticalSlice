@@ -1,6 +1,8 @@
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\Public\EndPoint_CPP.h
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\Public\Player_CPP.h
-D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Player_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\EndPoint_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Teleporter_CPP.h
