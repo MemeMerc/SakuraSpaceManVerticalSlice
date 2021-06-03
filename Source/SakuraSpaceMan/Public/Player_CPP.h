@@ -1,5 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+//Player was created and coded by Lucas Mcalpine 
 #pragma once
 
 #include "CoreMinimal.h"
@@ -86,34 +86,34 @@ protected:
 	//VARIABLES
 
 
-	int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
+	//int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
 
-	bool bIsSprinting = false;	//Is Using the Sprint Function.
+	bool bIsSprinting;	//Is Using the Sprint Function.
 
-	bool bIsMoving = false;		//Is Moving In A Direction.
+	bool bIsMoving;		//Is Moving In A Direction.
 
-	bool bIsForward = false;	//Has Pressed the Move Forward Key (W)
+	bool bIsForward;	//Has Pressed the Move Forward Key (W)
 	
-	bool bIsGrappleArrayEmpty = true;
-	bool bIsReelingIn = false;
+	bool bIsGrappleArrayEmpty;
+	bool bIsReelingIn; 
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	bool bIsBoosting = false;
+	bool bIsBoosting;
 
 
-	int iJumpAmount = 0;	//Number of Jumps Made.
+	int iJumpAmount;	//Number of Jumps Made.
 	
 	float fLocalDeltaTime;
 
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fFriction = 0.8f;		//Ground Friction
+	float fFriction;		//Ground Friction
 	//Camera Turn Speed
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fCameraClamp = 0.3f;	//Camera Move Friction
+	float fCameraClamp;	//Camera Move Friction
 	//Jump Amount (Double Jump)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	int iMaxJumpAmount = 2;		//Maximum Jump Count
+	int iMaxJumpAmount;		//Maximum Jump Count
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	TArray<float> fMaxSpeed;	//Uses iCurrentSpeed variable to iterate through Max Speeds.
@@ -122,13 +122,13 @@ protected:
 	TArray<float> fMaxAcceleration;		//Uses iCurrentSpeed variable to iterate through Max Accelerations.
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fDashSpeed = 8000.f;			//Dash Speed modifier
-	float vPrevSpeed = 0;
+	float fDashSpeed;			//Dash Speed modifier
+	float vPrevSpeed;
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fDashCooldown = 0.5f;		//seconds
-	bool bHasDashed= false;
+	float fDashCooldown;		//seconds
+	bool bHasDashed;
 
 	FTimerHandle DashTimer;
 	FTimerHandle DashResetTimer;
@@ -141,9 +141,9 @@ protected:
 	float *fCurrentMaxReelSpeed;
 	float fMaxReelDashSpeed;
 
-	float fInitVel = 0;
+	float fInitVel;
 	FVector LaunchVector;
-	bool bGrappleFlipFlop = true;
+	bool bGrappleFlipFlop;
 
 	FVector2D v2d = FVector2D(0.f);
 
