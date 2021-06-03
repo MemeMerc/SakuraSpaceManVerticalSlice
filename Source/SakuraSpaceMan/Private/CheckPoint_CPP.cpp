@@ -24,9 +24,6 @@ ACheckPoint_CPP::ACheckPoint_CPP()
 	CollisionBox->SetCollisionProfileName("Trigger");
 
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ACheckPoint_CPP::OnOverlapBegin);
-
-	// Cast to gamemode
-	GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 }
 
 // Called when the game starts or when spawned
@@ -34,6 +31,11 @@ void ACheckPoint_CPP::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	if (GameMode == nullptr)
+	{
+		// Cast to gamemode
+		GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	}
 }
 
 // Called every frame
@@ -59,6 +61,7 @@ void ACheckPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, 
 		{
 			// Pass respawn location to game mode to store.
 			GameMode->SetRespawnLocation(RespawnLocation);
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, RespawnLocation.ToString());
 		}
 	}
 	
