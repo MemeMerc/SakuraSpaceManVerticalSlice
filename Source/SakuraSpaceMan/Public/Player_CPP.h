@@ -96,7 +96,9 @@ protected:
 	
 	bool bIsGrappleArrayEmpty = true;
 	bool bIsReelingIn = false;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	bool bIsBoosting = false;
 
 
 	int iJumpAmount = 0;	//Number of Jumps Made.
@@ -135,6 +137,10 @@ protected:
 	
 	TArray<AActor*> aGrapplePoints;
 	AActor* aSelectedGrapplePoint;
+
+	float *fCurrentMaxReelSpeed;
+	float fMaxReelDashSpeed;
+
 	float fInitVel = 0;
 	FVector LaunchVector;
 	bool bGrappleFlipFlop = true;
