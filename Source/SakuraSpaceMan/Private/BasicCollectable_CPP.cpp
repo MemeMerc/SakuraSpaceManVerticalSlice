@@ -14,6 +14,7 @@ ABasicCollectable_CPP::ABasicCollectable_CPP()
 
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	Mesh->SetGenerateOverlapEvents(true);
 	RootComponent = Mesh;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComonent"));
@@ -22,6 +23,8 @@ ABasicCollectable_CPP::ABasicCollectable_CPP()
 	CollisionBox->SetCollisionProfileName("Trigger");
 
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ABasicCollectable_CPP::OnOverlapBegin);
+	Mesh->OnComponentBeginOverlap.AddDynamic(this, &ABasicCollectable_CPP::MeshOverlapBegin);
+	
 }
 
 // Called when the game starts or when spawned
@@ -58,7 +61,23 @@ void ABasicCollectable_CPP::Tick(float DeltaTime)
 void ABasicCollectable_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
-	Target = OtherActor;
+	if (OtherComp->ComponentHasTag("Player"))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
+		Target = OtherComp->GetAttachmentRootActor();
+	}
 }
 
+void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	
+	if (OtherComp->ComponentHasTag("Player"))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Destroy Collictable");
+
+		// Do stuff here to "Collect" it.
+
+		Destroy();
+		
+	}
+}
