@@ -4,12 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+<<<<<<< HEAD
+=======
+#include "SakuraSpaceManGameModeBase.h"
+>>>>>>> main
 #include "CheckPoint_CPP.generated.h"
 
 UCLASS()
 class SAKURASPACEMAN_API ACheckPoint_CPP : public AActor
 {
 	GENERATED_BODY()
+<<<<<<< HEAD
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -24,11 +29,40 @@ class SAKURASPACEMAN_API ACheckPoint_CPP : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACheckPoint_CPP();
+=======
+	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+public:	
+	// Sets default values for this actor's properties
+	ACheckPoint_CPP();
+
+	// Set mesh
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		UStaticMeshComponent* Mesh;
+
+	// Set Box Collision
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UBoxComponent* CollisionBox;
+
+	// Collison function
+	UFUNCTION()
+	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+>>>>>>> main
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+<<<<<<< HEAD
 	FVector RespawnPoint;
+=======
+	// Init game mode
+	ASakuraSpaceManGameModeBase* GameMode;
+
+	// Init location Vector
+	FVector RespawnLocation;
+>>>>>>> main
 
 };

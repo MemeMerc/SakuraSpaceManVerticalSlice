@@ -1,8 +1,14 @@
 {
 	"SourceFiles": [
+<<<<<<< HEAD
 		"C:\\Users\\User\\Desktop\\Prototypes\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
 		"C:\\Users\\User\\Desktop\\Prototypes\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan.Target.cs",
 		"C:\\Users\\User\\Desktop\\Prototypes\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceManEditor.Target.cs"
+=======
+		"D:\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
+		"D:\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan.Target.cs",
+		"D:\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceManEditor.Target.cs"
+>>>>>>> main
 	],
 	"EngineVersion": "4.26.2"
 }

@@ -27,16 +27,19 @@ public:
 	class UBoxComponent* CollisionBox;
 
 	// Target To follow.
-	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "Move To")
+	UPROPERTY(EditAnywhere, Category = "Move To")
 	//class UPrimitiveComponent* Target;
 	class AActor* Target;
 
 	// Speed To Move At.
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Move To")
+	UPROPERTY(EditAnywhere, Category = "Move To")
 	float fSpeed = 10.f;
 
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void MeshOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 protected:
 	// Called when the game starts or when spawned

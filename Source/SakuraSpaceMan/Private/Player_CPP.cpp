@@ -16,7 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "GrappleLocation_CPP.h"
 #include "TimerManager.h"
-
+#include "SakuraSpaceManGameModeBase.h"
 
 // Sets default values TEST
 APlayer_CPP::APlayer_CPP()
@@ -111,6 +111,11 @@ APlayer_CPP::APlayer_CPP()
 void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
+
+
+	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	GameMode->SetRespawnLocation(GetActorLocation());
+
 }
 
 // Called every frame

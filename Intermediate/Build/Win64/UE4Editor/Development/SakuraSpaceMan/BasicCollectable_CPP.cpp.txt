@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\BasicCollectable_CPP.generated.h
@@ -5,3 +6,12 @@ E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
 E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
 E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+=======
+D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
+D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\BasicCollectable_CPP.generated.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+>>>>>>> main

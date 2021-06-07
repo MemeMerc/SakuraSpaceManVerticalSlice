@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\SakuraSpaceMan.h
+=======
+D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\SakuraSpaceMan.h
+>>>>>>> main
