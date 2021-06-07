@@ -1,3 +1,7 @@
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\FallingPlatform_CPP.h
 C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\FallingPlatform_CPP.generated.h
+E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+E:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+E:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
