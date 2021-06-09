@@ -1,5 +1,5 @@
-D:\Users\MDS00000VG\Documents\GitHub\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\Users\MDS00000VG\Documents\GitHub\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan/Public/EndPoint_CPP.h
-D:\Users\MDS00000VG\Documents\GitHub\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\EndPoint_CPP.generated.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+E:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan/Public/EndPoint_CPP.h
+C:\Users\User\Desktop\Prototypes\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\EndPoint_CPP.generated.h
