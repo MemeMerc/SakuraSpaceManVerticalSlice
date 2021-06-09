@@ -84,10 +84,9 @@ protected:
 	float FindDistanceToCenterScreen(AActor* _aActor);
 
 	UFUNCTION(BlueprintCallable, Category = Properties)
-	AActor* ReturnGrapple()
-	{
-		return(aSelectedGrapplePoint);
-	}
+	AActor* ReturnGrapple();
+
+
 	//VARIABLES
 
 

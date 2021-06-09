@@ -199,6 +199,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	if (bIsBoosting && (GetCharacterMovement()->Velocity.Size() < fMaxSpeed[1]))
 	{
+		//Ternary Operator?
 		switch (bIsSprinting)
 		{
 		case true:
@@ -248,13 +249,13 @@ float APlayer_CPP::FindDistanceToCenterScreen(AActor* _aActor)
 	float fResultLength;
 	int iViewportX;
 	int iViewportY;
-
+	//More commenting
 	AGrappleLocation_CPP* GrapplePoint = Cast<AGrappleLocation_CPP>(_aActor);
 	PlayerController->GetViewportSize(iViewportX, iViewportY);
 	vViewportDimensions = FVector2D(iViewportX, iViewportY);
 	PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc());
 
-	vResultVector = (vViewportDimensions /2) - *GrapplePoint->GetScreenLoc();
+	vResultVector = (vViewportDimensions *0.5f) - *GrapplePoint->GetScreenLoc();
 	fResultLength = vResultVector.Size();
 	return(fResultLength);
 }
@@ -408,7 +409,9 @@ void APlayer_CPP::Jump()
 		{
 			float fMaxJump = GetCharacterMovement()->MaxWalkSpeed + 1000.f;
 		
-			FVector vJump = FVector(FMath::Clamp(GetCharacterMovement()->Velocity.X*1.5f, -fMaxJump, fMaxJump), FMath::Clamp(GetCharacterMovement()->Velocity.Y*1.5f, -fMaxJump, fMaxJump), GetCharacterMovement()->JumpZVelocity);
+			FVector vJump = FVector(FMath::Clamp(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size(), -fMaxJump, fMaxJump), 
+					FMath::Clamp(this->GetActorForwardVector().Y * GetCharacterMovement()->Velocity.Size(), -fMaxJump, fMaxJump),
+					GetCharacterMovement()->JumpZVelocity);
 		
 			GetCharacterMovement()->Launch(vJump);
 			iJumpAmount++;
@@ -447,33 +450,24 @@ void APlayer_CPP::Sprint()
 	//Move up speed rank and adjust associated varibles.
 	if ((Controller != nullptr) && !bIsReelingIn)
 	{
-		switch (bIsSprinting)
-		{
-		case true:
-		
-			bIsSprinting = false;
-			//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
-			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
-			break;
-		case false:
-		
-			bIsSprinting = true;
-			GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
-			break;
-		}
+		bIsSprinting = true;
+		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
 	}
 }
 //Stop Sprinting
 void APlayer_CPP::StopSprinting()
 {
-
-	
-
+	if ((Controller != nullptr) && !bIsReelingIn)
+	{
+		bIsSprinting = false;
+		//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
+		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
+	}
 
 }
 
@@ -489,13 +483,15 @@ void APlayer_CPP::DashForward()
 		//Store Players Current Speed before dash.
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		//Reset players speed to previous speed
-		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
+		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable
+		{
 
 			_GetCMC->Launch(_ForwardVec* _vel);
 			
 		});
 		//Allow player to dash again.
-		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable{
+		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable
+		{
 
 			
 			*_HasDashed = false;
@@ -634,4 +630,8 @@ void APlayer_CPP::GrappleDeactivate()
 	bGrappleFlipFlop = true;
 }
 
-
+//Returns the current selected grapple point. Blueprint callable event.
+AActor* APlayer_CPP::ReturnGrapple()
+{
+	return(aSelectedGrapplePoint);
+}
