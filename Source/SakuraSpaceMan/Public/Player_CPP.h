@@ -83,6 +83,11 @@ protected:
 
 	float FindDistanceToCenterScreen(AActor* _aActor);
 
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	AActor* ReturnGrapple()
+	{
+		return(aSelectedGrapplePoint);
+	}
 	//VARIABLES
 
 
@@ -95,15 +100,22 @@ protected:
 	bool bIsForward;	//Has Pressed the Move Forward Key (W)
 	
 	bool bIsGrappleArrayEmpty;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	bool bIsReelingIn; 
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+
 	bool bIsBoosting;
+
 
 
 	int iJumpAmount;	//Number of Jumps Made.
 	
 	float fLocalDeltaTime;
+
+	float fGravityScale;
+	float fGlideGravityScale;
 
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
@@ -136,6 +148,7 @@ protected:
 	
 	
 	TArray<AActor*> aGrapplePoints;
+	
 	AActor* aSelectedGrapplePoint;
 
 	float *fCurrentMaxReelSpeed;
