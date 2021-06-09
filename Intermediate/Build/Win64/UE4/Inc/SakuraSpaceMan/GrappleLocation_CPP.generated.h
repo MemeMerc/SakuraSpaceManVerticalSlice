@@ -69,7 +69,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGrappleLocation_CPP); \
 #define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SphereGrappleLocation() { return STRUCT_OFFSET(AGrappleLocation_CPP, SphereGrappleLocation); } \
 	FORCEINLINE static uint32 __PPO__vScreenLocation() { return STRUCT_OFFSET(AGrappleLocation_CPP, vScreenLocation); } \
-	FORCEINLINE static uint32 __PPO__fScreenLength() { return STRUCT_OFFSET(AGrappleLocation_CPP, fScreenLength); }
+	FORCEINLINE static uint32 __PPO__fScreenLength() { return STRUCT_OFFSET(AGrappleLocation_CPP, fScreenLength); } \
+	FORCEINLINE static uint32 __PPO__bCanLaunchFurther() { return STRUCT_OFFSET(AGrappleLocation_CPP, bCanLaunchFurther); }
 
 
 #define SSM_VS_Source_SakuraSpaceMan_Public_GrappleLocation_CPP_h_10_PROLOG \
