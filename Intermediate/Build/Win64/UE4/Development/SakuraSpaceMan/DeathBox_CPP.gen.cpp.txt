@@ -1,0 +1,19 @@
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan/Public/DeathBox_CPP.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\Player_CPP.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\Character.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\Player_CPP.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\DeathBox_CPP.generated.h

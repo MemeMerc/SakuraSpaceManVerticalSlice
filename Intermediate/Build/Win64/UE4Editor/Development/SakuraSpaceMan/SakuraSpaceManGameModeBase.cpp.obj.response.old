@@ -266,7 +266,7 @@
 /FI"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /Yu"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /Fp"C:\Github\Test\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Github\Test\Source\SakuraSpaceMan\SakuraSpaceManGameModeBase.cpp"
+"C:\Github\Test\Source\SakuraSpaceMan\Private\SakuraSpaceManGameModeBase.cpp"
 /FI"C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h"
 /Fo"C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\SakuraSpaceManGameModeBase.cpp.obj"
 /TP
