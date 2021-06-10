@@ -19,11 +19,13 @@ struct FHitResult;
 #define SSM_VS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
 #define SSM_VS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define SSM_VS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 

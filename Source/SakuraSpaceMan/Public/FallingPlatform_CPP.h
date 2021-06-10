@@ -18,6 +18,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere)
+	float fDelayTime = 2.f;
+
+	UPROPERTY(EditAnywhere)
+	float fResetTime = 2.f;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 	// Set mesh
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* Mesh;
@@ -26,26 +36,19 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
 
-	UPROPERTY(EditAnywhere)
-	float fDelayTime = 2.f;
-
-	UPROPERTY(EditAnywhere)
-	float fResetTime = 2.f;
-
-	// Collison function
-	UFUNCTION()
-	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 	FVector PlatformLocation;
 
 	// TimerHandle
 	FTimerHandle FallingTimerHandle;
 	FTimerHandle ResetTimerHandle;
 
+	//Functions
+
 	void PlatformFall();
 	void PlatformReset();
+
+	// Collison function
+	UFUNCTION()
+	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
 };

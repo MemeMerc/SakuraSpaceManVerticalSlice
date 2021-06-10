@@ -13,35 +13,36 @@ AEndPoint_CPP::AEndPoint_CPP()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Creaete a mesh component for this actor.
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = Mesh;
 
+	// Create a collision box for this actor.
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComonent"));
 	CollisionBox->SetupAttachment(Mesh);
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
 	CollisionBox->SetCollisionProfileName("Trigger");
 
+	// Bind collision functions to the collision box.
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AEndPoint_CPP::OnOverlapBegin);
-	CollisionBox->OnComponentEndOverlap.AddDynamic(this, &AEndPoint_CPP::OnOverlapEnd);
-
 }
 
 // Called when the game starts or when spawned
 void AEndPoint_CPP::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 // Called every frame
 void AEndPoint_CPP::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
+// Overlap event that checks if the player is overlaping, if true it creates the gameover widget and adds it to the screen.
 void AEndPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	// Check that the player is overlaping.
 	if (OtherComp->ComponentHasTag(TEXT("Player")))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Player Collides");
@@ -57,9 +58,4 @@ void AEndPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, cl
 	}
 
 
-}
-
-void AEndPoint_CPP::OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Overlap End");
 }

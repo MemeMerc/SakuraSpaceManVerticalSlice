@@ -24,6 +24,13 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(APlayer_CPP::execReturnGrapple)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(AActor**)Z_Param__Result=P_THIS->ReturnGrapple();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayer_CPP::execGrapple_OnOverlapEnd)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp);
@@ -54,6 +61,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Grapple_OnBeginOverlap", &APlayer_CPP::execGrapple_OnBeginOverlap },
 			{ "Grapple_OnOverlapEnd", &APlayer_CPP::execGrapple_OnOverlapEnd },
+			{ "ReturnGrapple", &APlayer_CPP::execReturnGrapple },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -202,6 +210,39 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics
+	{
+		struct Player_CPP_eventReturnGrapple_Parms
+		{
+			AActor* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player_CPP_eventReturnGrapple_Parms, ReturnValue), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "ReturnGrapple", nullptr, nullptr, sizeof(Player_CPP_eventReturnGrapple_Parms), Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_ReturnGrapple()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_APlayer_CPP_NoRegister()
 	{
 		return APlayer_CPP::StaticClass();
@@ -225,6 +266,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GrappleCollisionSphere_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrappleCollisionSphere;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsReelingIn_MetaData[];
+#endif
+		static void NewProp_bIsReelingIn_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsReelingIn;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsBoosting_MetaData[];
 #endif
@@ -271,6 +317,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer_CPP_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
+		{ &Z_Construct_UFunction_APlayer_CPP_ReturnGrapple, "ReturnGrapple" }, // 2298195885
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::Class_MetaDataParams[] = {
@@ -312,6 +359,18 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere = { "GrappleCollisionSphere", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerMovement" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_SetBit(void* Obj)
+	{
+		((APlayer_CPP*)Obj)->bIsReelingIn = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn = { "bIsReelingIn", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayer_CPP), &Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -398,6 +457,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_Camera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp,
@@ -436,7 +496,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 161210783);
+	IMPLEMENT_CLASS(APlayer_CPP, 3727478660);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

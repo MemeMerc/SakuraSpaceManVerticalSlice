@@ -20,6 +20,7 @@ ADeathBox_CPP::ADeathBox_CPP()
 	CollisionBox->SetCollisionProfileName("Trigger");
 	RootComponent = CollisionBox;
 
+	// Bind collision function.
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ADeathBox_CPP::OnOverlapBegin);
 }
 
@@ -37,15 +38,20 @@ void ADeathBox_CPP::Tick(float DeltaTime)
 
 }
 
+// Overlap event that checks if the overlaped actor is the player, this function then calls to game mode to respawn the player.
 void ADeathBox_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (GameMode == nullptr)
-	{
-		GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	}
-
+	// Check if it was the player that was overlaping
 	if (OtherComp->ComponentHasTag("Player"))
 	{
+		// Check if the game mode has been found.
+		if (GameMode == nullptr)
+		{
+			// Cast to the game mode in this world.
+			GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+		}
+
+		// Call the respawn function from gamemode, and pass in the player charater.
 		GameMode->Respawn(OtherActor);
 	}
 
