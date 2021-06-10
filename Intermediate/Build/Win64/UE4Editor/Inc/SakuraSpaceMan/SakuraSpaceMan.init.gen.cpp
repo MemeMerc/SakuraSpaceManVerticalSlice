@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceMan_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x79E1AE0A,
+				0xF9F53C8D,
 				0x3F12AA82,
 				METADATA_PARAMS(nullptr, 0)
 			};
