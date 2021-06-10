@@ -16,18 +16,18 @@ struct FHitResult;
 #endif
 #define SAKURASPACEMAN_CheckPoint_CPP_generated_h
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS_NO_PURE_DECLS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACheckPoint_CPP(); \
 	friend struct Z_Construct_UClass_ACheckPoint_CPP_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(ACheckPoint_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesACheckPoint_CPP(); \
 	friend struct Z_Construct_UClass_ACheckPoint_CPP_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(ACheckPoint_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_STANDARD_CONSTRUCTORS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACheckPoint_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACheckPoint_CPP) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_ENHANCED_CONSTRUCTORS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACheckPoint_CPP(ACheckPoint_CPP&&); \
@@ -69,32 +69,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACheckPoint_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACheckPoint_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ACheckPoint_CPP, Mesh); } \
-	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ACheckPoint_CPP, CollisionBox); }
-
-
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_10_PROLOG
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_GENERATED_BODY_LEGACY \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_10_PROLOG
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_STANDARD_CONSTRUCTORS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_GENERATED_BODY \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_ENHANCED_CONSTRUCTORS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_SPARSE_DATA \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_INCLASS_NO_PURE_DECLS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -102,7 +98,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class ACheckPoint_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h
+#define CURRENT_FILE_ID SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

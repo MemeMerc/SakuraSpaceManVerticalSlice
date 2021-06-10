@@ -1,7 +1,7 @@
-D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\Users\mds000019a\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
-D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\MoveingPlatform_CPP.generated.h
-D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
-D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
-D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+D:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
+D:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\MoveingPlatform_CPP.generated.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
