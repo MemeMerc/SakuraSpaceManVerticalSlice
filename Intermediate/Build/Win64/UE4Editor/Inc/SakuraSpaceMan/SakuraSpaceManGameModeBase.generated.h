@@ -13,18 +13,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SAKURASPACEMAN_SakuraSpaceManGameModeBase_generated_h
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetPlayersScore);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetPlayersScore);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASakuraSpaceManGameModeBase(); \
 	friend struct Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(ASakuraSpaceManGameModeBase)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesASakuraSpaceManGameModeBase(); \
 	friend struct Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ASakuraSpaceManGameModeBase)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASakuraSpaceManGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASakuraSpaceManGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -68,28 +68,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY_LEGACY \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY \
+#define Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -97,7 +97,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class ASakuraSpaceManGameModeBase>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h
+#define CURRENT_FILE_ID Test_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

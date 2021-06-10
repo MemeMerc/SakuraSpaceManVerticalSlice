@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\Users\\mds000019a\\Documents\\GitHub\\SSMVS\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
-		"D:\\Users\\mds000019a\\Documents\\GitHub\\SSMVS\\Source\\SakuraSpaceMan.Target.cs",
-		"D:\\Users\\mds000019a\\Documents\\GitHub\\SSMVS\\Source\\SakuraSpaceManEditor.Target.cs"
+		"C:\\Github\\Test\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
+		"C:\\Github\\Test\\Source\\SakuraSpaceMan.Target.cs",
+		"C:\\Github\\Test\\Source\\SakuraSpaceManEditor.Target.cs"
 	],
 	"EngineVersion": "4.26.2"
 }
