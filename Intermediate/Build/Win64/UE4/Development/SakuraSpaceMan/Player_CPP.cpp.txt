@@ -49,3 +49,9 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engi
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameplayStatics.generated.h
 C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
 C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\GrappleLocation_CPP.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
