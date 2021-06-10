@@ -1,5 +1,5 @@
-D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan/Public/Teleporter_CPP.h
-D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\Teleporter_CPP.generated.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan/Public/Teleporter_CPP.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\Teleporter_CPP.generated.h
