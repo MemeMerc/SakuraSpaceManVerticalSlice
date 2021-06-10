@@ -1,2 +1,2 @@
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\SakuraSpaceMan.h
+D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Users\mds000019a\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\SakuraSpaceMan.h
