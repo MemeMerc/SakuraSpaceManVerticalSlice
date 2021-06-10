@@ -1,10 +1,11 @@
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\EndPoint_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\Player_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\FallingPlatform_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\DeathBox_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\Teleporter_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\EndPoint_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\FallingPlatform_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GameHudWid_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\MoveingPlatform_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Player_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Teleporter_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\DeathBox_CPP.h
+D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h

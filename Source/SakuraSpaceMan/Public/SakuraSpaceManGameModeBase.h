@@ -17,6 +17,8 @@ class SAKURASPACEMAN_API ASakuraSpaceManGameModeBase : public AGameModeBase
 
 public:
 
+	virtual void BeginPlay() override;
+
 	// Set respwn location of the player.
 	void SetRespawnLocation(FVector _RespawnLocation);
 	// Return respawn location of the player.
@@ -29,7 +31,10 @@ public:
 
 	// Get the Players Score.
 	UFUNCTION(BlueprintCallable)
-	int GetPlayersScore() const;
+		int GetPlayersScore() const;
+
+	UFUNCTION(BlueprintImplementableEvent)
+		int UpdateScore(int _PlayersScore);
 
 protected:
 
@@ -41,4 +46,6 @@ protected:
 
 	// Players Score
 	int PlayersScore;
+
+	class UGameHudWid_CPP* GameHudWid;
 };

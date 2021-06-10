@@ -3,6 +3,21 @@
 
 #include "SakuraSpaceManGameModeBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Blueprint/UserWidget.h"
+#include "GameHudWid_CPP.h"
+
+
+
+void ASakuraSpaceManGameModeBase::BeginPlay()
+{
+	//Super::BeginPlay();
+
+	GameHudWid = CreateWidget<UGameHudWid_CPP>(GetWorld());
+
+	GameHudWid->AddToViewport();
+
+
+}
 
 // Set the respawm locaton of the player.
 void ASakuraSpaceManGameModeBase::SetRespawnLocation(FVector _RespawnLocation)
