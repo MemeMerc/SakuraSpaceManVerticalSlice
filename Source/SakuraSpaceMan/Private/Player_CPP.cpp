@@ -42,6 +42,8 @@ APlayer_CPP::APlayer_CPP()
 	bIsBoosting = false;
 
 	iJumpAmount = 0;
+	bIsJumping = false;
+
 
 	fFriction = 0.5f;
 
@@ -54,6 +56,7 @@ APlayer_CPP::APlayer_CPP()
 
 	fDashCooldown = 0.5f;
 	bHasDashed = false;
+
 
 	fInitVel = 0;
 
@@ -403,6 +406,7 @@ void APlayer_CPP::Jump()
 		{
 			ACharacter::Jump();
 			iJumpAmount++;
+			bIsJumping = true;
 		}
 		//Allow player to make a second jump while in the air.
 		else if (iJumpAmount < iMaxJumpAmount)
@@ -415,6 +419,7 @@ void APlayer_CPP::Jump()
 		
 			GetCharacterMovement()->Launch(vJump);
 			iJumpAmount++;
+			bIsJumping = true;
 		}
 	}
 }
@@ -429,6 +434,7 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 		Super::Landed(Hit);
 		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
+		bIsJumping = false;
 	}
 
 }
@@ -634,4 +640,9 @@ void APlayer_CPP::GrappleDeactivate()
 AActor* APlayer_CPP::ReturnGrapple()
 {
 	return(aSelectedGrapplePoint);
+}
+//Returns whether the player is jumping.
+bool APlayer_CPP::GetIsJumping()
+{
+	return(bIsJumping);
 }
