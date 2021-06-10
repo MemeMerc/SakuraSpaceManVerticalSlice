@@ -73,7 +73,14 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATeleporter_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATeleporter_CPP)
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TeleporterMesh_One() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterMesh_One); } \
+	FORCEINLINE static uint32 __PPO__TeleporterMesh_Two() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterMesh_Two); } \
+	FORCEINLINE static uint32 __PPO__TeleporterCollisionBox_One() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterCollisionBox_One); } \
+	FORCEINLINE static uint32 __PPO__TeleporterCollisionBox_Two() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterCollisionBox_Two); } \
+	FORCEINLINE static uint32 __PPO__fDelayTime() { return STRUCT_OFFSET(ATeleporter_CPP, fDelayTime); }
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_9_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

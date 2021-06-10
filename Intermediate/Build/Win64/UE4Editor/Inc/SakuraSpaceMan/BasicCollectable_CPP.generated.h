@@ -19,11 +19,13 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
@@ -69,7 +71,12 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABasicCollectable_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ABasicCollectable_CPP)
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ABasicCollectable_CPP, Mesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ABasicCollectable_CPP, CollisionBox); } \
+	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ABasicCollectable_CPP, Target); }
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_9_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

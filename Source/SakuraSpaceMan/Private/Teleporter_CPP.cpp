@@ -15,36 +15,39 @@ ATeleporter_CPP::ATeleporter_CPP()
 	// Create deafult sceene root.
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
 
-	TeleporterOnelocation = CreateDefaultSubobject<USceneComponent>(TEXT("TeleporterOnelocation"));
-	TeleporterTwolocation = CreateDefaultSubobject<USceneComponent>(TEXT("TeleporterTwolocation"));
+	// Set the teleport locations.
+	Teleporterlocation_One = CreateDefaultSubobject<USceneComponent>(TEXT("Teleporterlocation_One"));
+	Teleporterlocation_Two = CreateDefaultSubobject<USceneComponent>(TEXT("Teleporterlocation_Two"));
 
 	// Set up meshes.
-	TeleporterOneMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TeleporterOneMesh"));
-	TeleporterTwoMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TeleporterTwoMesh"));
+	TeleporterMesh_One = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TeleporterMesh_One"));
+	TeleporterMesh_Two = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TeleporterMesh_Two"));
 
-	TeleporterOneMesh->SetupAttachment(RootComponent);
-	TeleporterTwoMesh->SetupAttachment(RootComponent);
+	// Attach the meshes the the root component.
+	TeleporterMesh_One->SetupAttachment(RootComponent);
+	TeleporterMesh_Two->SetupAttachment(RootComponent);
 
-	// Location to teleport too.
-	TeleporterOnelocation->SetupAttachment(TeleporterOneMesh);
-	TeleporterTwolocation->SetupAttachment(TeleporterTwoMesh);
+	// bind location to teleport too to its teleporter mesh.
+	Teleporterlocation_One->SetupAttachment(TeleporterMesh_One);
+	Teleporterlocation_Two->SetupAttachment(TeleporterMesh_Two);
 
 	// Set teleporter one collision box.
-	TeleporterOneCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("TeleporterOneCollisionBox"));
-	TeleporterOneCollisionBox->SetupAttachment(TeleporterOneMesh);
-	TeleporterOneCollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
-	TeleporterOneCollisionBox->SetCollisionProfileName("TeleporterOneTrigger");
+	TeleporterCollisionBox_One = CreateDefaultSubobject<UBoxComponent>(TEXT("TeleporterCollisionBox_One"));
+	TeleporterCollisionBox_One->SetupAttachment(TeleporterMesh_One);
+	TeleporterCollisionBox_One->SetBoxExtent(FVector(32.f, 32.f, 32.f));
+	TeleporterCollisionBox_One->SetCollisionProfileName("TeleporterTrigger_One");
 
 	// Set teleporter two collision box.
-	TeleporterTwoCollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("TeleporterTwoCollisionBox"));
-	TeleporterTwoCollisionBox->SetupAttachment(TeleporterTwoMesh);
-	TeleporterTwoCollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
-	TeleporterTwoCollisionBox->SetCollisionProfileName("TeleporterTwoTrigger");
+	TeleporterCollisionBox_Two = CreateDefaultSubobject<UBoxComponent>(TEXT("TeleporterCollisionBox_Two"));
+	TeleporterCollisionBox_Two->SetupAttachment(TeleporterMesh_Two);
+	TeleporterCollisionBox_Two->SetBoxExtent(FVector(32.f, 32.f, 32.f));
+	TeleporterCollisionBox_Two->SetCollisionProfileName("TeleporterTrigger_Two");
 
 	// Bind collision functions to the collision boxes.
-	TeleporterOneCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterOne);
-	TeleporterTwoCollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterTwo);
+	TeleporterCollisionBox_One->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterOne);
+	TeleporterCollisionBox_Two->OnComponentBeginOverlap.AddDynamic(this, &ATeleporter_CPP::OnOverlapBeginTeleporterTwo);
 
+	// Set can telport to be true by deafult.
 	bCanTeleport = true;
 
 }
@@ -63,37 +66,45 @@ void ATeleporter_CPP::Tick(float DeltaTime)
 
 }
 
+// Checks if the player in colliding with teleporter one, and if bCanTeleport is true, sends them to teleporter two and starts the cool down timer. 
 void ATeleporter_CPP::OnOverlapBeginTeleporterOne(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	// Checks if the player is overlaping and that bCanTeleport is true.
 	if (OtherComp->ComponentHasTag("Player") && bCanTeleport)
 	{
+		// Sets bCanTeleport to false.
 		bCanTeleport = false;
-		// Change Players location.
-		OtherComp->GetAttachmentRootActor()->SetActorLocation(TeleporterTwolocation->GetComponentLocation());
 
-		// Start Timer.
+		// Change Players location.
+		OtherComp->GetAttachmentRootActor()->SetActorLocation(Teleporterlocation_Two->GetComponentLocation());
+
+		// Start Timer, so the player isn't pinging back and foward between the two teleporter locations.
 		GetWorld()->GetTimerManager().SetTimer(TeleportTimerHandle, this, &ATeleporter_CPP::ActivateTeleporter, fDelayTime, false);	
 	}
 }
 
+// Checks if the player in colliding with teleporter Two, and if bCanTeleport is true, sends them to teleporter one and starts the cool down timer. 
 void ATeleporter_CPP::OnOverlapBeginTeleporterTwo(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherComp->ComponentHasTag("Player") && bCanTeleport)
 	{
+		// Sets bCanTeleport to false.
 		bCanTeleport = false;
+
 		// Change Players location.
-		OtherComp->GetAttachmentRootActor()->SetActorLocation(TeleporterOnelocation->GetComponentLocation());
+		OtherComp->GetAttachmentRootActor()->SetActorLocation(Teleporterlocation_One->GetComponentLocation());
 		
-		// Start Timer.
+		// Start Timer, so the player isn't pinging back and foward between the two teleporter locations.
 		GetWorld()->GetTimerManager().SetTimer(TeleportTimerHandle, this, &ATeleporter_CPP::ActivateTeleporter, fDelayTime, false);
 	}
 }
 
+// Clears telport timer and sets bCanTeleport to true.
 void ATeleporter_CPP::ActivateTeleporter()
 {
-	// Clear timer.
+	// Clears timer.
 	GetWorld()->GetTimerManager().ClearTimer(TeleportTimerHandle);
-	bCanTeleport = true;
 
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Can teleport");
+	// Set bCanTeleport to true.
+	bCanTeleport = true;
 }

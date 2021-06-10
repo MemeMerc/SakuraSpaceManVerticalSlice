@@ -16,14 +16,29 @@ class SAKURASPACEMAN_API ASakuraSpaceManGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	
+
+	// Set respwn location of the player.
 	void SetRespawnLocation(FVector _RespawnLocation);
+	// Return respawn location of the player.
 	FVector GetRespawnLocation() const;
 
 	void Respawn(AActor* _PlayerCharater);
 
+	// Set the Players Score.
+	void SetPlayersScore(int _AddToScore);
+
+	// Get the Players Score.
+	UFUNCTION(BlueprintCallable)
+	int GetPlayersScore() const;
+
 protected:
 
+	// Respawn locaton of the player.
 	FVector RespawnLocation;
+
+	// Referance to the player.
 	APlayer_CPP* PlayerCharater;
+
+	// Players Score
+	int PlayersScore;
 };

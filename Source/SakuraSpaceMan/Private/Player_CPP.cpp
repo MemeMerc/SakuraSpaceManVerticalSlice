@@ -16,7 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "GrappleLocation_CPP.h"
 #include "TimerManager.h"
-
+#include "SakuraSpaceManGameModeBase.h"
 
 // Sets default values TEST
 APlayer_CPP::APlayer_CPP()
@@ -43,7 +43,7 @@ APlayer_CPP::APlayer_CPP()
 
 	iJumpAmount = 0;
 
-	fFriction = 0.8f;
+	fFriction = 0.5f;
 
 	fCameraClamp = 0.3f;
 
@@ -79,6 +79,7 @@ APlayer_CPP::APlayer_CPP()
 	//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
 	GetCharacterMovement()->JumpZVelocity = 1300;
+	fGravityScale = GetCharacterMovement()->GravityScale;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -111,6 +112,11 @@ APlayer_CPP::APlayer_CPP()
 void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
+
+
+	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	GameMode->SetRespawnLocation(GetActorLocation());
+
 }
 
 // Called every frame
@@ -273,7 +279,7 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 	_PlayerInputComponent->BindAction("Grapple", IE_Pressed, this, &APlayer_CPP::GrappleActivate);
 	_PlayerInputComponent->BindAction("Grapple", IE_Released, this, &APlayer_CPP::GrappleDeactivate);
 
-	_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
+	//_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
 	_PlayerInputComponent->BindAxis("MoveRight", this, &APlayer_CPP::MoveRight);	
@@ -390,6 +396,7 @@ void APlayer_CPP::Jump()
 {
 	if (Controller != nullptr && !bIsReelingIn)
 	{
+		
 		//Check if player hasn't jumped and is not falling
 		if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
 		{
@@ -399,8 +406,10 @@ void APlayer_CPP::Jump()
 		//Allow player to make a second jump while in the air.
 		else if (iJumpAmount < iMaxJumpAmount)
 		{
-			FVector vJump = FVector(GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->JumpZVelocity);
-
+			float fMaxJump = GetCharacterMovement()->MaxWalkSpeed + 1000.f;
+		
+			FVector vJump = FVector(FMath::Clamp(GetCharacterMovement()->Velocity.X*1.5f, -fMaxJump, fMaxJump), FMath::Clamp(GetCharacterMovement()->Velocity.Y*1.5f, -fMaxJump, fMaxJump), GetCharacterMovement()->JumpZVelocity);
+		
 			GetCharacterMovement()->Launch(vJump);
 			iJumpAmount++;
 		}
@@ -412,7 +421,8 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 {
 	if (Controller != nullptr)
 	{
-
+		
+		
 		Super::Landed(Hit);
 		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
@@ -423,10 +433,12 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 //Stop jumping
 void APlayer_CPP::StopJumping()
 {
-	if (Controller != nullptr)
+	if (Controller != nullptr && !bIsReelingIn)
 	{
 		ACharacter::StopJumping();
+
 	}
+	
 }
 
 //Called when player changes movement type.

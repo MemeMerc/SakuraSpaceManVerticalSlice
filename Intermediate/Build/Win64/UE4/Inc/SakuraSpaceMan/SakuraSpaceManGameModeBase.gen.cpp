@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SakuraSpaceMan/SakuraSpaceManGameModeBase.h"
+#include "SakuraSpaceMan/Public/SakuraSpaceManGameModeBase.h"
 #ifdef _MSC_VER
 #pragma warning (push)
 #pragma warning (disable : 4883)
@@ -43,7 +43,7 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "SakuraSpaceManGameModeBase.h" },
-		{ "ModuleRelativePath", "SakuraSpaceManGameModeBase.h" },
+		{ "ModuleRelativePath", "Public/SakuraSpaceManGameModeBase.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
@@ -74,7 +74,7 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASakuraSpaceManGameModeBase, 3405691588);
+	IMPLEMENT_CLASS(ASakuraSpaceManGameModeBase, 2858016568);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ASakuraSpaceManGameModeBase>()
 	{
 		return ASakuraSpaceManGameModeBase::StaticClass();
