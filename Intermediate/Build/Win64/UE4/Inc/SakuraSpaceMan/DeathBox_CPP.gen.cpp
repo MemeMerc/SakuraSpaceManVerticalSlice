@@ -116,7 +116,7 @@ void EmptyLinkFunctionForGeneratedCodeDeathBox_CPP() {}
 		{ "ToolTip", "Collison function" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADeathBox_CPP, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(DeathBox_CPP_eventOnOverlapBegin_Parms), Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADeathBox_CPP, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(DeathBox_CPP_eventOnOverlapBegin_Parms), Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -150,7 +150,7 @@ void EmptyLinkFunctionForGeneratedCodeDeathBox_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADeathBox_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 3440272417
+		{ &Z_Construct_UFunction_ADeathBox_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 794927807
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADeathBox_CPP_Statics::Class_MetaDataParams[] = {
@@ -161,13 +161,13 @@ void EmptyLinkFunctionForGeneratedCodeDeathBox_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "DeathBox_CPP" },
-		{ "Comment", "// Set Box Collision\n" },
+		{ "Comment", "// Init Box Collision.\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/DeathBox_CPP.h" },
-		{ "ToolTip", "Set Box Collision" },
+		{ "ToolTip", "Init Box Collision." },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADeathBox_CPP, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADeathBox_CPP, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADeathBox_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADeathBox_CPP_Statics::NewProp_CollisionBox,
 	};
@@ -198,7 +198,7 @@ void EmptyLinkFunctionForGeneratedCodeDeathBox_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADeathBox_CPP, 2363431469);
+	IMPLEMENT_CLASS(ADeathBox_CPP, 3230567220);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ADeathBox_CPP>()
 	{
 		return ADeathBox_CPP::StaticClass();
