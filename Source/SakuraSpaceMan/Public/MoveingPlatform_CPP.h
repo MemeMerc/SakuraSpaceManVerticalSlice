@@ -18,6 +18,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere)
+	float InterpSpeed = 50;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 	// Set mesh
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* Mesh;
@@ -31,13 +38,6 @@ public:
 
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Meta = (MakeEditWidget = true))
 	FVector LocationTwo;
-
-	UPROPERTY(EditAnywhere)
-	float InterpSpeed = 50;
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
 	FVector TargetLocation;
 	FVector CurrentLocation;

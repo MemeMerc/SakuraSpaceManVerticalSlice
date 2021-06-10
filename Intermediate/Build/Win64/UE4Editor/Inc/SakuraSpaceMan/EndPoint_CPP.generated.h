@@ -19,13 +19,11 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
@@ -71,7 +69,13 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AEndPoint_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AEndPoint_CPP)
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(AEndPoint_CPP, Mesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AEndPoint_CPP, CollisionBox); } \
+	FORCEINLINE static uint32 __PPO__GameOver_WidClass() { return STRUCT_OFFSET(AEndPoint_CPP, GameOver_WidClass); } \
+	FORCEINLINE static uint32 __PPO__GameOver_Wid() { return STRUCT_OFFSET(AEndPoint_CPP, GameOver_Wid); }
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_9_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_EndPoint_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

@@ -117,7 +117,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		{ "ToolTip", "Collison function" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACheckPoint_CPP, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(CheckPoint_CPP_eventOnOverlapBegin_Parms), Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACheckPoint_CPP, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(CheckPoint_CPP_eventOnOverlapBegin_Parms), Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -155,7 +155,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACheckPoint_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 3961684557
+		{ &Z_Construct_UFunction_ACheckPoint_CPP_OnOverlapBegin, "OnOverlapBegin" }, // 137768006
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACheckPoint_CPP_Statics::Class_MetaDataParams[] = {
@@ -172,7 +172,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		{ "ToolTip", "Set mesh" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "CheckPoint_CPP" },
@@ -182,7 +182,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		{ "ToolTip", "Set Box Collision" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACheckPoint_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_CollisionBox,
@@ -214,7 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACheckPoint_CPP, 3053207296);
+	IMPLEMENT_CLASS(ACheckPoint_CPP, 1598898600);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ACheckPoint_CPP>()
 	{
 		return ACheckPoint_CPP::StaticClass();

@@ -69,7 +69,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFallingPlatform_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFallingPlatform_CPP)
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_FallingPlatform_CPP_h_12_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_FallingPlatform_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(AFallingPlatform_CPP, Mesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AFallingPlatform_CPP, CollisionBox); }
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_FallingPlatform_CPP_h_9_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_FallingPlatform_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
