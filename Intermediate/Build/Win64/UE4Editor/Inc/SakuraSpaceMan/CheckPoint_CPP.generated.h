@@ -69,7 +69,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACheckPoint_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACheckPoint_CPP)
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ACheckPoint_CPP, Mesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ACheckPoint_CPP, CollisionBox); }
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_10_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_CheckPoint_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
