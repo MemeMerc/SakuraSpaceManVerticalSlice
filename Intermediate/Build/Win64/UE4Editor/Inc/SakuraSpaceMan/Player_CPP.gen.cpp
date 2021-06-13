@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	SAKURASPACEMAN_API UClass* Z_Construct_UClass_APlayer_CPP();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_SakuraSpaceMan();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
@@ -24,11 +25,12 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(APlayer_CPP::execGetIsJumping)
+	DEFINE_FUNCTION(APlayer_CPP::execClampedVectorSizeReturn)
 	{
+		P_GET_STRUCT(FVector,Z_Param__Vector);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->GetIsJumping();
+		P_THIS->ClampedVectorSizeReturn(Z_Param__Vector);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(APlayer_CPP::execReturnGrapple)
@@ -62,52 +64,91 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		P_THIS->Grapple_OnBeginOverlap(Z_Param_OverlappedComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	static FName NAME_APlayer_CPP_ClampedVectorSize = FName(TEXT("ClampedVectorSize"));
+	void APlayer_CPP::ClampedVectorSize(FVector _Vector, float _fMin, float _fMax)
+	{
+		Player_CPP_eventClampedVectorSize_Parms Parms;
+		Parms._Vector=_Vector;
+		Parms._fMin=_fMin;
+		Parms._fMax=_fMax;
+		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_ClampedVectorSize),&Parms);
+	}
 	void APlayer_CPP::StaticRegisterNativesAPlayer_CPP()
 	{
 		UClass* Class = APlayer_CPP::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "GetIsJumping", &APlayer_CPP::execGetIsJumping },
+			{ "ClampedVectorSizeReturn", &APlayer_CPP::execClampedVectorSizeReturn },
 			{ "Grapple_OnBeginOverlap", &APlayer_CPP::execGrapple_OnBeginOverlap },
 			{ "Grapple_OnOverlapEnd", &APlayer_CPP::execGrapple_OnOverlapEnd },
 			{ "ReturnGrapple", &APlayer_CPP::execReturnGrapple },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics
+	struct Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics
 	{
-		struct Player_CPP_eventGetIsJumping_Parms
-		{
-			bool ReturnValue;
-		};
-		static void NewProp_ReturnValue_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp__Vector;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp__fMin;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp__fMax;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue_SetBit(void* Obj)
-	{
-		((Player_CPP_eventGetIsJumping_Parms*)Obj)->ReturnValue = 1;
-	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Player_CPP_eventGetIsJumping_Parms), &Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue,
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__Vector = { "_Vector", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player_CPP_eventClampedVectorSize_Parms, _Vector), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__fMin = { "_fMin", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player_CPP_eventClampedVectorSize_Parms, _fMin), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__fMax = { "_fMax", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player_CPP_eventClampedVectorSize_Parms, _fMax), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__Vector,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__fMin,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::NewProp__fMax,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Properties" },
 		{ "ModuleRelativePath", "Public/Player_CPP.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "GetIsJumping", nullptr, nullptr, sizeof(Player_CPP_eventGetIsJumping_Parms), Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_APlayer_CPP_GetIsJumping()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "ClampedVectorSize", nullptr, nullptr, sizeof(Player_CPP_eventClampedVectorSize_Parms), Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08880800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics
+	{
+		struct Player_CPP_eventClampedVectorSizeReturn_Parms
+		{
+			FVector _Vector;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp__Vector;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::NewProp__Vector = { "_Vector", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player_CPP_eventClampedVectorSizeReturn_Parms, _Vector), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::NewProp__Vector,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "ClampedVectorSizeReturn", nullptr, nullptr, sizeof(Player_CPP_eventClampedVectorSizeReturn_Parms), Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04880401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -361,7 +402,8 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayer_CPP_GetIsJumping, "GetIsJumping" }, // 3960468942
+		{ &Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize, "ClampedVectorSize" }, // 1906830695
+		{ &Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn, "ClampedVectorSizeReturn" }, // 16877099
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
 		{ &Z_Construct_UFunction_APlayer_CPP_ReturnGrapple, "ReturnGrapple" }, // 2298195885
@@ -543,7 +585,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 4097871820);
+	IMPLEMENT_CLASS(APlayer_CPP, 281043784);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();
