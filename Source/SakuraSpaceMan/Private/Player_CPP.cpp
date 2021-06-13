@@ -40,7 +40,7 @@ APlayer_CPP::APlayer_CPP()
 	bIsGrappleArrayEmpty = true;
 	bIsReelingIn = false;
 	bIsBoosting = false;
-
+	bIsGliding = false;
 	iJumpAmount = 0;
 	bIsJumping = false;
 
@@ -219,8 +219,17 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	if (GetCharacterMovement()->IsFalling())
 	{
-		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		if (bIsSprinting && PlayerFallingDown())
+		{
+			ActivateGlide();
+		}
+		else
+		{
+			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		}
 	}
+	
+
 
 	//Debug Stuff//
 	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
@@ -400,7 +409,7 @@ void APlayer_CPP::Jump()
 {
 	if (Controller != nullptr && !bIsReelingIn && iJumpAmount < iMaxJumpAmount)
 	{
-		
+		DeactivateGlide();
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 			
 		FVector vJump = FVector(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size() * 0.8f,
@@ -427,6 +436,7 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
 		bIsJumping = false;
+		DeactivateGlide();
 	}
 
 }
@@ -465,6 +475,7 @@ void APlayer_CPP::StopSprinting()
 		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
 		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
+		DeactivateGlide();
 	}
 
 }
@@ -633,3 +644,47 @@ AActor* APlayer_CPP::ReturnGrapple()
 {
 	return(aSelectedGrapplePoint);
 }
+
+//Check if player velocity is negative (moving down)
+bool APlayer_CPP::PlayerFallingDown()
+{
+	return(GetCharacterMovement()->Velocity.Z < 0);
+}
+
+void APlayer_CPP::ActivateGlide()
+{
+	if (bIsGliding == false)
+	{
+
+		GetCharacterMovement()->GravityScale = 1.f;
+		bIsGliding = true;
+	}
+	else if (bIsGliding == true)
+	{
+		GetCharacterMovement()->Velocity.X += this->GetActorForwardVector().X * 15;// *GetCharacterMovement()->Velocity.Size();
+		GetCharacterMovement()->Velocity.Y += this->GetActorForwardVector().Y * 15;// *GetCharacterMovement()->Velocity.Size();
+
+		GetCharacterMovement()->Velocity = ClampVector(GetCharacterMovement()->Velocity, 0.f, GetCharacterMovement()->GetMaxSpeed()*0.8);
+	}
+
+}
+void APlayer_CPP::DeactivateGlide()
+{
+	if (bIsGliding == true)
+	{
+
+		GetCharacterMovement()->GravityScale = 4.5f;
+		bIsGliding = false;
+	}
+
+}
+void APlayer_CPP::ClampedVectorSizeReturn(FVector _Vector)
+{
+	ClampedVector = _Vector;
+}
+FVector APlayer_CPP::ClampVector(FVector _Vector, float _fMin, float _fMax)
+{
+	ClampedVectorSize(_Vector, _fMin, _fMax);
+	return(ClampedVector);
+}
+

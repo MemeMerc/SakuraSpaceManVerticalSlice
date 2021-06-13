@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 class AActor;
 class UPrimitiveComponent;
 struct FHitResult;
@@ -19,6 +20,7 @@ struct FHitResult;
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -26,11 +28,22 @@ struct FHitResult;
 
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
+#define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS \
+	struct Player_CPP_eventClampedVectorSize_Parms \
+	{ \
+		FVector _Vector; \
+		float _fMin; \
+		float _fMax; \
+	};
+
+
+#define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
@@ -88,13 +101,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__fDashCooldown() { return STRUCT_OFFSET(APlayer_CPP, fDashCooldown); }
 
 
-#define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG
+#define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
+	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS
+
+
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -107,6 +124,7 @@ public: \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 	Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
