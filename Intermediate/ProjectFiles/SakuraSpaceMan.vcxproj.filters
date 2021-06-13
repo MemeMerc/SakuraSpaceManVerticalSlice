@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{61C99020-3BA9-4488-BFE0-1CF65BAC75D1}</UniqueIdentifier>
+      <UniqueIdentifier>{E9CEDD09-3091-443E-924E-B824125D2D50}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{C5EC8358-F019-4CC6-AEB0-CDBA04964AF4}</UniqueIdentifier>
+      <UniqueIdentifier>{88B0B564-2CBE-4D8E-B639-6C5C93FC7B6C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{D519E5AE-C1DD-49E6-99F2-16B405F02AD3}</UniqueIdentifier>
+      <UniqueIdentifier>{AA7BDE27-E101-42D5-ACCF-371FFED7FEBD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -41,7 +41,7 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{F037FA83-22BA-4BF9-AB28-25AE0D0F7A52}</UniqueIdentifier>
+      <UniqueIdentifier>{68613903-A133-4045-BF62-7DFC18D45CD9}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\BasicCollectable_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
@@ -74,7 +74,7 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{9203256F-5823-45F0-B9D7-EB2781A559BE}</UniqueIdentifier>
+      <UniqueIdentifier>{9F18A742-7480-4BE2-9BA4-EBC4693C5A30}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
