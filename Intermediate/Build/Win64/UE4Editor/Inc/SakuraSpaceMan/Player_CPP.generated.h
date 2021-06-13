@@ -19,7 +19,6 @@ struct FHitResult;
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execGetIsJumping); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -27,7 +26,6 @@ struct FHitResult;
 
 #define Test_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetIsJumping); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);

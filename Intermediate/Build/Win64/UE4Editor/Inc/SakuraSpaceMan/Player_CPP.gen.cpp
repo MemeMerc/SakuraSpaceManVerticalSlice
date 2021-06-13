@@ -24,13 +24,6 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(APlayer_CPP::execGetIsJumping)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->GetIsJumping();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(APlayer_CPP::execReturnGrapple)
 	{
 		P_FINISH;
@@ -66,50 +59,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	{
 		UClass* Class = APlayer_CPP::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "GetIsJumping", &APlayer_CPP::execGetIsJumping },
 			{ "Grapple_OnBeginOverlap", &APlayer_CPP::execGrapple_OnBeginOverlap },
 			{ "Grapple_OnOverlapEnd", &APlayer_CPP::execGrapple_OnOverlapEnd },
 			{ "ReturnGrapple", &APlayer_CPP::execReturnGrapple },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics
-	{
-		struct Player_CPP_eventGetIsJumping_Parms
-		{
-			bool ReturnValue;
-		};
-		static void NewProp_ReturnValue_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	void Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue_SetBit(void* Obj)
-	{
-		((Player_CPP_eventGetIsJumping_Parms*)Obj)->ReturnValue = 1;
-	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Player_CPP_eventGetIsJumping_Parms), &Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Properties" },
-		{ "ModuleRelativePath", "Public/Player_CPP.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "GetIsJumping", nullptr, nullptr, sizeof(Player_CPP_eventGetIsJumping_Parms), Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_APlayer_CPP_GetIsJumping()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_GetIsJumping_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap_Statics
 	{
@@ -361,7 +315,6 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SakuraSpaceMan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer_CPP_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayer_CPP_GetIsJumping, "GetIsJumping" }, // 3960468942
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
 		{ &Z_Construct_UFunction_APlayer_CPP_ReturnGrapple, "ReturnGrapple" }, // 2298195885
@@ -543,7 +496,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 4097871820);
+	IMPLEMENT_CLASS(APlayer_CPP, 3727478660);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

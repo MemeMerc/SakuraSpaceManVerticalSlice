@@ -398,29 +398,19 @@ void APlayer_CPP::ResetWalkValue()
 //Allow player to jump and double jump.
 void APlayer_CPP::Jump()
 {
-	if (Controller != nullptr && !bIsReelingIn)
+	if (Controller != nullptr && !bIsReelingIn && iJumpAmount < iMaxJumpAmount)
 	{
 		
-		//Check if player hasn't jumped and is not falling
-		if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
-		{
-			ACharacter::Jump();
-			iJumpAmount++;
-			bIsJumping = true;
-		}
-		//Allow player to make a second jump while in the air.
-		else if (iJumpAmount < iMaxJumpAmount)
-		{
-			float fMaxJump = GetCharacterMovement()->MaxWalkSpeed + 1000.f;
+		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
+			
+		FVector vJump = FVector(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size() * 0.8f,
+								this->GetActorForwardVector().Y * GetCharacterMovement()->Velocity.Size() * 0.8f,
+								GetCharacterMovement()->JumpZVelocity);
 		
-			FVector vJump = FVector(FMath::Clamp(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size(), -fMaxJump, fMaxJump), 
-					FMath::Clamp(this->GetActorForwardVector().Y * GetCharacterMovement()->Velocity.Size(), -fMaxJump, fMaxJump),
-					GetCharacterMovement()->JumpZVelocity);
+		GetCharacterMovement()->Launch(vJump);
+		iJumpAmount++;
+		bIsJumping = true;
 		
-			GetCharacterMovement()->Launch(vJump);
-			iJumpAmount++;
-			bIsJumping = true;
-		}
 	}
 }
 
@@ -429,9 +419,11 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 {
 	if (Controller != nullptr)
 	{
-		
-		
-		Super::Landed(Hit);
+		if (bIsJumping)
+		{
+			GetCharacterMovement()->Velocity = FVector(this->GetActorForwardVector().X * vPrevSpeed, this->GetActorForwardVector().Y * vPrevSpeed, 0.f);
+		}
+		Super::Landed(Hit);				   		
 		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
 		bIsJumping = false;
@@ -640,9 +632,4 @@ void APlayer_CPP::GrappleDeactivate()
 AActor* APlayer_CPP::ReturnGrapple()
 {
 	return(aSelectedGrapplePoint);
-}
-//Returns whether the player is jumping.
-bool APlayer_CPP::GetIsJumping()
-{
-	return(bIsJumping);
 }

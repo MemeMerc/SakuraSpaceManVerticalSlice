@@ -86,8 +86,6 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = Properties)
 	AActor* ReturnGrapple();
 
-	UFUNCTION(BlueprintCallable, Category = Properties)
-	bool GetIsJumping();
 
 	//VARIABLES
 
