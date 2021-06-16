@@ -40,8 +40,10 @@ APlayer_CPP::APlayer_CPP()
 	bIsGrappleArrayEmpty = true;
 	bIsReelingIn = false;
 	bIsBoosting = false;
-
+	bIsGliding = false;
 	iJumpAmount = 0;
+	bIsJumping = false;
+
 
 	fFriction = 0.5f;
 
@@ -54,6 +56,7 @@ APlayer_CPP::APlayer_CPP()
 
 	fDashCooldown = 0.5f;
 	bHasDashed = false;
+
 
 	fInitVel = 0;
 
@@ -199,6 +202,7 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	if (bIsBoosting && (GetCharacterMovement()->Velocity.Size() < fMaxSpeed[1]))
 	{
+		//Ternary Operator?
 		switch (bIsSprinting)
 		{
 		case true:
@@ -215,8 +219,17 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	if (GetCharacterMovement()->IsFalling())
 	{
-		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		if (bIsSprinting && PlayerFallingDown())
+		{
+			ActivateGlide();
+		}
+		else
+		{
+			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		}
 	}
+	
+
 
 	//Debug Stuff//
 	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
@@ -248,13 +261,13 @@ float APlayer_CPP::FindDistanceToCenterScreen(AActor* _aActor)
 	float fResultLength;
 	int iViewportX;
 	int iViewportY;
-
+	//More commenting
 	AGrappleLocation_CPP* GrapplePoint = Cast<AGrappleLocation_CPP>(_aActor);
 	PlayerController->GetViewportSize(iViewportX, iViewportY);
 	vViewportDimensions = FVector2D(iViewportX, iViewportY);
 	PlayerController->ProjectWorldLocationToScreen(GrapplePoint->GetActorLocation(), *GrapplePoint->GetScreenLoc());
 
-	vResultVector = (vViewportDimensions /2) - *GrapplePoint->GetScreenLoc();
+	vResultVector = (vViewportDimensions *0.5f) - *GrapplePoint->GetScreenLoc();
 	fResultLength = vResultVector.Size();
 	return(fResultLength);
 }
@@ -394,25 +407,19 @@ void APlayer_CPP::ResetWalkValue()
 //Allow player to jump and double jump.
 void APlayer_CPP::Jump()
 {
-	if (Controller != nullptr && !bIsReelingIn)
+	if (Controller != nullptr && !bIsReelingIn && iJumpAmount < iMaxJumpAmount)
 	{
+		DeactivateGlide();
+		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
+			
+		FVector vJump = FVector(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size() * 0.8f,
+								this->GetActorForwardVector().Y * GetCharacterMovement()->Velocity.Size() * 0.8f,
+								GetCharacterMovement()->JumpZVelocity);
 		
-		//Check if player hasn't jumped and is not falling
-		if (iJumpAmount == 0 && !GetCharacterMovement()->IsFalling())
-		{
-			ACharacter::Jump();
-			iJumpAmount++;
-		}
-		//Allow player to make a second jump while in the air.
-		else if (iJumpAmount < iMaxJumpAmount)
-		{
-			float fMaxJump = GetCharacterMovement()->MaxWalkSpeed + 1000.f;
+		GetCharacterMovement()->Launch(vJump);
+		iJumpAmount++;
+		bIsJumping = true;
 		
-			FVector vJump = FVector(FMath::Clamp(GetCharacterMovement()->Velocity.X*1.5f, -fMaxJump, fMaxJump), FMath::Clamp(GetCharacterMovement()->Velocity.Y*1.5f, -fMaxJump, fMaxJump), GetCharacterMovement()->JumpZVelocity);
-		
-			GetCharacterMovement()->Launch(vJump);
-			iJumpAmount++;
-		}
 	}
 }
 
@@ -421,11 +428,15 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 {
 	if (Controller != nullptr)
 	{
-		
-		
-		Super::Landed(Hit);
+		if (bIsJumping)
+		{
+			GetCharacterMovement()->Velocity = FVector(this->GetActorForwardVector().X * vPrevSpeed, this->GetActorForwardVector().Y * vPrevSpeed, 0.f);
+		}
+		Super::Landed(Hit);				   		
 		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		iJumpAmount = 0;
+		bIsJumping = false;
+		DeactivateGlide();
 	}
 
 }
@@ -447,33 +458,25 @@ void APlayer_CPP::Sprint()
 	//Move up speed rank and adjust associated varibles.
 	if ((Controller != nullptr) && !bIsReelingIn)
 	{
-		switch (bIsSprinting)
-		{
-		case true:
-		
-			bIsSprinting = false;
-			//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
-			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
-			break;
-		case false:
-		
-			bIsSprinting = true;
-			GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-			//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
-			break;
-		}
+		bIsSprinting = true;
+		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
+		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
 	}
 }
 //Stop Sprinting
 void APlayer_CPP::StopSprinting()
 {
-
-	
-
+	if ((Controller != nullptr) && !bIsReelingIn)
+	{
+		bIsSprinting = false;
+		//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
+		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
+		DeactivateGlide();
+	}
 
 }
 
@@ -489,13 +492,15 @@ void APlayer_CPP::DashForward()
 		//Store Players Current Speed before dash.
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		//Reset players speed to previous speed
-		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable{
+		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable
+		{
 
 			_GetCMC->Launch(_ForwardVec* _vel);
 			
 		});
 		//Allow player to dash again.
-		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable{
+		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable
+		{
 
 			
 			*_HasDashed = false;
@@ -634,4 +639,52 @@ void APlayer_CPP::GrappleDeactivate()
 	bGrappleFlipFlop = true;
 }
 
+//Returns the current selected grapple point. Blueprint callable event.
+AActor* APlayer_CPP::ReturnGrapple()
+{
+	return(aSelectedGrapplePoint);
+}
+
+//Check if player velocity is negative (moving down)
+bool APlayer_CPP::PlayerFallingDown()
+{
+	return(GetCharacterMovement()->Velocity.Z < 0);
+}
+
+void APlayer_CPP::ActivateGlide()
+{
+	if (bIsGliding == false)
+	{
+
+		GetCharacterMovement()->GravityScale = 1.f;
+		bIsGliding = true;
+	}
+	else if (bIsGliding == true)
+	{
+		GetCharacterMovement()->Velocity.X += this->GetActorForwardVector().X * 15;// *GetCharacterMovement()->Velocity.Size();
+		GetCharacterMovement()->Velocity.Y += this->GetActorForwardVector().Y * 15;// *GetCharacterMovement()->Velocity.Size();
+
+		GetCharacterMovement()->Velocity = ClampVector(GetCharacterMovement()->Velocity, 0.f, GetCharacterMovement()->GetMaxSpeed()*0.8);
+	}
+
+}
+void APlayer_CPP::DeactivateGlide()
+{
+	if (bIsGliding == true)
+	{
+
+		GetCharacterMovement()->GravityScale = 4.5f;
+		bIsGliding = false;
+	}
+
+}
+void APlayer_CPP::ClampedVectorSizeReturn(FVector _Vector)
+{
+	ClampedVector = _Vector;
+}
+FVector APlayer_CPP::ClampVector(FVector _Vector, float _fMin, float _fMax)
+{
+	ClampedVectorSize(_Vector, _fMin, _fMax);
+	return(ClampedVector);
+}
 
