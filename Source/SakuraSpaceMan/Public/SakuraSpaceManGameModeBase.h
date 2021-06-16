@@ -44,8 +44,13 @@ protected:
 	// Referance to the player.
 	APlayer_CPP* PlayerCharater;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+		TSubclassOf<class UGameHUD_CPP> GameHud_WidClass;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UGameHUD_CPP* GameHud_Wid;
+
+
 	// Players Score
 	int PlayersScore;
-
-	class UGameHudWid_CPP* GameHudWid;
 };

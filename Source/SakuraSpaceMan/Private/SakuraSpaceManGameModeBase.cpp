@@ -4,19 +4,22 @@
 #include "SakuraSpaceManGameModeBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
-#include "GameHudWid_CPP.h"
+#include "GameHUD_CPP.h"
 
 
 
 void ASakuraSpaceManGameModeBase::BeginPlay()
 {
-	//Super::BeginPlay();
+	Super::BeginPlay();
 
-	GameHudWid = CreateWidget<UGameHudWid_CPP>(GetWorld());
-
-	GameHudWid->AddToViewport();
-
-
+	// Check that it can find the widget class and that it can find the world.
+	if (GameHud_WidClass != nullptr && GetWorld() != nullptr)
+	{
+		// Create the widget from the class provided.
+		GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
+		// Add widget to viewport.
+		GameHud_Wid->AddToViewport();
+	}
 }
 
 // Set the respawm locaton of the player.
@@ -53,6 +56,16 @@ void ASakuraSpaceManGameModeBase::Respawn(AActor* _PlayerCharater)
 void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 {
 	PlayersScore += _AddToScore;
+
+	if (GameHud_Wid != nullptr)
+	{
+		GameHud_Wid->UpdateScore(100);
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Score");
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Cast Falied");
+	}
 }
 
 // Get the Players Score.
