@@ -84,16 +84,29 @@ protected:
 	float FindDistanceToCenterScreen(AActor* _aActor);
 
 	UFUNCTION(BlueprintCallable, Category = Properties)
-	AActor* ReturnGrapple()
-	{
-		return(aSelectedGrapplePoint);
-	}
+	AActor* ReturnGrapple();
+
+	bool PlayerFallingDown();
+
+	void ActivateGlide();
+	void DeactivateGlide();
+	
+
+	FVector ClampVector(FVector _Vector, float _fMin, float _fMax);
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+	void ClampedVectorSize(FVector _Vector, float _fMin, float _fMax);
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	void ClampedVectorSizeReturn(FVector _Vector);
+
 	//VARIABLES
 
+	FVector ClampedVector;
 
 	//int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
 
 	bool bIsSprinting;	//Is Using the Sprint Function.
+
+	bool bIsGliding;
 
 	bool bIsMoving;		//Is Moving In A Direction.
 
@@ -111,6 +124,7 @@ protected:
 
 
 	int iJumpAmount;	//Number of Jumps Made.
+	bool bIsJumping;
 	
 	float fLocalDeltaTime;
 
