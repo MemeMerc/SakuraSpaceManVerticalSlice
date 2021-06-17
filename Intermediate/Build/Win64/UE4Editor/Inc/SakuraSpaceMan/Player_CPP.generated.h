@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 class AActor;
 class UPrimitiveComponent;
 struct FHitResult;
@@ -19,7 +20,7 @@ struct FHitResult;
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execGetIsJumping); \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -27,12 +28,22 @@ struct FHitResult;
 
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetIsJumping); \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
+#define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS \
+	struct Player_CPP_eventClampedVectorSize_Parms \
+	{ \
+		FVector _Vector; \
+		float _fMin; \
+		float _fMax; \
+	};
+
+
+#define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
@@ -90,13 +101,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__fDashCooldown() { return STRUCT_OFFSET(APlayer_CPP, fDashCooldown); }
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG
+#define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
+	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS
+
+
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
+	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -109,6 +124,7 @@ public: \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 	SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
