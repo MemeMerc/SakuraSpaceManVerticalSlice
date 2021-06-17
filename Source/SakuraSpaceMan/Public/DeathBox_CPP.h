@@ -16,20 +16,22 @@ public:
 	// Sets default values for this actor's properties
 	ADeathBox_CPP();
 
-	// Called every frame
+	// Called every frame.
 	virtual void Tick(float DeltaTime) override;
 
-	// Set Box Collision
+protected:
+	// Called when the game starts or when spawned.
+	virtual void BeginPlay() override;
+
+	// Init Box Collision.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
+
+	// Init game mode.
+	ASakuraSpaceManGameModeBase* GameMode;
 
 	// Collison function
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-	ASakuraSpaceManGameModeBase* GameMode;
 };

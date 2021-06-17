@@ -8,8 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
+struct FVector;
 class AActor;
+class UPrimitiveComponent;
 struct FHitResult;
 #ifdef SAKURASPACEMAN_Player_CPP_generated_h
 #error "Player_CPP.generated.h already included, missing '#pragma once' in Player_CPP.h"
@@ -19,16 +20,30 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS \
+	struct Player_CPP_eventClampedVectorSize_Parms \
+	{ \
+		FVector _Vector; \
+		float _fMin; \
+		float _fMax; \
+	};
+
+
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
@@ -75,6 +90,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(APlayer_CPP, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(APlayer_CPP, Camera); } \
 	FORCEINLINE static uint32 __PPO__GrappleCollisionSphere() { return STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere); } \
+	FORCEINLINE static uint32 __PPO__bIsReelingIn() { return STRUCT_OFFSET(APlayer_CPP, bIsReelingIn); } \
 	FORCEINLINE static uint32 __PPO__bIsBoosting() { return STRUCT_OFFSET(APlayer_CPP, bIsBoosting); } \
 	FORCEINLINE static uint32 __PPO__fFriction() { return STRUCT_OFFSET(APlayer_CPP, fFriction); } \
 	FORCEINLINE static uint32 __PPO__fCameraClamp() { return STRUCT_OFFSET(APlayer_CPP, fCameraClamp); } \
@@ -85,13 +101,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__fDashCooldown() { return STRUCT_OFFSET(APlayer_CPP, fDashCooldown); }
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS
+
+
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -104,6 +124,7 @@ public: \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \

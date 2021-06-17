@@ -83,27 +83,53 @@ protected:
 
 	float FindDistanceToCenterScreen(AActor* _aActor);
 
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	AActor* ReturnGrapple();
+
+	bool PlayerFallingDown();
+
+	void ActivateGlide();
+	void DeactivateGlide();
+	
+
+	FVector ClampVector(FVector _Vector, float _fMin, float _fMax);
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+	void ClampedVectorSize(FVector _Vector, float _fMin, float _fMax);
+	UFUNCTION(BlueprintCallable, Category = Properties)
+	void ClampedVectorSizeReturn(FVector _Vector);
+
 	//VARIABLES
 
+	FVector ClampedVector;
 
 	//int iCurrentSpeed = 0;	//Current Speed Stage// 0 = Walking // 1+ higher stages of Speed
 
 	bool bIsSprinting;	//Is Using the Sprint Function.
+
+	bool bIsGliding;
 
 	bool bIsMoving;		//Is Moving In A Direction.
 
 	bool bIsForward;	//Has Pressed the Move Forward Key (W)
 	
 	bool bIsGrappleArrayEmpty;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	bool bIsReelingIn; 
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+
 	bool bIsBoosting;
 
 
+
 	int iJumpAmount;	//Number of Jumps Made.
+	bool bIsJumping;
 	
 	float fLocalDeltaTime;
+
+	float fGravityScale;
+	float fGlideGravityScale;
 
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
@@ -136,6 +162,7 @@ protected:
 	
 	
 	TArray<AActor*> aGrapplePoints;
+	
 	AActor* aSelectedGrapplePoint;
 
 	float *fCurrentMaxReelSpeed;
