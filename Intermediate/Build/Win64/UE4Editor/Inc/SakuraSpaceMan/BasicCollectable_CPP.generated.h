@@ -74,7 +74,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABasicCollectable_CPP); \
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ABasicCollectable_CPP, Mesh); } \
 	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ABasicCollectable_CPP, CollisionBox); } \
-	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ABasicCollectable_CPP, Target); }
+	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ABasicCollectable_CPP, Target); } \
+	FORCEINLINE static uint32 __PPO__Collectable_WidClass() { return STRUCT_OFFSET(ABasicCollectable_CPP, Collectable_WidClass); } \
+	FORCEINLINE static uint32 __PPO__Collectable_Wid() { return STRUCT_OFFSET(ABasicCollectable_CPP, Collectable_Wid); }
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_9_PROLOG

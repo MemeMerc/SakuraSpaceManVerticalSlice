@@ -130,3 +130,10 @@ D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGene
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
 D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GameHUD_CPP.h
 D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\GameHUD_CPP.generated.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/CanvasPanelSlot.h
+D:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SConstraintCanvas.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelSlot.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelSlot.generated.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\CanvasPanelSlot.generated.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/WidgetLayoutLibrary.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetLayoutLibrary.generated.h

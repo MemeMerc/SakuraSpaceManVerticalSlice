@@ -5,7 +5,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameHUD_CPP.h"
-
+#include "Components/CanvasPanelSlot.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
 
 
 void ASakuraSpaceManGameModeBase::BeginPlay()
@@ -19,6 +20,10 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 		GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
 		// Add widget to viewport.
 		GameHud_Wid->AddToViewport();
+
+		// Get location of widget.
+		FGeometry Geometry = GameHud_Wid->GetCachedGeometry();
+		GameHudLocation = Geometry.AbsoluteToLocal(GameHud_Wid->GetCachedGeometry().GetAbsolutePosition()) + GameHud_Wid->GetCachedGeometry().GetLocalSize() / 2.0f;
 	}
 }
 
@@ -60,11 +65,6 @@ void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 	if (GameHud_Wid != nullptr)
 	{
 		GameHud_Wid->UpdateScore(100);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Score");
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Cast Falied");
 	}
 }
 
@@ -72,4 +72,10 @@ void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 int ASakuraSpaceManGameModeBase::GetPlayersScore() const
 {
 	return(PlayersScore);
+}
+
+// Return the locaton of the GameHud in Screen space.
+FVector2D ASakuraSpaceManGameModeBase::GetGameHudLocation()
+{
+	return(GameHudLocation);
 }

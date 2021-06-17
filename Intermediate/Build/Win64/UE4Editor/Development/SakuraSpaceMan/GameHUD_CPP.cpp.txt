@@ -104,3 +104,8 @@ D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextBlock.h
 D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextWidgetTypes.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidgetTypes.generated.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextBlock.generated.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/Image.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Public\Slate/SlateTextureAtlasInterface.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SlateTextureAtlasInterface.generated.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/StreamableManager.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Image.generated.h

@@ -61,7 +61,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UGameHUD_CPP); \
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__PlayersScore() { return STRUCT_OFFSET(UGameHUD_CPP, PlayersScore); }
+	FORCEINLINE static uint32 __PPO__PlayersScore_Txt() { return STRUCT_OFFSET(UGameHUD_CPP, PlayersScore_Txt); } \
+	FORCEINLINE static uint32 __PPO__SakuraEnergy_Img() { return STRUCT_OFFSET(UGameHUD_CPP, SakuraEnergy_Img); }
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_12_PROLOG

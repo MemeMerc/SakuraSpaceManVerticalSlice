@@ -7,6 +7,7 @@
 #include "UObject/UObjectBaseUtility.h"
 #include "Kismet/GameplayStatics.h"
 #include "SakuraSpaceManGameModeBase.h"
+#include "CollectableWid_CPP.h"
 
 // Sets default values
 ABasicCollectable_CPP::ABasicCollectable_CPP()
@@ -87,8 +88,28 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 			// Check that gamemode was found.
 			if(GameMode != nullptr)
 			{
-				// update players score.
+				// Update players score.
 				GameMode->SetPlayersScore(100);
+			}
+
+			if (Collectable_WidClass != nullptr)
+			{
+				// Create the widget from the class provided.
+				Collectable_Wid = CreateWidget<UCollectableWid_CPP>(GetWorld(), Collectable_WidClass);
+				// Cast to playerControler to covert this actors location to screen space.
+				const APlayerController* const PlayerController = GetWorld()->GetFirstPlayerController();
+				// Check if PlayerController was found.
+				if (PlayerController != nullptr)
+				{
+					// Get Postion of this actor in screen space.
+					FVector2D WidPosition;
+					PlayerController->ProjectWorldLocationToScreen(this->GetActorLocation(), WidPosition);
+
+					// Set widget location to actors location.
+					Collectable_Wid->SetPositionInViewport(WidPosition);
+					// Add widget to viewport.
+					Collectable_Wid->AddToViewport();
+				}
 			}
 		}
 
