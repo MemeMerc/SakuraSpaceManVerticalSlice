@@ -5,6 +5,8 @@
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
 #include "UObject/UObjectBaseUtility.h"
+#include "Kismet/GameplayStatics.h"
+#include "SakuraSpaceManGameModeBase.h"
 
 // Sets default values
 ABasicCollectable_CPP::ABasicCollectable_CPP()
@@ -73,12 +75,22 @@ void ABasicCollectable_CPP::OnOverlapBegin(class UPrimitiveComponent* Overlapped
 // Checks if the mesh has overlaped with the player, if true the player collects this item.
 void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
+	// Check if the player overlapped this object.
 	if (OtherComp->ComponentHasTag("Player"))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Destroy Collictable");
+		// Check if world can be found.
+		if (GetWorld() != nullptr)
+		{
+			// Cast to gamemode.
+			ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 
-		// Do stuff here to "Collect" it.
+			// Check that gamemode was found.
+			if(GameMode != nullptr)
+			{
+				// update players score.
+				GameMode->SetPlayersScore(100);
+			}
+		}
 
 		// Destory this instance.
 		Destroy();
