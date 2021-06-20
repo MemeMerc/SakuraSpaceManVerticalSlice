@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{E9CEDD09-3091-443E-924E-B824125D2D50}</UniqueIdentifier>
+      <UniqueIdentifier>{20C0C13C-94BE-4D1C-B2AD-37A832791538}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{88B0B564-2CBE-4D8E-B639-6C5C93FC7B6C}</UniqueIdentifier>
+      <UniqueIdentifier>{D86C3265-918E-4044-AE39-63CBBB26A84B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{AA7BDE27-E101-42D5-ACCF-371FFED7FEBD}</UniqueIdentifier>
+      <UniqueIdentifier>{73E41160-6751-4EC5-972D-31A6063F7C8A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -41,7 +41,7 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{68613903-A133-4045-BF62-7DFC18D45CD9}</UniqueIdentifier>
+      <UniqueIdentifier>{C170EED6-FFF2-46B4-9822-686D75CE9F6F}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\BasicCollectable_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
@@ -56,6 +56,9 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\FallingPlatform_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\GameHUD_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\GrappleLocation_CPP.cpp">
@@ -74,7 +77,7 @@
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{9F18A742-7480-4BE2-9BA4-EBC4693C5A30}</UniqueIdentifier>
+      <UniqueIdentifier>{97CADE73-AD06-4C0D-84B1-DA5F1BFDBC92}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
@@ -89,6 +92,9 @@
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\FallingPlatform_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\GameHUD_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h">
