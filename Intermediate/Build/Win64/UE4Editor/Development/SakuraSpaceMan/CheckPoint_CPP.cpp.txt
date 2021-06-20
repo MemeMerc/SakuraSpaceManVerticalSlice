@@ -1,32 +1,32 @@
-C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Github\Test\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h
-C:\Github\Test\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
-C:\Github\Test\Source\SakuraSpaceMan\Public\Player_CPP.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\Player_CPP.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
-C:\Github\Test\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\CheckPoint_CPP.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/CollisionProfile.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CollisionProfile.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\CheckPoint_CPP.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Player_CPP.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\Player_CPP.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
+C:\Users\dylan\OneDrive\Documents\GitHub\Cinemachine\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\CheckPoint_CPP.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/CollisionProfile.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CollisionProfile.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+D:\UnrealEngine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
