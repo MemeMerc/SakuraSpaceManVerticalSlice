@@ -639,6 +639,7 @@ void APlayer_CPP::GrappleDeactivate()
 	bGrappleFlipFlop = true;
 }
 
+
 //Returns the current selected grapple point. Blueprint callable event.
 AActor* APlayer_CPP::ReturnGrapple()
 {
@@ -668,6 +669,7 @@ void APlayer_CPP::ActivateGlide()
 	}
 
 }
+
 void APlayer_CPP::DeactivateGlide()
 {
 	if (bIsGliding == true)
