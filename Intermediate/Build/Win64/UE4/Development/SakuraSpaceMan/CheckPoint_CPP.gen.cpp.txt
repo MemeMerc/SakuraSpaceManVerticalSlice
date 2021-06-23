@@ -1,19 +1,19 @@
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan/Public/CheckPoint_CPP.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public\Player_CPP.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CharacterMovementReplication.generated.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\RootMotionSource.generated.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\Character.generated.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\Player_CPP.generated.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
-D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
-D:\Users\MDS00000VG\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\CheckPoint_CPP.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan/Public/CheckPoint_CPP.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\Player_CPP.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\Character.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\Player_CPP.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
+C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\CheckPoint_CPP.generated.h
