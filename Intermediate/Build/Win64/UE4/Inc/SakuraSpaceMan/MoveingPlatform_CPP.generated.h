@@ -58,7 +58,13 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMoveingPlatform_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMoveingPlatform_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_MoveingPlatform_CPP_h_12_PRIVATE_PROPERTY_OFFSET
+#define SSM_VS_Source_SakuraSpaceMan_Public_MoveingPlatform_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(AMoveingPlatform_CPP, Mesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AMoveingPlatform_CPP, CollisionBox); } \
+	FORCEINLINE static uint32 __PPO__LocationOne() { return STRUCT_OFFSET(AMoveingPlatform_CPP, LocationOne); } \
+	FORCEINLINE static uint32 __PPO__LocationTwo() { return STRUCT_OFFSET(AMoveingPlatform_CPP, LocationTwo); }
+
+
 #define SSM_VS_Source_SakuraSpaceMan_Public_MoveingPlatform_CPP_h_9_PROLOG
 #define SSM_VS_Source_SakuraSpaceMan_Public_MoveingPlatform_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

@@ -14,8 +14,31 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SAKURASPACEMAN_SakuraSpaceManGameModeBase_generated_h
 
 #define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA
-#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS
-#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetPlayersScore);
+
+
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetPlayersScore);
+
+
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_EVENT_PARMS \
+	struct SakuraSpaceManGameModeBase_eventUpdateScore_Parms \
+	{ \
+		int32 _PlayersScore; \
+		int32 ReturnValue; \
+ \
+		/** Constructor, initializes return property only **/ \
+		SakuraSpaceManGameModeBase_eventUpdateScore_Parms() \
+			: ReturnValue(0) \
+		{ \
+		} \
+	};
+
+
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS
 #define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASakuraSpaceManGameModeBase(); \
@@ -60,14 +83,22 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET
-#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__GameHud_WidClass() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_WidClass); } \
+	FORCEINLINE static uint32 __PPO__GameHud_Wid() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_Wid); }
+
+
+#define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG \
+	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_EVENT_PARMS
+
+
 #define SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
+	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +111,7 @@ public: \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 	SSM_VS_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \

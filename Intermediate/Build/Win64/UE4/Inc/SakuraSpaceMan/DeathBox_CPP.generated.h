@@ -69,7 +69,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADeathBox_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADeathBox_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET
+#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ADeathBox_CPP, CollisionBox); }
+
+
 #define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_10_PROLOG
 #define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
