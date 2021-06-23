@@ -66,7 +66,7 @@ void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 
 	if (GameHud_Wid != nullptr)
 	{
-		GameHud_Wid->UpdateScore(100);
+		GameHud_Wid->UpdateScore(PlayersScore);
 	}
 }
 
