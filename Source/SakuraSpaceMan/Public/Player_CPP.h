@@ -118,8 +118,10 @@ protected:
 	bool bIsReelingIn; 
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-
 	bool bIsBoosting;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
+	bool bIsGrinding;
 
 
 
