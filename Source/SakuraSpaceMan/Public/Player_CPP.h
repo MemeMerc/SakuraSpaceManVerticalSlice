@@ -69,6 +69,8 @@ protected:
 	//Dash
 	void DashForward();
 
+	// Reset To last checkpoint
+	void ResetPlayer();
 
 	//Grapple Mechanics
 	UFUNCTION(BlueprintCallable, Category = Properties)

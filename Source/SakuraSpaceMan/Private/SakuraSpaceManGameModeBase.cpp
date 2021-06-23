@@ -12,18 +12,20 @@
 void ASakuraSpaceManGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// Check that it can find the widget class and that it can find the world.
-	if (GameHud_WidClass != nullptr && GetWorld() != nullptr)
+	if (GetWorld() != nullptr)
 	{
-		// Create the widget from the class provided.
-		GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
-		// Add widget to viewport.
-		GameHud_Wid->AddToViewport();
+		// Check that it can find the widget class and that it can find the world.
+		if (GameHud_WidClass != nullptr)
+		{
+			// Create the widget from the class provided.
+			GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
+			// Add widget to viewport.
+			GameHud_Wid->AddToViewport();
 
-		// Get location of widget.
-		FGeometry Geometry = GameHud_Wid->GetCachedGeometry();
-		GameHudLocation = Geometry.AbsoluteToLocal(GameHud_Wid->GetCachedGeometry().GetAbsolutePosition()) + GameHud_Wid->GetCachedGeometry().GetLocalSize() / 2.0f;
+			// Get location of widget.
+			FGeometry Geometry = GameHud_Wid->GetCachedGeometry();
+			GameHudLocation = Geometry.AbsoluteToLocal(GameHud_Wid->GetCachedGeometry().GetAbsolutePosition()) + GameHud_Wid->GetCachedGeometry().GetLocalSize() / 2.0f;
+		}
 	}
 }
 

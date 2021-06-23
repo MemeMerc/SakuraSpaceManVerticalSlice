@@ -116,7 +116,7 @@ void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
 
-
+	// Cast to gameMode to set respawn location at the start.
 	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	GameMode->SetRespawnLocation(GetActorLocation());
 
@@ -291,6 +291,8 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 
 	_PlayerInputComponent->BindAction("Grapple", IE_Pressed, this, &APlayer_CPP::GrappleActivate);
 	_PlayerInputComponent->BindAction("Grapple", IE_Released, this, &APlayer_CPP::GrappleDeactivate);
+
+	_PlayerInputComponent->BindAction("Reset", IE_Pressed, this, &APlayer_CPP::ResetPlayer);
 
 	//_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
@@ -690,3 +692,16 @@ FVector APlayer_CPP::ClampVector(FVector _Vector, float _fMin, float _fMax)
 	return(ClampedVector);
 }
 
+// Cast to gamemde and reset player to the last check point.
+void APlayer_CPP::ResetPlayer()
+{
+	// Cast to gameMode to set respawn location at the start.
+	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+
+	// Check that a Gamemode was found.
+	if (GameMode != nullptr)
+	{
+		// Reset to last checkpoint.
+		GameMode->Respawn(this);
+	}
+}
