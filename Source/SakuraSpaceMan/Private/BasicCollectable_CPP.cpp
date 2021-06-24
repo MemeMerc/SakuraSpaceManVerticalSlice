@@ -82,16 +82,6 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 		// Check if world can be found.
 		if (GetWorld() != nullptr)
 		{
-			// Cast to gamemode.
-			ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-
-			// Check that gamemode was found.
-			if(GameMode != nullptr)
-			{
-				// Update players score.
-				GameMode->SetPlayersScore(fPoints);
-			}
-
 			if (Collectable_WidClass != nullptr)
 			{
 				// Create the widget from the class provided.
@@ -108,7 +98,7 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 
 					// Set widget location to actors location.
 					Collectable_Wid->SetPositionInViewport(WidPosition);
-					Collectable_Wid->SetPosition(WidPosition);
+					Collectable_Wid->InitWidget(WidPosition, fPoints);
 					// Add widget to viewport.
 					Collectable_Wid->AddToViewport();
 				}
