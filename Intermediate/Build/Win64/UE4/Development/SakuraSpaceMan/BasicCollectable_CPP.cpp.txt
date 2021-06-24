@@ -30,6 +30,10 @@ D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ServerStatReplicator.generated.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameModeBase.generated.h
 D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\SakuraSpaceManGameModeBase.generated.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
+D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SoundNode.generated.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SoundCue.generated.h
 D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\CollectableWid_CPP.h
 D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h
