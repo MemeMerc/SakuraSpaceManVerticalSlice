@@ -43,10 +43,13 @@ protected:
 	class AActor* Target;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-		TSubclassOf<class UCollectableWid_CPP> Collectable_WidClass;
+	TSubclassOf<class UCollectableWid_CPP> Collectable_WidClass;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		class UCollectableWid_CPP* Collectable_Wid;
+	class UCollectableWid_CPP* Collectable_Wid;
+
+	// Set Sound.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	class USoundCue* Sound;
 
 	// Init direction and current location of this object.
 	FVector Direction;

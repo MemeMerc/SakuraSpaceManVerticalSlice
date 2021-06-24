@@ -7,7 +7,9 @@
 #include "UObject/UObjectBaseUtility.h"
 #include "Kismet/GameplayStatics.h"
 #include "SakuraSpaceManGameModeBase.h"
+#include "Sound/SoundCue.h"
 #include "CollectableWid_CPP.h"
+
 
 // Sets default values
 ABasicCollectable_CPP::ABasicCollectable_CPP()
@@ -103,8 +105,12 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 					Collectable_Wid->AddToViewport();
 				}
 			}
-		}
 
+			if (Sound != nullptr)
+			{
+				UGameplayStatics::PlaySound2D(GetWorld(), Sound, 1.0f, 1.0f, 0);
+			}
+		}
 		// Destory this instance.
 		Destroy();
 		
