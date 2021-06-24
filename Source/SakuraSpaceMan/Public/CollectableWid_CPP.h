@@ -19,11 +19,13 @@ public:
 	virtual void NativeConstruct() override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 
+	void SetPosition(FVector2D _StartLocation);
+
 	UPROPERTY(meta = (BindWidget))
 	class UImage* SakuraEnergy_Img;
 
 	UPROPERTY(EditAnywhere)
-	float fSpeed = 5.0f;
+	float fSpeed = 150.0f;
 	
 private:
 	FVector2D TargetLocation;

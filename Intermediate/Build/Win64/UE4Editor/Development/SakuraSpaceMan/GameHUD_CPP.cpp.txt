@@ -109,3 +109,10 @@ D:\UE_4.26\Engine\Source\Runtime\Engine\Public\Slate/SlateTextureAtlasInterface.
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SlateTextureAtlasInterface.generated.h
 D:\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/StreamableManager.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Image.generated.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/CanvasPanel.h
+D:\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SConstraintCanvas.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelWidget.h
+D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelSlot.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelSlot.generated.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelWidget.generated.h
+D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\CanvasPanel.generated.h

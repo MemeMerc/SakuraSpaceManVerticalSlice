@@ -4,6 +4,8 @@
 #include "GameHUD_CPP.h"
 #include "Components/TextBlock.h"
 #include "Components/Image.h"
+#include "Components/CanvasPanel.h"
+#include "Components/Widget.h"
 
 
 // Construction scrip.

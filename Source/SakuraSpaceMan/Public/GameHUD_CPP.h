@@ -28,6 +28,7 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	class UImage* SakuraEnergy_Img;
 
+
 	int Score;
 
 };

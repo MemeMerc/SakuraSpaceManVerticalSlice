@@ -29,23 +29,28 @@ void UCollectableWid_CPP::NativeConstruct()
 // Move this widget to the target location.
 void UCollectableWid_CPP::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 {
+	// Find Direction to move to
+	Direction = TargetLocation - CurrentLocation;
+	Direction = Direction.GetSafeNormal();
 
+	// Get directon to move to.
+	CurrentLocation += Direction * DeltaTime * fSpeed;
+
+	// Moves widget in viewport.
+	SetPositionInViewport(CurrentLocation);
+
+	// Checks if widget has reached its target location.
+	if (CurrentLocation.Equals(TargetLocation, 50))
+	{
+		// Remove widget from the screen.
+		RemoveFromViewport();	
+	}
 		
+}
 
-		// Get the location of the this widget.
-		FGeometry Geometry = this->GetCachedGeometry();
-		CurrentLocation = Geometry.AbsoluteToLocal(this->GetCachedGeometry().GetAbsolutePosition()) + this->GetCachedGeometry().GetLocalSize() / 2.0f;
-
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, CurrentLocation.ToString());
-
-		// Find Direction to move to
-		Direction = TargetLocation - CurrentLocation;
-		Direction = Direction.GetSafeNormal();
-
-		// Get directon to move to.
-		CurrentLocation += Direction;
-
-		// Move widget to target.
-		this->SetPositionInViewport(CurrentLocation);
-
+// Set the start loction of this widget.
+void UCollectableWid_CPP::SetPosition(FVector2D _StartLocation)
+{
+	// Set the start loction of this widget.
+	CurrentLocation = _StartLocation;
 }

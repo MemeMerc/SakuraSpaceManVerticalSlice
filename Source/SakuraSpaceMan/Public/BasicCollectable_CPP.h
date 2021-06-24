@@ -22,6 +22,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Move To")
 	float fSpeed = 10.f;
 
+	// Points fr collecting.
+	UPROPERTY(EditAnywhere)
+	float fPoints = 100.f;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

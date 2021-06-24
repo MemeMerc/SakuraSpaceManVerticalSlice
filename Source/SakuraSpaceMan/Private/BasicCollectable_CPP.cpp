@@ -89,13 +89,14 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 			if(GameMode != nullptr)
 			{
 				// Update players score.
-				GameMode->SetPlayersScore(100);
+				GameMode->SetPlayersScore(fPoints);
 			}
 
 			if (Collectable_WidClass != nullptr)
 			{
 				// Create the widget from the class provided.
 				Collectable_Wid = CreateWidget<UCollectableWid_CPP>(GetWorld(), Collectable_WidClass);
+
 				// Cast to playerControler to covert this actors location to screen space.
 				const APlayerController* const PlayerController = GetWorld()->GetFirstPlayerController();
 				// Check if PlayerController was found.
@@ -103,10 +104,11 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 				{
 					// Get Postion of this actor in screen space.
 					FVector2D WidPosition;
-					PlayerController->ProjectWorldLocationToScreen(this->GetActorLocation(), WidPosition);
+					PlayerController->ProjectWorldLocationToScreen(this->GetActorLocation(), WidPosition, true);
 
 					// Set widget location to actors location.
 					Collectable_Wid->SetPositionInViewport(WidPosition);
+					Collectable_Wid->SetPosition(WidPosition);
 					// Add widget to viewport.
 					Collectable_Wid->AddToViewport();
 				}

@@ -24,21 +24,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGetPlayersScore);
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_EVENT_PARMS \
-	struct SakuraSpaceManGameModeBase_eventUpdateScore_Parms \
-	{ \
-		int32 _PlayersScore; \
-		int32 ReturnValue; \
- \
-		/** Constructor, initializes return property only **/ \
-		SakuraSpaceManGameModeBase_eventUpdateScore_Parms() \
-			: ReturnValue(0) \
-		{ \
-		} \
-	};
-
-
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASakuraSpaceManGameModeBase(); \
@@ -88,17 +73,13 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
 	FORCEINLINE static uint32 __PPO__GameHud_Wid() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_Wid); }
 
 
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG \
-	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_EVENT_PARMS
-
-
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
-	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
 public: \
@@ -111,7 +92,6 @@ public: \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_CALLBACK_WRAPPERS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \

@@ -6,12 +6,17 @@
 #include "Blueprint/UserWidget.h"
 #include "GameHUD_CPP.h"
 #include "Components/CanvasPanelSlot.h"
+#include "Components/WrapBox.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 
 
 void ASakuraSpaceManGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GameHudLocation = FVector2D(50.f, 100.f);
+
+	// Check that the world can be found.
 	if (GetWorld() != nullptr)
 	{
 		// Check that it can find the widget class and that it can find the world.
@@ -19,12 +24,8 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 		{
 			// Create the widget from the class provided.
 			GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
-			// Add widget to viewport.
 			GameHud_Wid->AddToViewport();
-
-			// Get location of widget.
-			FGeometry Geometry = GameHud_Wid->GetCachedGeometry();
-			GameHudLocation = Geometry.AbsoluteToLocal(GameHud_Wid->GetCachedGeometry().GetAbsolutePosition()) + GameHud_Wid->GetCachedGeometry().GetLocalSize() / 2.0f;
+			GameHud_Wid->SetPositionInViewport(GameHudLocation);
 		}
 	}
 }

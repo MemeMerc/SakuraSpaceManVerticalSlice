@@ -35,9 +35,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 		int GetPlayersScore() const;
 
-	UFUNCTION(BlueprintImplementableEvent)
-		int UpdateScore(int _PlayersScore);
-
 protected:
 
 	// Respawn locaton of the player.
@@ -52,8 +49,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UGameHUD_CPP* GameHud_Wid;
 
-	FVector2D GameHudLocation;
-
 	// Players Score
 	int PlayersScore;
+
+	FVector2D GameHudLocation;
 };
