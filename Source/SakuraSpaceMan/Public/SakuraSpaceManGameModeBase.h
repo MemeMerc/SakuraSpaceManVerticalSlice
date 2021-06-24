@@ -16,8 +16,10 @@ class SAKURASPACEMAN_API ASakuraSpaceManGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 public:
+	ASakuraSpaceManGameModeBase();
 
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
 
 	// Set respwn location of the player.
 	void SetRespawnLocation(FVector _RespawnLocation);
@@ -32,8 +34,12 @@ public:
 	FVector2D GetGameHudLocation();
 
 	// Get the Players Score.
-	UFUNCTION(BlueprintCallable)
-		int GetPlayersScore() const;
+	int GetPlayersScore() const;
+
+	// Get the Players Time.
+	float GetPlayersTime() const;
+
+	void CheckHighScore();
 
 protected:
 
@@ -51,6 +57,12 @@ protected:
 
 	// Players Score
 	int PlayersScore;
+	float  Timer;
 
 	FVector2D GameHudLocation;
+
+
+	// HightScore
+	int BestPlayerScore;
+	float  BestPlayerTime;
 };

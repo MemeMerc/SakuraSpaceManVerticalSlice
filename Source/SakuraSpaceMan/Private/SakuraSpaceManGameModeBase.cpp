@@ -9,6 +9,11 @@
 #include "Components/WrapBox.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 
+ASakuraSpaceManGameModeBase::ASakuraSpaceManGameModeBase()
+{
+	// This Allows tick to be called.
+	PrimaryActorTick.bCanEverTick = true;
+}
 
 void ASakuraSpaceManGameModeBase::BeginPlay()
 {
@@ -28,6 +33,13 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 			GameHud_Wid->SetPositionInViewport(GameHudLocation);
 		}
 	}
+}
+
+void ASakuraSpaceManGameModeBase::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	Timer += DeltaSeconds;
 }
 
 // Set the respawm locaton of the player.
@@ -81,4 +93,22 @@ int ASakuraSpaceManGameModeBase::GetPlayersScore() const
 FVector2D ASakuraSpaceManGameModeBase::GetGameHudLocation()
 {
 	return(GameHudLocation);
+}
+
+float ASakuraSpaceManGameModeBase::GetPlayersTime() const
+{
+	return(Timer);
+}
+
+void ASakuraSpaceManGameModeBase::CheckHighScore()
+{
+	if (PlayersScore > BestPlayerScore)
+	{
+		BestPlayerScore = PlayersScore;
+	}
+
+	if (Timer > BestPlayerTime)
+	{
+		BestPlayerTime = Timer;
+	}
 }
