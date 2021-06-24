@@ -24,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	SAKURASPACEMAN_API UClass* Z_Construct_UClass_UCollectableWid_CPP_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ABasicCollectable_CPP::execMeshOverlapBegin)
 	{
@@ -262,9 +263,9 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_Collectable_WidClass;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Collectable_Wid_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Sound_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Collectable_Wid;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Sound;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -338,13 +339,14 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_WidClass = { "Collectable_WidClass", nullptr, (EPropertyFlags)0x0024080000010015, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABasicCollectable_CPP, Collectable_WidClass), Z_Construct_UClass_UCollectableWid_CPP_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_WidClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_WidClass_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_Wid_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Sound_MetaData[] = {
 		{ "Category", "BasicCollectable_CPP" },
-		{ "EditInline", "true" },
+		{ "Comment", "// Set Sound.\n" },
 		{ "ModuleRelativePath", "Public/BasicCollectable_CPP.h" },
+		{ "ToolTip", "Set Sound." },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_Wid = { "Collectable_Wid", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABasicCollectable_CPP, Collectable_Wid), Z_Construct_UClass_UCollectableWid_CPP_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_Wid_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_Wid_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Sound = { "Sound", nullptr, (EPropertyFlags)0x0020080000010005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ABasicCollectable_CPP, Sound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Sound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Sound_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABasicCollectable_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_fPoints,
@@ -352,7 +354,7 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_CollisionBox,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Target,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_WidClass,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Collectable_Wid,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABasicCollectable_CPP_Statics::NewProp_Sound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABasicCollectable_CPP_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ABasicCollectable_CPP>::IsAbstract,
@@ -381,7 +383,7 @@ void EmptyLinkFunctionForGeneratedCodeBasicCollectable_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABasicCollectable_CPP, 3308980492);
+	IMPLEMENT_CLASS(ABasicCollectable_CPP, 3762025982);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ABasicCollectable_CPP>()
 	{
 		return ABasicCollectable_CPP::StaticClass();

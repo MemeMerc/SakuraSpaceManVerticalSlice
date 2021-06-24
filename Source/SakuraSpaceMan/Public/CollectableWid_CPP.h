@@ -19,7 +19,7 @@ public:
 	virtual void NativeConstruct() override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 
-	void SetPosition(FVector2D _StartLocation);
+	void InitWidget(FVector2D _StartLocation, float _FPoints);
 
 	UPROPERTY(meta = (BindWidget))
 	class UImage* SakuraEnergy_Img;
@@ -28,6 +28,11 @@ public:
 	float fSpeed = 150.0f;
 	
 private:
+
+	class ASakuraSpaceManGameModeBase* GameMode;
+
+	float FPoints;
+
 	FVector2D TargetLocation;
 	FVector2D CurrentLocation;
 	FVector2D Direction;

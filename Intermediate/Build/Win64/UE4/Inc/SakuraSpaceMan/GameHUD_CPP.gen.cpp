@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeGameHUD_CPP() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_SakuraSpaceMan();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
 	void UGameHUD_CPP::StaticRegisterNativesUGameHUD_CPP()
 	{
@@ -33,9 +34,13 @@ void EmptyLinkFunctionForGeneratedCodeGameHUD_CPP() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayersScore_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayersScore_Txt_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayersScore;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayersScore_Txt;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SakuraEnergy_Img_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SakuraEnergy_Img;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -52,15 +57,24 @@ void EmptyLinkFunctionForGeneratedCodeGameHUD_CPP() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_Txt_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/GameHUD_CPP.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore = { "PlayersScore", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UGameHUD_CPP, PlayersScore), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_Txt = { "PlayersScore_Txt", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UGameHUD_CPP, PlayersScore_Txt), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_Txt_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_Txt_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_SakuraEnergy_Img_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/GameHUD_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_SakuraEnergy_Img = { "SakuraEnergy_Img", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UGameHUD_CPP, SakuraEnergy_Img), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_SakuraEnergy_Img_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_SakuraEnergy_Img_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UGameHUD_CPP_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_PlayersScore_Txt,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameHUD_CPP_Statics::NewProp_SakuraEnergy_Img,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UGameHUD_CPP_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UGameHUD_CPP>::IsAbstract,
@@ -89,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeGameHUD_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UGameHUD_CPP, 1594162511);
+	IMPLEMENT_CLASS(UGameHUD_CPP, 3946397326);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<UGameHUD_CPP>()
 	{
 		return UGameHUD_CPP::StaticClass();

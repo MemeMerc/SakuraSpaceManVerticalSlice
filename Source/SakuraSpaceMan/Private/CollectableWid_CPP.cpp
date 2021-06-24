@@ -16,7 +16,7 @@ void UCollectableWid_CPP::NativeConstruct()
 	if (GetWorld() != nullptr)
 	{
 		// Cast to gamemode.
-		ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+		GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 
 		// Check that gamemode was found.
 		if (GameMode != nullptr)
@@ -40,17 +40,21 @@ void UCollectableWid_CPP::NativeTick(const FGeometry& MyGeometry, float DeltaTim
 	SetPositionInViewport(CurrentLocation);
 
 	// Checks if widget has reached its target location.
-	if (CurrentLocation.Equals(TargetLocation, 50))
+	if (CurrentLocation.Equals(TargetLocation, 100))
 	{
+
+		GameMode->SetPlayersScore(FPoints);
+
 		// Remove widget from the screen.
 		RemoveFromViewport();	
 	}
 		
 }
 
-// Set the start loction of this widget.
-void UCollectableWid_CPP::SetPosition(FVector2D _StartLocation)
+// Set the start loction of this widget and value of points.
+void UCollectableWid_CPP::InitWidget(FVector2D _StartLocation, float _FPoints)
 {
 	// Set the start loction of this widget.
 	CurrentLocation = _StartLocation;
+	FPoints = _FPoints;
 }

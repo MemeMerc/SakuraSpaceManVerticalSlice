@@ -34,14 +34,14 @@
 #define WITH_PUSH_MODEL 0
 #define WITH_CEF3 1
 #define WITH_LIVE_CODING 1
-#define UE_LIVE_CODING_ENGINE_DIR "C:\\Program Files\\Epic Games\\UE_4.26\\Engine"
-#define UE_LIVE_CODING_PROJECT "C:\\Users\\Cody Bowden\\Documents\\GitHub\\SSM_VS\\SakuraSpaceMan.uproject"
+#define UE_LIVE_CODING_ENGINE_DIR "D:\\UE_4.26\\Engine"
+#define UE_LIVE_CODING_PROJECT "D:\\SakuraSpaceManVerticalSlice\\SakuraSpaceMan.uproject"
 #define UBT_MODULE_MANIFEST "UE4.modules"
 #define UBT_MODULE_MANIFEST_DEBUGGAME "UE4-Win64-DebugGame.modules"
 #define UBT_COMPILED_PLATFORM Win64
 #define UBT_COMPILED_TARGET Game
 #define UE_APP_NAME "UE4"
-#define UE_ENGINE_DIRECTORY "../../../../../../../Program Files/Epic Games/UE_4.26/Engine/"
+#define UE_ENGINE_DIRECTORY "../../../UE_4.26/Engine/"
 #define NDIS_MINIPORT_MAJOR_VERSION 0
 #define WIN32 1
 #define _WIN32_WINNT 0x0601
@@ -59,6 +59,25 @@
 #define IMPLEMENT_SIGNING_KEY_REGISTRATION() 
 #define DEPRECATED_FORGAME DEPRECATED
 #define UE_DEPRECATED_FORGAME UE_DEPRECATED
+#define SLATE_API 
+#define UE_ENABLE_ICU 1
+#define WITH_VS_PERF_PROFILER 0
+#define WITH_DIRECTXMATH 0
+#define WITH_MALLOC_STOMP 1
+#define CORE_API 
+#define TRACELOG_API 
+#define COREUOBJECT_API 
+#define APPLICATIONCORE_API 
+#define RHI_API 
+#define INPUTCORE_API 
+#define JSON_API 
+#define WITH_FREETYPE 1
+#define SLATECORE_API 
+#define WITH_UNREALPNG 1
+#define WITH_UNREALJPEG 1
+#define WITH_LIBJPEGTURBO 1
+#define WITH_UNREALEXR 1
+#define IMAGEWRAPPER_API 
 #define INCLUDE_CHAOS 0
 #define WITH_PHYSX 1
 #define WITH_CHAOS 0
@@ -74,26 +93,7 @@
 #define WITH_IMMEDIATE_PHYSX 0
 #define GPUPARTICLE_LOCAL_VF_ONLY 0
 #define ENGINE_API 
-#define UE_ENABLE_ICU 1
-#define WITH_VS_PERF_PROFILER 0
-#define WITH_DIRECTXMATH 0
-#define WITH_MALLOC_STOMP 1
-#define CORE_API 
-#define TRACELOG_API 
-#define COREUOBJECT_API 
 #define NETCORE_API 
-#define APPLICATIONCORE_API 
-#define RHI_API 
-#define JSON_API 
-#define WITH_FREETYPE 1
-#define SLATECORE_API 
-#define INPUTCORE_API 
-#define SLATE_API 
-#define WITH_UNREALPNG 1
-#define WITH_UNREALJPEG 1
-#define WITH_LIBJPEGTURBO 1
-#define WITH_UNREALEXR 1
-#define IMAGEWRAPPER_API 
 #define MESSAGING_API 
 #define MESSAGINGCOMMON_API 
 #define RENDERCORE_API 
