@@ -3,7 +3,7 @@
 /MACHINE:x64
 /SUBSYSTEM:WINDOWS
 /DEF
-/NAME:"UE4Editor-SakuraSpaceMan-0640.dll"
+/NAME:"UE4Editor-SakuraSpaceMan-5369.dll"
 /IGNORE:4221
 /NODEFAULTLIB
 "D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\SakuraSpaceManEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
@@ -32,5 +32,5 @@
 "D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\SakuraSpaceManGameModeBase.gen.cpp.obj"
 "D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Teleporter_CPP.gen.cpp.obj"
 "D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Default.rc2.res"
-/OUT:"D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\UE4Editor-SakuraSpaceMan-0640.lib"
+/OUT:"D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\UE4Editor-SakuraSpaceMan-5369.lib"
 /INCLUDE:IMPLEMENT_MODULE_SakuraSpaceMan
