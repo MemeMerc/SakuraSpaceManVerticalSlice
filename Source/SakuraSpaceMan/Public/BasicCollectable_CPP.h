@@ -22,6 +22,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Move To")
 	float fSpeed = 10.f;
 
+	// Points fr collecting.
+	UPROPERTY(EditAnywhere)
+	float fPoints = 100.f;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -37,6 +41,12 @@ protected:
 	// Target To follow.
 	UPROPERTY(VisibleAnywhere, Category = "Move To")
 	class AActor* Target;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+		TSubclassOf<class UCollectableWid_CPP> Collectable_WidClass;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		class UCollectableWid_CPP* Collectable_Wid;
 
 	// Init direction and current location of this object.
 	FVector Direction;

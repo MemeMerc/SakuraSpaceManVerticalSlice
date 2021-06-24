@@ -15,12 +15,19 @@ class SAKURASPACEMAN_API UGameHUD_CPP : public UUserWidget
 	GENERATED_BODY()
 public:
 
+	virtual void NativeConstruct() override;
+
+	// Update the score Displayed.
 	void UpdateScore(int _NewScore);
 
 protected:
 		
 	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* PlayersScore;
+	class UTextBlock* PlayersScore_Txt;
+
+	UPROPERTY(meta = (BindWidget))
+	class UImage* SakuraEnergy_Img;
+
 
 	int Score;
 

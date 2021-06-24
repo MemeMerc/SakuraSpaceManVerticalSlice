@@ -116,7 +116,7 @@ void APlayer_CPP::BeginPlay()
 {
 	Super::BeginPlay();
 
-
+	// Cast to gameMode to set respawn location at the start.
 	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	GameMode->SetRespawnLocation(GetActorLocation());
 
@@ -292,6 +292,8 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 	_PlayerInputComponent->BindAction("Grapple", IE_Pressed, this, &APlayer_CPP::GrappleActivate);
 	_PlayerInputComponent->BindAction("Grapple", IE_Released, this, &APlayer_CPP::GrappleDeactivate);
 
+	_PlayerInputComponent->BindAction("Reset", IE_Pressed, this, &APlayer_CPP::ResetPlayer);
+
 	//_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
@@ -335,7 +337,7 @@ void APlayer_CPP::LookUp(float _fScale)
 //Produce forward and back charadcter movement.
 void APlayer_CPP::MoveForward(float _fScale)
 {
-	if (Controller != nullptr && !bIsReelingIn)
+	if (Controller != nullptr && !bIsReelingIn && !bIsGrinding)
 	{
 		if (_fScale != 0.0f)
 		{
@@ -359,7 +361,7 @@ void APlayer_CPP::MoveForward(float _fScale)
 //Produce left and right character movement.
 void APlayer_CPP::MoveRight(float _fScale)
 {
-	if ((Controller != nullptr) && (_fScale != 0.0f) && !bIsReelingIn)
+	if ((Controller != nullptr) && (_fScale != 0.0f) && !bIsReelingIn && !bIsGrinding)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -407,7 +409,7 @@ void APlayer_CPP::ResetWalkValue()
 //Allow player to jump and double jump.
 void APlayer_CPP::Jump()
 {
-	if (Controller != nullptr && !bIsReelingIn && iJumpAmount < iMaxJumpAmount)
+	if (Controller != nullptr && !bIsReelingIn && !bIsGrinding && iJumpAmount < iMaxJumpAmount)
 	{
 		DeactivateGlide();
 		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
@@ -690,3 +692,16 @@ FVector APlayer_CPP::ClampVector(FVector _Vector, float _fMin, float _fMax)
 	return(ClampedVector);
 }
 
+// Cast to gamemde and reset player to the last check point.
+void APlayer_CPP::ResetPlayer()
+{
+	// Cast to gameMode to set respawn location at the start.
+	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+
+	// Check that a Gamemode was found.
+	if (GameMode != nullptr)
+	{
+		// Reset to last checkpoint.
+		GameMode->Respawn(this);
+	}
+}
