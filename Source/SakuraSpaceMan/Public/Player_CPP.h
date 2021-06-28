@@ -54,6 +54,8 @@ protected:
 	//Player Jump
 	void Jump();
 	void StopJumping();
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+	void JumpOffRail();
 
 	//Set Sprinting Speeds
 	void Sprint();
@@ -91,6 +93,7 @@ protected:
 	bool PlayerFallingDown();
 
 	void ActivateGlide();
+	UFUNCTION(BlueprintCallable, Category = Properties)
 	void DeactivateGlide();
 	
 
