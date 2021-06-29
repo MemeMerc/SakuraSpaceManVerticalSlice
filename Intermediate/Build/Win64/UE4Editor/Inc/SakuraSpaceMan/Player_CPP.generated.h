@@ -21,6 +21,7 @@ struct FHitResult;
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execDeactivateGlide); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -29,6 +30,7 @@ struct FHitResult;
 #define SSM_VS_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execDeactivateGlide); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);

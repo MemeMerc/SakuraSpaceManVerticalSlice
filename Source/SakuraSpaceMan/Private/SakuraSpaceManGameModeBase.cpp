@@ -5,21 +5,41 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameHUD_CPP.h"
+#include "Components/CanvasPanelSlot.h"
+#include "Components/WrapBox.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
 
-
+ASakuraSpaceManGameModeBase::ASakuraSpaceManGameModeBase()
+{
+	// This Allows tick to be called.
+	PrimaryActorTick.bCanEverTick = true;
+}
 
 void ASakuraSpaceManGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// Check that it can find the widget class and that it can find the world.
-	if (GameHud_WidClass != nullptr && GetWorld() != nullptr)
+	GameHudLocation = FVector2D(50.f, 100.f);
+
+	// Check that the world can be found.
+	if (GetWorld() != nullptr)
 	{
-		// Create the widget from the class provided.
-		GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
-		// Add widget to viewport.
-		GameHud_Wid->AddToViewport();
+		// Check that it can find the widget class and that it can find the world.
+		if (GameHud_WidClass != nullptr)
+		{
+			// Create the widget from the class provided.
+			GameHud_Wid = CreateWidget<UGameHUD_CPP>(GetWorld(), GameHud_WidClass);
+			GameHud_Wid->AddToViewport();
+			GameHud_Wid->SetPositionInViewport(GameHudLocation);
+		}
 	}
+}
+
+void ASakuraSpaceManGameModeBase::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	Timer += DeltaSeconds;
 }
 
 // Set the respawm locaton of the player.
@@ -59,12 +79,7 @@ void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 
 	if (GameHud_Wid != nullptr)
 	{
-		GameHud_Wid->UpdateScore(100);
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Score");
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "Cast Falied");
+		GameHud_Wid->UpdateScore(PlayersScore);
 	}
 }
 
@@ -72,4 +87,28 @@ void ASakuraSpaceManGameModeBase::SetPlayersScore(int _AddToScore)
 int ASakuraSpaceManGameModeBase::GetPlayersScore() const
 {
 	return(PlayersScore);
+}
+
+// Return the locaton of the GameHud in Screen space.
+FVector2D ASakuraSpaceManGameModeBase::GetGameHudLocation()
+{
+	return(GameHudLocation);
+}
+
+float ASakuraSpaceManGameModeBase::GetPlayersTime() const
+{
+	return(Timer);
+}
+
+void ASakuraSpaceManGameModeBase::CheckHighScore()
+{
+	if (PlayersScore > BestPlayerScore)
+	{
+		BestPlayerScore = PlayersScore;
+	}
+
+	if (Timer > BestPlayerTime)
+	{
+		BestPlayerTime = Timer;
+	}
 }

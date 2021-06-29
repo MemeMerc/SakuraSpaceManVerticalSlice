@@ -33,6 +33,13 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		P_THIS->ClampedVectorSizeReturn(Z_Param__Vector);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayer_CPP::execDeactivateGlide)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DeactivateGlide();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayer_CPP::execReturnGrapple)
 	{
 		P_FINISH;
@@ -73,11 +80,17 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		Parms._fMax=_fMax;
 		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_ClampedVectorSize),&Parms);
 	}
+	static FName NAME_APlayer_CPP_JumpOffRail = FName(TEXT("JumpOffRail"));
+	void APlayer_CPP::JumpOffRail()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_JumpOffRail),NULL);
+	}
 	void APlayer_CPP::StaticRegisterNativesAPlayer_CPP()
 	{
 		UClass* Class = APlayer_CPP::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ClampedVectorSizeReturn", &APlayer_CPP::execClampedVectorSizeReturn },
+			{ "DeactivateGlide", &APlayer_CPP::execDeactivateGlide },
 			{ "Grapple_OnBeginOverlap", &APlayer_CPP::execGrapple_OnBeginOverlap },
 			{ "Grapple_OnOverlapEnd", &APlayer_CPP::execGrapple_OnOverlapEnd },
 			{ "ReturnGrapple", &APlayer_CPP::execReturnGrapple },
@@ -149,6 +162,29 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "DeactivateGlide", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_DeactivateGlide()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_DeactivateGlide_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -297,6 +333,29 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "JumpOffRail", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_JumpOffRail()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_JumpOffRail_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics
 	{
 		struct Player_CPP_eventReturnGrapple_Parms
@@ -409,8 +468,10 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer_CPP_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_APlayer_CPP_ClampedVectorSize, "ClampedVectorSize" }, // 1906830695
 		{ &Z_Construct_UFunction_APlayer_CPP_ClampedVectorSizeReturn, "ClampedVectorSizeReturn" }, // 16877099
+		{ &Z_Construct_UFunction_APlayer_CPP_DeactivateGlide, "DeactivateGlide" }, // 3973820481
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
+		{ &Z_Construct_UFunction_APlayer_CPP_JumpOffRail, "JumpOffRail" }, // 3475813588
 		{ &Z_Construct_UFunction_APlayer_CPP_ReturnGrapple, "ReturnGrapple" }, // 2298195885
 	};
 #if WITH_METADATA
@@ -603,7 +664,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 2838278751);
+	IMPLEMENT_CLASS(APlayer_CPP, 1081765299);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

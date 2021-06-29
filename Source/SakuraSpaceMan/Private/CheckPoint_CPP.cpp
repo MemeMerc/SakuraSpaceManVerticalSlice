@@ -50,20 +50,16 @@ void ACheckPoint_CPP::Tick(float DeltaTime)
 // Overlap event that checks if the player has collided with this box component. This then saves the players location for incase the player needs to respawn.
 void ACheckPoint_CPP::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-
-	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Red, "CheckPoint");
-
 	// Check if the player has overlaped with this.
 	if (OtherComp->ComponentHasTag("Player"))
 	{
-		// Set the players respawn location.
-		RespawnLocation = OtherComp->GetAttachmentRootActor()->GetActorLocation();
-
 		// Check that a gamemode was found.
 		if (GameMode != nullptr)
 		{
 			// Pass respawn location to game mode to store.
-			GameMode->SetRespawnLocation(RespawnLocation);
+			FTransform TransLocation = RespawnLocation * Mesh->GetRelativeTransform();
+			GameMode->SetRespawnLocation(TransLocation.GetLocation());
+
 		}
 	}
 	

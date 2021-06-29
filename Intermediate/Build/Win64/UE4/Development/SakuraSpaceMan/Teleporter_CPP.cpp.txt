@@ -1,7 +1,7 @@
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan\Public\Teleporter_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\Teleporter_CPP.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ShapeComponent.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\BoxComponent.generated.h
+D:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\Teleporter_CPP.h
+D:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\Teleporter_CPP.generated.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\ShapeComponent.generated.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\BoxComponent.generated.h
