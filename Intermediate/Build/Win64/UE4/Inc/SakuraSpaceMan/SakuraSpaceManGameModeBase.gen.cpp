@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 	SAKURASPACEMAN_API UClass* Z_Construct_UClass_ASakuraSpaceManGameModeBase();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_SakuraSpaceMan();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	SAKURASPACEMAN_API UClass* Z_Construct_UClass_UGameHUD_CPP_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ASakuraSpaceManGameModeBase::execGetPlayersScore)
 	{
@@ -78,6 +80,15 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameHud_WidClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_GameHud_WidClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GameHud_Wid_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GameHud_Wid;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -97,6 +108,25 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_WidClass_MetaData[] = {
+		{ "Category", "SakuraSpaceManGameModeBase" },
+		{ "ModuleRelativePath", "Public/SakuraSpaceManGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_WidClass = { "GameHud_WidClass", nullptr, (EPropertyFlags)0x0024080000010015, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_WidClass), Z_Construct_UClass_UGameHUD_CPP_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_WidClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_WidClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_Wid_MetaData[] = {
+		{ "Category", "SakuraSpaceManGameModeBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/SakuraSpaceManGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_Wid = { "GameHud_Wid", nullptr, (EPropertyFlags)0x00200800000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_Wid), Z_Construct_UClass_UGameHUD_CPP_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_Wid_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_Wid_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_WidClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::NewProp_GameHud_Wid,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASakuraSpaceManGameModeBase>::IsAbstract,
 	};
@@ -106,11 +136,11 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::PropPointers),
 		0,
 		0x009002ACu,
 		METADATA_PARAMS(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASakuraSpaceManGameModeBase_Statics::Class_MetaDataParams))
@@ -124,7 +154,7 @@ void EmptyLinkFunctionForGeneratedCodeSakuraSpaceManGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASakuraSpaceManGameModeBase, 3076617309);
+	IMPLEMENT_CLASS(ASakuraSpaceManGameModeBase, 874518326);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ASakuraSpaceManGameModeBase>()
 	{
 		return ASakuraSpaceManGameModeBase::StaticClass();

@@ -29,12 +29,11 @@ public:
 	// Set the Players Score.
 	void SetPlayersScore(int _AddToScore);
 
+	FVector2D GetGameHudLocation();
+
 	// Get the Players Score.
 	UFUNCTION(BlueprintCallable)
 		int GetPlayersScore() const;
-
-	UFUNCTION(BlueprintImplementableEvent)
-		int UpdateScore(int _PlayersScore);
 
 protected:
 
@@ -50,7 +49,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UGameHUD_CPP* GameHud_Wid;
 
-
 	// Players Score
 	int PlayersScore;
+
+	FVector2D GameHudLocation;
 };

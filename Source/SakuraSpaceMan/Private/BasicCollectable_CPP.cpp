@@ -7,6 +7,9 @@
 #include "UObject/UObjectBaseUtility.h"
 #include "Kismet/GameplayStatics.h"
 #include "SakuraSpaceManGameModeBase.h"
+#include "Sound/SoundCue.h"
+#include "CollectableWid_CPP.h"
+
 
 // Sets default values
 ABasicCollectable_CPP::ABasicCollectable_CPP()
@@ -81,17 +84,33 @@ void ABasicCollectable_CPP::MeshOverlapBegin(class UPrimitiveComponent* Overlapp
 		// Check if world can be found.
 		if (GetWorld() != nullptr)
 		{
-			// Cast to gamemode.
-			ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-
-			// Check that gamemode was found.
-			if(GameMode != nullptr)
+			if (Collectable_WidClass != nullptr)
 			{
-				// update players score.
-				GameMode->SetPlayersScore(100);
+				// Create the widget from the class provided.
+				Collectable_Wid = CreateWidget<UCollectableWid_CPP>(GetWorld(), Collectable_WidClass);
+
+				// Cast to playerControler to covert this actors location to screen space.
+				const APlayerController* const PlayerController = GetWorld()->GetFirstPlayerController();
+				// Check if PlayerController was found.
+				if (PlayerController != nullptr)
+				{
+					// Get Postion of this actor in screen space.
+					FVector2D WidPosition;
+					PlayerController->ProjectWorldLocationToScreen(this->GetActorLocation(), WidPosition, true);
+
+					// Set widget location to actors location.
+					Collectable_Wid->SetPositionInViewport(WidPosition);
+					Collectable_Wid->InitWidget(WidPosition, fPoints);
+					// Add widget to viewport.
+					Collectable_Wid->AddToViewport();
+				}
+			}
+
+			if (Sound != nullptr)
+			{
+				UGameplayStatics::PlaySound2D(GetWorld(), Sound, 1.0f, 1.0f, 0);
 			}
 		}
-
 		// Destory this instance.
 		Destroy();
 		
