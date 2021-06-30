@@ -16,22 +16,22 @@ struct FHitResult;
 #endif
 #define SAKURASPACEMAN_Teleporter_CPP_generated_h
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execActivateTeleporter); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterTwo); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterOne);
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execActivateTeleporter); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterTwo); \
 	DECLARE_FUNCTION(execOnOverlapBeginTeleporterOne);
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS_NO_PURE_DECLS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATeleporter_CPP(); \
 	friend struct Z_Construct_UClass_ATeleporter_CPP_Statics; \
@@ -40,7 +40,7 @@ public: \
 	DECLARE_SERIALIZER(ATeleporter_CPP)
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS \
 private: \
 	static void StaticRegisterNativesATeleporter_CPP(); \
 	friend struct Z_Construct_UClass_ATeleporter_CPP_Statics; \
@@ -49,7 +49,7 @@ public: \
 	DECLARE_SERIALIZER(ATeleporter_CPP)
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_STANDARD_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ATeleporter_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATeleporter_CPP) \
@@ -62,7 +62,7 @@ private: \
 public:
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_ENHANCED_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATeleporter_CPP(ATeleporter_CPP&&); \
@@ -73,7 +73,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATeleporter_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATeleporter_CPP)
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__TeleporterMesh_One() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterMesh_One); } \
 	FORCEINLINE static uint32 __PPO__TeleporterMesh_Two() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterMesh_Two); } \
 	FORCEINLINE static uint32 __PPO__TeleporterCollisionBox_One() { return STRUCT_OFFSET(ATeleporter_CPP, TeleporterCollisionBox_One); } \
@@ -81,27 +81,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATeleporter_CPP); \
 	FORCEINLINE static uint32 __PPO__fDelayTime() { return STRUCT_OFFSET(ATeleporter_CPP, fDelayTime); }
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_9_PROLOG
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_GENERATED_BODY_LEGACY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_9_PROLOG
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_STANDARD_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_GENERATED_BODY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS_NO_PURE_DECLS \
-	SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_ENHANCED_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_INCLASS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -109,7 +109,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class ATeleporter_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_2_Source_SakuraSpaceMan_Public_Teleporter_CPP_h
+#define CURRENT_FILE_ID SSMVS_4_Source_SakuraSpaceMan_Public_Teleporter_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
