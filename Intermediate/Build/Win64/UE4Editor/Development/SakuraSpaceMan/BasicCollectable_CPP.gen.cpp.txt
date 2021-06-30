@@ -1,5 +1,5 @@
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Source\SakuraSpaceMan/Public/BasicCollectable_CPP.h
-C:\Users\Cody Bowden\Documents\GitHub\SSM_VS\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\BasicCollectable_CPP.generated.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS_2\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Users\MDS00000VG\Documents\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS_2\Source\SakuraSpaceMan/Public/BasicCollectable_CPP.h
+D:\Users\MDS00000VG\Documents\GitHub\SSMVS_2\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\BasicCollectable_CPP.generated.h

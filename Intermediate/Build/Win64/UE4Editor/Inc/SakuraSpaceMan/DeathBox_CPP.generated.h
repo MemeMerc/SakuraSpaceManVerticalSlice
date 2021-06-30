@@ -16,18 +16,18 @@ struct FHitResult;
 #endif
 #define SAKURASPACEMAN_DeathBox_CPP_generated_h
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS_NO_PURE_DECLS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADeathBox_CPP(); \
 	friend struct Z_Construct_UClass_ADeathBox_CPP_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(ADeathBox_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesADeathBox_CPP(); \
 	friend struct Z_Construct_UClass_ADeathBox_CPP_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(ADeathBox_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_STANDARD_CONSTRUCTORS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ADeathBox_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ADeathBox_CPP) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_ENHANCED_CONSTRUCTORS \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADeathBox_CPP(ADeathBox_CPP&&); \
@@ -69,31 +69,31 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADeathBox_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADeathBox_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ADeathBox_CPP, CollisionBox); }
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_10_PROLOG
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_GENERATED_BODY_LEGACY \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_10_PROLOG
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_STANDARD_CONSTRUCTORS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_GENERATED_BODY \
+#define SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_ENHANCED_CONSTRUCTORS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_SPARSE_DATA \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_INCLASS_NO_PURE_DECLS \
+	SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -101,7 +101,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class ADeathBox_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSM_VS_Source_SakuraSpaceMan_Public_DeathBox_CPP_h
+#define CURRENT_FILE_ID SSMVS_2_Source_SakuraSpaceMan_Public_DeathBox_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
