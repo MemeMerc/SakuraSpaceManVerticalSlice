@@ -18,6 +18,8 @@ class SAKURASPACEMAN_API ACheckPoint_CPP : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACheckPoint_CPP();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (MakeEditWidget = true))
+		FTransform RespawnLocation;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,11 +33,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
 
+
 	// Init game mode
 	ASakuraSpaceManGameModeBase* GameMode;
-
-	// Init location Vector
-	FVector RespawnLocation;
 
 	// Collison function
 	UFUNCTION()

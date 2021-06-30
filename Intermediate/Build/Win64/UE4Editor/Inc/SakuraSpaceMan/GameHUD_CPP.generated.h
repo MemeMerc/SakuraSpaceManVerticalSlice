@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SAKURASPACEMAN_GameHUD_CPP_generated_h
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS_NO_PURE_DECLS \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUGameHUD_CPP(); \
 	friend struct Z_Construct_UClass_UGameHUD_CPP_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(UGameHUD_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesUGameHUD_CPP(); \
 	friend struct Z_Construct_UClass_UGameHUD_CPP_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(UGameHUD_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_STANDARD_CONSTRUCTORS \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UGameHUD_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UGameHUD_CPP) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_ENHANCED_CONSTRUCTORS \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UGameHUD_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,32 +60,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UGameHUD_CPP); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UGameHUD_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__PlayersScore_Txt() { return STRUCT_OFFSET(UGameHUD_CPP, PlayersScore_Txt); } \
 	FORCEINLINE static uint32 __PPO__SakuraEnergy_Img() { return STRUCT_OFFSET(UGameHUD_CPP, SakuraEnergy_Img); }
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_12_PROLOG
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_GENERATED_BODY_LEGACY \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_12_PROLOG
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_STANDARD_CONSTRUCTORS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_GENERATED_BODY \
+#define SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_ENHANCED_CONSTRUCTORS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_SPARSE_DATA \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_INCLASS_NO_PURE_DECLS \
+	SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -93,7 +93,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class UGameHUD_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h
+#define CURRENT_FILE_ID SSM_VS_Source_SakuraSpaceMan_Public_GameHUD_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

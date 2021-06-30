@@ -47,7 +47,7 @@ APlayer_CPP::APlayer_CPP()
 
 	fFriction = 0.5f;
 
-	fCameraClamp = 0.3f;
+	fCameraClamp = 0.8f;
 
 	iMaxJumpAmount = 2;
 
@@ -423,6 +423,12 @@ void APlayer_CPP::Jump()
 		bIsJumping = true;
 		
 	}
+	else if (Controller != nullptr && bIsGrinding)
+	{
+		JumpOffRail();
+		iJumpAmount = 0;
+	}
+		
 }
 
 //If player has landed, reset jump count to zero.
