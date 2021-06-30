@@ -16,6 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "GrappleLocation_CPP.h"
 #include "TimerManager.h"
+#include "Sound/SoundCue.h"
 #include "SakuraSpaceManGameModeBase.h"
 
 // Sets default values TEST
@@ -43,7 +44,7 @@ APlayer_CPP::APlayer_CPP()
 	bIsGliding = false;
 	iJumpAmount = 0;
 	bIsJumping = false;
-
+	bGlideSoundPlayed = false;
 
 	fFriction = 0.5f;
 
@@ -172,7 +173,6 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 			}
 			aSelectedGrapplePoint = SelectActor;
 			Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint)->SetWidgetVisibility(true);
-			GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Current: " + SelectActor->GetName()));
 			
 		}
 		else if (SelectedGrapplePoint != nullptr)
@@ -226,29 +226,14 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 		else
 		{
 			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+			StopGlideSound();
+			bGlideSoundPlayed = false;
 		}
 	}
 	
 
 
-	//Debug Stuff//
-	GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size()));
 
-	if (bIsReelingIn)
-	{
-
-		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, TEXT("IsReelingIn: True"));
-	}
-	else
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, TEXT("IsReelingIn: False"));
-	}
-
-	if (aSelectedGrapplePoint != nullptr)
-	{
-		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
-		GEngine->AddOnScreenDebugMessage(-1, 0.001f, FColor::Yellow, FString::Printf(TEXT("Current Screen Length: %f"), SelectedGrapplePoint->GetScreenLen()));
-	}
 
 }
 
@@ -470,7 +455,7 @@ void APlayer_CPP::Sprint()
 		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
 		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
 		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: True"));
+		
 	}
 }
 //Stop Sprinting
@@ -479,10 +464,7 @@ void APlayer_CPP::StopSprinting()
 	if ((Controller != nullptr) && !bIsReelingIn)
 	{
 		bIsSprinting = false;
-		//GetCharacterMovement()->BrakingFrictionFactor = fFriction;
-		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("Sprint: False"));
 		DeactivateGlide();
 	}
 
@@ -670,6 +652,12 @@ void APlayer_CPP::ActivateGlide()
 	}
 	else if (bIsGliding == true)
 	{
+		if (GlideSound != nullptr && !bGlideSoundPlayed)
+		{
+			UGameplayStatics::PlaySound2D(GetWorld(), GlideSound, 0.5f, 1.0f, 0);
+			PlayGlideSound();
+			bGlideSoundPlayed = true;
+		}
 		GetCharacterMovement()->Velocity.X += this->GetActorForwardVector().X * 15;// *GetCharacterMovement()->Velocity.Size();
 		GetCharacterMovement()->Velocity.Y += this->GetActorForwardVector().Y * 15;// *GetCharacterMovement()->Velocity.Size();
 
@@ -682,7 +670,7 @@ void APlayer_CPP::DeactivateGlide()
 {
 	if (bIsGliding == true)
 	{
-
+		StopGlideSound();
 		GetCharacterMovement()->GravityScale = 4.5f;
 		bIsGliding = false;
 	}

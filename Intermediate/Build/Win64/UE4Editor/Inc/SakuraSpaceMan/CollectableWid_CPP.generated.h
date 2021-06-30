@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SAKURASPACEMAN_CollectableWid_CPP_generated_h
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS_NO_PURE_DECLS \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCollectableWid_CPP(); \
 	friend struct Z_Construct_UClass_UCollectableWid_CPP_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(UCollectableWid_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesUCollectableWid_CPP(); \
 	friend struct Z_Construct_UClass_UCollectableWid_CPP_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(UCollectableWid_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_STANDARD_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCollectableWid_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCollectableWid_CPP) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_ENHANCED_CONSTRUCTORS \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCollectableWid_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,28 +60,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCollectableWid_CPP); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCollectableWid_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_12_PROLOG
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_GENERATED_BODY_LEGACY \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_12_PROLOG
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_STANDARD_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_GENERATED_BODY \
+#define Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_ENHANCED_CONSTRUCTORS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_SPARSE_DATA \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_INCLASS_NO_PURE_DECLS \
+	Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -89,7 +89,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class UCollectableWid_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSM_VS_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h
+#define CURRENT_FILE_ID Test_Source_SakuraSpaceMan_Public_CollectableWid_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

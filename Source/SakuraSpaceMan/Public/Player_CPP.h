@@ -137,6 +137,15 @@ protected:
 
 	float fGravityScale;
 	float fGlideGravityScale;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+		class USoundCue* GlideSound;
+	bool bGlideSoundPlayed;
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+		void PlayGlideSound();
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+		void StopGlideSound();
+
+
 
 	//Ground Friction
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
