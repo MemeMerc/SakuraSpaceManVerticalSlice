@@ -21,6 +21,7 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execDeactivateGlide); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -29,6 +30,7 @@ struct FHitResult;
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
+	DECLARE_FUNCTION(execDeactivateGlide); \
 	DECLARE_FUNCTION(execReturnGrapple); \
 	DECLARE_FUNCTION(execGrapple_OnOverlapEnd); \
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
@@ -90,16 +92,16 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(APlayer_CPP, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(APlayer_CPP, Camera); } \
 	FORCEINLINE static uint32 __PPO__GrappleCollisionSphere() { return STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere); } \
+	FORCEINLINE static uint32 __PPO__bIsGliding() { return STRUCT_OFFSET(APlayer_CPP, bIsGliding); } \
 	FORCEINLINE static uint32 __PPO__bIsReelingIn() { return STRUCT_OFFSET(APlayer_CPP, bIsReelingIn); } \
 	FORCEINLINE static uint32 __PPO__bIsBoosting() { return STRUCT_OFFSET(APlayer_CPP, bIsBoosting); } \
 	FORCEINLINE static uint32 __PPO__bIsGrinding() { return STRUCT_OFFSET(APlayer_CPP, bIsGrinding); } \
+	FORCEINLINE static uint32 __PPO__GlideSound() { return STRUCT_OFFSET(APlayer_CPP, GlideSound); } \
 	FORCEINLINE static uint32 __PPO__fFriction() { return STRUCT_OFFSET(APlayer_CPP, fFriction); } \
 	FORCEINLINE static uint32 __PPO__fCameraClamp() { return STRUCT_OFFSET(APlayer_CPP, fCameraClamp); } \
 	FORCEINLINE static uint32 __PPO__iMaxJumpAmount() { return STRUCT_OFFSET(APlayer_CPP, iMaxJumpAmount); } \
 	FORCEINLINE static uint32 __PPO__fMaxSpeed() { return STRUCT_OFFSET(APlayer_CPP, fMaxSpeed); } \
-	FORCEINLINE static uint32 __PPO__fMaxAcceleration() { return STRUCT_OFFSET(APlayer_CPP, fMaxAcceleration); } \
-	FORCEINLINE static uint32 __PPO__fDashSpeed() { return STRUCT_OFFSET(APlayer_CPP, fDashSpeed); } \
-	FORCEINLINE static uint32 __PPO__fDashCooldown() { return STRUCT_OFFSET(APlayer_CPP, fDashCooldown); }
+	FORCEINLINE static uint32 __PPO__fMaxAcceleration() { return STRUCT_OFFSET(APlayer_CPP, fMaxAcceleration); }
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
