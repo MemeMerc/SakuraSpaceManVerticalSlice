@@ -48,6 +48,30 @@ void EmptyLinkFunctionForGeneratedCodeScoreBoardWid_CPP() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BestTime_Txt_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BestTime_Txt;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TimeMilliseconds_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TimeMilliseconds;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TimeSeconds_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TimeSeconds;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TimeMinutes_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TimeMinutes;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BestTimeMilliseconds_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_BestTimeMilliseconds;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BestTimeSeconds_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_BestTimeSeconds;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BestTimeMinutes_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_BestTimeMinutes;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -95,11 +119,59 @@ void EmptyLinkFunctionForGeneratedCodeScoreBoardWid_CPP() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTime_Txt = { "BestTime_Txt", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, BestTime_Txt), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTime_Txt_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTime_Txt_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMilliseconds_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMilliseconds = { "TimeMilliseconds", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, TimeMilliseconds), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMilliseconds_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMilliseconds_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeSeconds_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeSeconds = { "TimeSeconds", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, TimeSeconds), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeSeconds_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeSeconds_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMinutes_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMinutes = { "TimeMinutes", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, TimeMinutes), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMinutes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMinutes_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMilliseconds_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMilliseconds = { "BestTimeMilliseconds", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeMilliseconds), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMilliseconds_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMilliseconds_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeSeconds_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeSeconds = { "BestTimeSeconds", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeSeconds), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeSeconds_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeSeconds_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMinutes_MetaData[] = {
+		{ "Category", "ScoreBoardWid_CPP" },
+		{ "ModuleRelativePath", "Public/ScoreBoardWid_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMinutes = { "BestTimeMinutes", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeMinutes), METADATA_PARAMS(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMinutes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMinutes_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UScoreBoardWid_CPP_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_PlayersScore_Txt,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_Timer_Txt,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestScore_Txt,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTime_Txt,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMilliseconds,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeSeconds,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_TimeMinutes,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMilliseconds,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeSeconds,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UScoreBoardWid_CPP_Statics::NewProp_BestTimeMinutes,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UScoreBoardWid_CPP_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UScoreBoardWid_CPP>::IsAbstract,
@@ -128,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeScoreBoardWid_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UScoreBoardWid_CPP, 523501840);
+	IMPLEMENT_CLASS(UScoreBoardWid_CPP, 2589949482);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<UScoreBoardWid_CPP>()
 	{
 		return UScoreBoardWid_CPP::StaticClass();

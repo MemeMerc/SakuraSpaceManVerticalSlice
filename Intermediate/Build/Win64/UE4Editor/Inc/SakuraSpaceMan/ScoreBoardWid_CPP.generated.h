@@ -64,7 +64,13 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UScoreBoardWid_CPP); \
 	FORCEINLINE static uint32 __PPO__PlayersScore_Txt() { return STRUCT_OFFSET(UScoreBoardWid_CPP, PlayersScore_Txt); } \
 	FORCEINLINE static uint32 __PPO__Timer_Txt() { return STRUCT_OFFSET(UScoreBoardWid_CPP, Timer_Txt); } \
 	FORCEINLINE static uint32 __PPO__BestScore_Txt() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestScore_Txt); } \
-	FORCEINLINE static uint32 __PPO__BestTime_Txt() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestTime_Txt); }
+	FORCEINLINE static uint32 __PPO__BestTime_Txt() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestTime_Txt); } \
+	FORCEINLINE static uint32 __PPO__TimeMilliseconds() { return STRUCT_OFFSET(UScoreBoardWid_CPP, TimeMilliseconds); } \
+	FORCEINLINE static uint32 __PPO__TimeSeconds() { return STRUCT_OFFSET(UScoreBoardWid_CPP, TimeSeconds); } \
+	FORCEINLINE static uint32 __PPO__TimeMinutes() { return STRUCT_OFFSET(UScoreBoardWid_CPP, TimeMinutes); } \
+	FORCEINLINE static uint32 __PPO__BestTimeMilliseconds() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeMilliseconds); } \
+	FORCEINLINE static uint32 __PPO__BestTimeSeconds() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeSeconds); } \
+	FORCEINLINE static uint32 __PPO__BestTimeMinutes() { return STRUCT_OFFSET(UScoreBoardWid_CPP, BestTimeMinutes); }
 
 
 #define SSMVS_Source_SakuraSpaceMan_Public_ScoreBoardWid_CPP_h_12_PROLOG
