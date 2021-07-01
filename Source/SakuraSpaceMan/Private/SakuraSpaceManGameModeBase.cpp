@@ -8,6 +8,10 @@
 #include "Components/CanvasPanelSlot.h"
 #include "Components/WrapBox.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
+#include "TimerWidget_CPP.h"
+#include "Math/NumericLimits.h"
+#include "SaveGame_CPP.h"
+#include "Kismet/GameplayStatics.h"
 
 ASakuraSpaceManGameModeBase::ASakuraSpaceManGameModeBase()
 {
@@ -32,15 +36,17 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 			GameHud_Wid->AddToViewport();
 			GameHud_Wid->SetPositionInViewport(GameHudLocation);
 		}
+
+		if (Timer_WidClass != nullptr)
+		{
+			Timer_Wid = CreateWidget<UTimerWidget_CPP>(GetWorld(), Timer_WidClass);
+			Timer_Wid->AddToViewport();
+		}
 	}
+
+	PlayerTime.Init(0, 3);
 }
 
-void ASakuraSpaceManGameModeBase::Tick(float DeltaSeconds)
-{
-	Super::Tick(DeltaSeconds);
-
-	Timer += DeltaSeconds;
-}
 
 // Set the respawm locaton of the player.
 void ASakuraSpaceManGameModeBase::SetRespawnLocation(FVector _RespawnLocation)
@@ -49,7 +55,7 @@ void ASakuraSpaceManGameModeBase::SetRespawnLocation(FVector _RespawnLocation)
 	RespawnLocation = _RespawnLocation;
 }
 
-// Return the saved respawn location,
+// Return the saved respawn location.
 FVector ASakuraSpaceManGameModeBase::GetRespawnLocation() const
 {
 	// Return players location.
@@ -95,20 +101,52 @@ FVector2D ASakuraSpaceManGameModeBase::GetGameHudLocation()
 	return(GameHudLocation);
 }
 
-float ASakuraSpaceManGameModeBase::GetPlayersTime() const
+// Return Time in an array. Format {minutes, seconds, milliseconds}.
+TArray<int> ASakuraSpaceManGameModeBase::GetPlayersTime()
 {
-	return(Timer);
+	PlayerTime = Timer_Wid->ReturnTime();
+	return(PlayerTime);
 }
 
+// Compare this current result to the best result.
 void ASakuraSpaceManGameModeBase::CheckHighScore()
 {
-	if (PlayersScore > BestPlayerScore)
+	if (SaveGame == nullptr)
 	{
-		BestPlayerScore = PlayersScore;
+		SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::CreateSaveGameObject(USaveGame_CPP::StaticClass()));
 	}
 
-	if (Timer > BestPlayerTime)
+	if (PlayersScore > SaveGame->GetHighestScore())
 	{
-		BestPlayerTime = Timer;
+		SaveGame->SetHightestScore(PlayersScore);
 	}
+	
+
+	BestPlayerTime = SaveGame->GetBestTime();
+
+	for (int i = 0; i <= BestPlayerTime.Num(); i++)
+	{
+		// Compare Time.
+		if (PlayerTime[i]  <=  BestPlayerTime[i])
+		{
+			SaveGame->SetBestTime(PlayerTime);
+			break;
+		}
+	}
+
+	UGameplayStatics::SaveGameToSlot(SaveGame, TEXT("MySlot"), 0);
+}
+
+// Return the best score.
+int ASakuraSpaceManGameModeBase::GetHighScore()
+{
+	SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::LoadGameFromSlot("MySlot", 0));
+	return(SaveGame->GetHighestScore());
+}
+
+// Return the best time.
+TArray<int> ASakuraSpaceManGameModeBase::GetBestPlayerTime()
+{
+	SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::LoadGameFromSlot("MySlot", 0));
+	return(SaveGame->GetBestTime());
 }

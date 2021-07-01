@@ -25,7 +25,7 @@ public:
 	class UImage* SakuraEnergy_Img;
 
 	UPROPERTY(EditAnywhere)
-	float fSpeed = 150.0f;
+	float fSpeed = 300.0f;
 	
 private:
 
