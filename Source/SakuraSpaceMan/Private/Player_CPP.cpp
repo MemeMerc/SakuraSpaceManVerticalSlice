@@ -52,11 +52,8 @@ APlayer_CPP::APlayer_CPP()
 
 	iMaxJumpAmount = 2;
 
-	fDashSpeed = 8000.f;
-	vPrevSpeed = 0;
 
-	fDashCooldown = 0.5f;
-	bHasDashed = false;
+	fPrevSpeed = 0;
 
 
 	fInitVel = 0;
@@ -80,7 +77,6 @@ APlayer_CPP::APlayer_CPP()
 	GetCharacterMovement()->AirControl = 1.f;
 	GetCharacterMovement()->BrakingFrictionFactor = fFriction;
 	GetCharacterMovement()->GravityScale = 3.f;
-	//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
 	GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
 	GetCharacterMovement()->JumpZVelocity = 1300;
 	fGravityScale = GetCharacterMovement()->GravityScale;
@@ -202,21 +198,15 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 
 	if (bIsBoosting && (GetCharacterMovement()->Velocity.Size() < fMaxSpeed[1]))
 	{
-		//Ternary Operator?
-		switch (bIsSprinting)
-		{
-		case true:
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
+		
+		//Change between Speed Types.
+		GetCharacterMovement()->MaxWalkSpeed = (bIsSprinting) ? fMaxSpeed[1] : fMaxSpeed[0];
 
-			break;
-		case false:
-			GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-
-			break;
-		}
 		bIsBoosting = false;
 	}
 
+
+	//Allow Gliding if player is falling and sprinting
 	if (GetCharacterMovement()->IsFalling())
 	{
 		if (bIsSprinting && PlayerFallingDown())
@@ -225,16 +215,11 @@ void APlayer_CPP::Tick(float _fDeltaTime)
 		}
 		else
 		{
-			GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
 			StopGlideSound();
 			bGlideSoundPlayed = false;
 		}
 	}
 	
-
-
-
-
 }
 
 //Find the distance of an actor to the center of the screen.
@@ -278,8 +263,6 @@ void APlayer_CPP::SetupPlayerInputComponent(UInputComponent* _PlayerInputCompone
 	_PlayerInputComponent->BindAction("Grapple", IE_Released, this, &APlayer_CPP::GrappleDeactivate);
 
 	_PlayerInputComponent->BindAction("Reset", IE_Pressed, this, &APlayer_CPP::ResetPlayer);
-
-	//_PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &APlayer_CPP::DashForward);
 
 	_PlayerInputComponent->BindAxis("MoveForward", this, &APlayer_CPP::MoveForward);
 	_PlayerInputComponent->BindAxis("MoveRight", this, &APlayer_CPP::MoveRight);	
@@ -374,19 +357,10 @@ void APlayer_CPP::ResetWalkValue()
 	if (Controller != nullptr)
 	{
 		bIsForward = false;
-		if (GetCharacterMovement()->MaxWalkSpeed > fMaxSpeed[1] && !bIsReelingIn && !bHasDashed)
+		if (GetCharacterMovement()->MaxWalkSpeed > fMaxSpeed[1] && !bIsReelingIn)
 		{
-			switch (bIsSprinting)
-			{
-			case true:
-				GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
-				
-				break;
-			case false:
-				GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[0];
-				
-				break;
-			}
+			//Change between Speed Types.
+			GetCharacterMovement()->MaxWalkSpeed = (bIsSprinting) ? fMaxSpeed[1] : fMaxSpeed[0];
 		}
 	}
 }
@@ -397,8 +371,8 @@ void APlayer_CPP::Jump()
 	if (Controller != nullptr && !bIsReelingIn && !bIsGrinding && iJumpAmount < iMaxJumpAmount)
 	{
 		DeactivateGlide();
-		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
-			
+		fPrevSpeed = GetCharacterMovement()->Velocity.Size();
+		//Creates Launch Vector to allow player to jump
 		FVector vJump = FVector(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size() * 0.8f,
 								this->GetActorForwardVector().Y * GetCharacterMovement()->Velocity.Size() * 0.8f,
 								GetCharacterMovement()->JumpZVelocity);
@@ -421,12 +395,13 @@ void APlayer_CPP::Landed(const FHitResult& Hit)
 {
 	if (Controller != nullptr)
 	{
-		if (bIsJumping)
+		//Resets player to previous Velocity Size
+		if (bIsJumping && bIsSprinting && GetCharacterMovement()->Velocity.Size() < fPrevSpeed)
 		{
-			GetCharacterMovement()->Velocity = FVector(this->GetActorForwardVector().X * vPrevSpeed, this->GetActorForwardVector().Y * vPrevSpeed, 0.f);
+			GetCharacterMovement()->Velocity = FVector(this->GetActorForwardVector().X * fPrevSpeed, this->GetActorForwardVector().Y * fPrevSpeed, 0.f);
 		}
 		Super::Landed(Hit);				   		
-		GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[0];
+		
 		iJumpAmount = 0;
 		bIsJumping = false;
 		DeactivateGlide();
@@ -453,7 +428,7 @@ void APlayer_CPP::Sprint()
 	{
 		bIsSprinting = true;
 		GetCharacterMovement()->BrakingFrictionFactor = 0.1f;
-		//GetCharacterMovement()->MaxAcceleration = fMaxAcceleration[1];
+	
 		GetCharacterMovement()->MaxWalkSpeed = fMaxSpeed[1];
 		
 	}
@@ -470,51 +445,6 @@ void APlayer_CPP::StopSprinting()
 
 }
 
-//Called when player dashes forward quickly.
-void APlayer_CPP::DashForward()
-{
-
-	if (Controller != nullptr && !bHasDashed && !bIsReelingIn)
-	{
-		
-		FTimerDelegate DashStopDelegate;
-		FTimerDelegate DashResetDelegate;
-		//Store Players Current Speed before dash.
-		vPrevSpeed = GetCharacterMovement()->Velocity.Size();
-		//Reset players speed to previous speed
-		DashStopDelegate.BindLambda([_vel = vPrevSpeed, _GetCMC = GetCharacterMovement(),_ForwardVec = GetActorForwardVector()]()mutable
-		{
-
-			_GetCMC->Launch(_ForwardVec* _vel);
-			
-		});
-		//Allow player to dash again.
-		DashResetDelegate.BindLambda([_HasDashed = &bHasDashed]()mutable
-		{
-
-			
-			*_HasDashed = false;
-			
-		});
-
-
-		//Launch Player Forward (Dashing)
-		GetCharacterMovement()->Launch(GetActorForwardVector() * (fDashSpeed+GetCharacterMovement()->Velocity.Size()));
-		//Set Timers for player reset
-		GetWorldTimerManager().SetTimer(DashTimer, DashStopDelegate, 0.2f, false);
-		bHasDashed = true;
-		GetWorldTimerManager().SetTimer(DashResetTimer, DashResetDelegate, fDashCooldown+0.2f, false);
-		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Yellow, TEXT("Test"));
-	}
-	else if (bIsReelingIn)
-	{
-		bHasDashed = true;
-		fMaxReelDashSpeed = fDashSpeed + GetCharacterMovement()->Velocity.Size();
-		fCurrentMaxReelSpeed = &fMaxReelDashSpeed;
-		fInitVel = fDashSpeed;
-	}
-
-}
 
 void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
@@ -531,12 +461,10 @@ void APlayer_CPP::Grapple_OnBeginOverlap(UPrimitiveComponent* OverlappedComponen
 
 void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Blue, TEXT("Triggered"));
 	//Find Grapple point that has moved out of range and remove it from aGrapplePoints array
 	if (OtherActor->ActorHasTag(FName("Grapple")) && aGrapplePoints.Find(OtherActor) != INDEX_NONE)
 	{
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(OtherActor);
-
 
 		aGrapplePoints.RemoveAt(aGrapplePoints.Find(OtherActor));
 
@@ -546,7 +474,6 @@ void APlayer_CPP::Grapple_OnOverlapEnd(class UPrimitiveComponent* OverlappedComp
 		{
 			aSelectedGrapplePoint = nullptr;
 		}
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Deleted"));
 	}
 
 
@@ -592,7 +519,6 @@ void APlayer_CPP::GrappleActivate()
 				iJumpAmount = 0;
 				//Start Reel In.
 				GetWorldTimerManager().SetTimer(GrappleTimer, GrappleLoopDelegate, 0.01f, true);
-				//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Yellow, TEXT("Triggered"));
 				bGrappleFlipFlop = false;
 			}
 		}
@@ -609,15 +535,6 @@ void APlayer_CPP::GrappleDeactivate()
 		AGrappleLocation_CPP* SelectedGrapplePoint = Cast<AGrappleLocation_CPP>(aSelectedGrapplePoint);
 		FVector vDistance = UKismetMathLibrary::GetDirectionUnitVector(this->GetActorLocation(), aSelectedGrapplePoint->GetActorLocation());
 		GetCharacterMovement()->Velocity = FVector(0.f);
-		if (bHasDashed || SelectedGrapplePoint->GetLaunch())
-		{
-			GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[1] * 0.5));
-			bHasDashed = false;
-		}
-		else
-		{
-			GetCharacterMovement()->Launch(vDistance * (fMaxSpeed[0] * 0.5));
-		}
 		GetCharacterMovement()->MovementMode = EMovementMode::MOVE_Walking;
 		//Stop Timer
 		GetWorldTimerManager().ClearTimer(GrappleTimer);
@@ -642,32 +559,37 @@ bool APlayer_CPP::PlayerFallingDown()
 	return(GetCharacterMovement()->Velocity.Z < 0);
 }
 
+//Activates Glide Effect
 void APlayer_CPP::ActivateGlide()
 {
 	if (bIsGliding == false)
 	{
-
+		//Set Player into Glide State
 		GetCharacterMovement()->GravityScale = 1.f;
 		bIsGliding = true;
 	}
-	else if (bIsGliding == true)
+	else if (bIsGliding == true)	
 	{
+		//Play Glide Sound
 		if (GlideSound != nullptr && !bGlideSoundPlayed)
 		{
 			UGameplayStatics::PlaySound2D(GetWorld(), GlideSound, 0.5f, 1.0f, 0);
 			PlayGlideSound();
 			bGlideSoundPlayed = true;
 		}
+		//Move character forward to simulate gliding
 		GetCharacterMovement()->Velocity.X += this->GetActorForwardVector().X * 15;// *GetCharacterMovement()->Velocity.Size();
 		GetCharacterMovement()->Velocity.Y += this->GetActorForwardVector().Y * 15;// *GetCharacterMovement()->Velocity.Size();
 
+		//Clamp max speed
 		GetCharacterMovement()->Velocity = ClampVector(GetCharacterMovement()->Velocity, 0.f, GetCharacterMovement()->GetMaxSpeed()*0.8);
 	}
 
 }
-
+//Stop Gliding
 void APlayer_CPP::DeactivateGlide()
 {
+	//Revert Character to default gravity
 	if (bIsGliding == true)
 	{
 		StopGlideSound();
@@ -676,10 +598,12 @@ void APlayer_CPP::DeactivateGlide()
 	}
 
 }
+//Return Node for Blueprint call
 void APlayer_CPP::ClampedVectorSizeReturn(FVector _Vector)
 {
 	ClampedVector = _Vector;
 }
+//Call Blueprint function not supplied in C++
 FVector APlayer_CPP::ClampVector(FVector _Vector, float _fMin, float _fMax)
 {
 	ClampedVectorSize(_Vector, _fMin, _fMax);

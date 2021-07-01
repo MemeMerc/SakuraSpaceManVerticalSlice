@@ -103,6 +103,11 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = Properties)
 	void ClampedVectorSizeReturn(FVector _Vector);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+		void PlayGlideSound();
+	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
+		void StopGlideSound();
+
 	//VARIABLES
 
 	FVector ClampedVector;
@@ -140,10 +145,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 		class USoundCue* GlideSound;
 	bool bGlideSoundPlayed;
-	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
-		void PlayGlideSound();
-	UFUNCTION(BlueprintImplementableEvent, Category = Properties)
-		void StopGlideSound();
 
 
 
@@ -163,19 +164,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	TArray<float> fMaxAcceleration;		//Uses iCurrentSpeed variable to iterate through Max Accelerations.
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fDashSpeed;			//Dash Speed modifier
-	float vPrevSpeed;
+	float fPrevSpeed;
 
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
-	float fDashCooldown;		//seconds
-	bool bHasDashed;
-
-	FTimerHandle DashTimer;
-	FTimerHandle DashResetTimer;
 	FTimerHandle GrappleTimer;
-	
 	
 	TArray<AActor*> aGrapplePoints;
 	
