@@ -60,7 +60,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__GameHud_WidClass() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_WidClass); } \
-	FORCEINLINE static uint32 __PPO__GameHud_Wid() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_Wid); }
+	FORCEINLINE static uint32 __PPO__Timer_WidClass() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, Timer_WidClass); }
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
