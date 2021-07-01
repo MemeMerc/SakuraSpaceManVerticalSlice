@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\Github\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
-		"D:\\Github\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceMan.Target.cs",
-		"D:\\Github\\SakuraSpaceManVerticalSlice\\Source\\SakuraSpaceManEditor.Target.cs"
+		"D:\\Users\\MDS00001VJ\\Documents\\GitHub\\SSMVS_4\\Source\\SakuraSpaceMan\\SakuraSpaceMan.Build.cs",
+		"D:\\Users\\MDS00001VJ\\Documents\\GitHub\\SSMVS_4\\Source\\SakuraSpaceMan.Target.cs",
+		"D:\\Users\\MDS00001VJ\\Documents\\GitHub\\SSMVS_4\\Source\\SakuraSpaceManEditor.Target.cs"
 	],
 	"EngineVersion": "4.26.2"
 }
