@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SAKURASPACEMAN_TimerWidget_CPP_generated_h
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS_NO_PURE_DECLS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUTimerWidget_CPP(); \
 	friend struct Z_Construct_UClass_UTimerWidget_CPP_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(UTimerWidget_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesUTimerWidget_CPP(); \
 	friend struct Z_Construct_UClass_UTimerWidget_CPP_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(UTimerWidget_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_STANDARD_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTimerWidget_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTimerWidget_CPP) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_ENHANCED_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTimerWidget_CPP(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,33 +60,33 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UTimerWidget_CPP); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTimerWidget_CPP)
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__TimeMiliseconds() { return STRUCT_OFFSET(UTimerWidget_CPP, TimeMiliseconds); } \
 	FORCEINLINE static uint32 __PPO__TimeSeconds() { return STRUCT_OFFSET(UTimerWidget_CPP, TimeSeconds); } \
 	FORCEINLINE static uint32 __PPO__TimeMinites() { return STRUCT_OFFSET(UTimerWidget_CPP, TimeMinites); }
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_12_PROLOG
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_GENERATED_BODY_LEGACY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_12_PROLOG
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_STANDARD_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_GENERATED_BODY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS_NO_PURE_DECLS \
-	SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_ENHANCED_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_INCLASS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -94,7 +94,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class UTimerWidget_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSM_VS_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h
+#define CURRENT_FILE_ID SSMVS_4_Source_SakuraSpaceMan_Public_TimerWidget_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
