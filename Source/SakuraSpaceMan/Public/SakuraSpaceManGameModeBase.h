@@ -19,10 +19,10 @@ public:
 	ASakuraSpaceManGameModeBase();
 
 	virtual void BeginPlay() override;
-	virtual void Tick(float DeltaSeconds) override;
 
 	// Set respwn location of the player.
 	void SetRespawnLocation(FVector _RespawnLocation);
+
 	// Return respawn location of the player.
 	FVector GetRespawnLocation() const;
 
@@ -36,10 +36,12 @@ public:
 	// Get the Players Score.
 	int GetPlayersScore() const;
 
-	// Get the Players Time.
-	float GetPlayersTime() const;
+	TArray<int> GetPlayersTime();
 
 	void CheckHighScore();
+
+	int GetHighScore();
+	TArray<int> GetBestPlayerTime();
 
 protected:
 
@@ -51,18 +53,20 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 		TSubclassOf<class UGameHUD_CPP> GameHud_WidClass;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UGameHUD_CPP* GameHud_Wid;
+		FVector2D GameHudLocation;
 
-	// Players Score
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+		TSubclassOf<class UTimerWidget_CPP> Timer_WidClass;
+		class UTimerWidget_CPP* Timer_Wid;
+
+	// Players Score and time.
 	int PlayersScore;
-	float  Timer;
-
-	FVector2D GameHudLocation;
-
+	TArray<int> PlayerTime;
 
 	// HightScore
 	int BestPlayerScore;
-	float  BestPlayerTime;
+	TArray<int> BestPlayerTime;
+
+	class USaveGame_CPP* SaveGame;
 };

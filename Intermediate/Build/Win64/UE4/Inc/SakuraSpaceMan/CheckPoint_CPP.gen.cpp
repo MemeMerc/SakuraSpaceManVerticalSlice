@@ -20,7 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
@@ -171,11 +171,11 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation_MetaData[] = {
 		{ "Category", "CheckPoint_CPP" },
-		{ "MakeEditWidget", "" },
+		{ "MakeEditWidget", "TRUE" },
 		{ "ModuleRelativePath", "Public/CheckPoint_CPP.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation = { "RespawnLocation", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, RespawnLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation = { "RespawnLocation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACheckPoint_CPP, RespawnLocation), Z_Construct_UScriptStruct_FTransform, METADATA_PARAMS(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_RespawnLocation_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACheckPoint_CPP_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "CheckPoint_CPP" },
@@ -228,7 +228,7 @@ void EmptyLinkFunctionForGeneratedCodeCheckPoint_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACheckPoint_CPP, 2525107309);
+	IMPLEMENT_CLASS(ACheckPoint_CPP, 4135292314);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<ACheckPoint_CPP>()
 	{
 		return ACheckPoint_CPP::StaticClass();
