@@ -16,20 +16,20 @@ struct FHitResult;
 #endif
 #define SAKURASPACEMAN_BasicCollectable_CPP_generated_h
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execMeshOverlapBegin); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS_NO_PURE_DECLS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABasicCollectable_CPP(); \
 	friend struct Z_Construct_UClass_ABasicCollectable_CPP_Statics; \
@@ -38,7 +38,7 @@ public: \
 	DECLARE_SERIALIZER(ABasicCollectable_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS \
 private: \
 	static void StaticRegisterNativesABasicCollectable_CPP(); \
 	friend struct Z_Construct_UClass_ABasicCollectable_CPP_Statics; \
@@ -47,7 +47,7 @@ public: \
 	DECLARE_SERIALIZER(ABasicCollectable_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_STANDARD_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ABasicCollectable_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ABasicCollectable_CPP) \
@@ -60,7 +60,7 @@ private: \
 public:
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_ENHANCED_CONSTRUCTORS \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ABasicCollectable_CPP(ABasicCollectable_CPP&&); \
@@ -71,7 +71,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABasicCollectable_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ABasicCollectable_CPP)
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Mesh() { return STRUCT_OFFSET(ABasicCollectable_CPP, Mesh); } \
 	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(ABasicCollectable_CPP, CollisionBox); } \
 	FORCEINLINE static uint32 __PPO__Target() { return STRUCT_OFFSET(ABasicCollectable_CPP, Target); } \
@@ -79,27 +79,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABasicCollectable_CPP); \
 	FORCEINLINE static uint32 __PPO__Sound() { return STRUCT_OFFSET(ABasicCollectable_CPP, Sound); }
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_9_PROLOG
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_GENERATED_BODY_LEGACY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_9_PROLOG
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_STANDARD_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_GENERATED_BODY \
+#define SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS_NO_PURE_DECLS \
-	SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_ENHANCED_CONSTRUCTORS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_SPARSE_DATA \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_INCLASS_NO_PURE_DECLS \
+	SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -107,7 +107,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class ABasicCollectable_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h
+#define CURRENT_FILE_ID SSMVS_4_Source_SakuraSpaceMan_Public_BasicCollectable_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
