@@ -49,6 +49,10 @@ D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameplayStatics
 D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\GameplayStatics.generated.h
 D:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\GrappleLocation_CPP.h
 D:\Github\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4\Inc\SakuraSpaceMan\GrappleLocation_CPP.generated.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/SoundCue.h
+D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/SoundNode.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SoundNode.generated.h
+D:\unreal\UE_4.26\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\SoundCue.generated.h
 D:\Github\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\SakuraSpaceManGameModeBase.h
 D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 D:\unreal\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
