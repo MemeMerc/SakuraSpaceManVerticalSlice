@@ -1,5 +1,5 @@
 D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\Users\mds000019a\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public\TimerWidget_CPP.h
+D:\Users\mds000019a\Documents\GitHub\SSMVS\Source\SakuraSpaceMan\Public\GameHUD_CPP.h
 D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h
 D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\SlateWrapperTypes.generated.h
@@ -99,4 +99,20 @@ D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PropertyP
 D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DynamicPropertyPath.generated.h
 D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGeneratedClass.generated.h
 D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
-D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\TimerWidget_CPP.generated.h
+D:\Users\mds000019a\Documents\GitHub\SSMVS\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\GameHUD_CPP.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextBlock.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/TextWidgetTypes.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextWidgetTypes.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\TextBlock.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/Image.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\Engine\Public\Slate/SlateTextureAtlasInterface.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SlateTextureAtlasInterface.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/StreamableManager.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Image.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/CanvasPanel.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SConstraintCanvas.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelWidget.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/PanelSlot.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelSlot.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\PanelWidget.generated.h
+D:\Unreal Engine\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\CanvasPanel.generated.h
