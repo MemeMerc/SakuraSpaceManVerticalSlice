@@ -10,6 +10,10 @@ void UTimerWidget_CPP::NativeConstruct()
 	// fRate is 10 millisecond.
 	fRate = 0.01f;
 
+	TimeMiliseconds = 0;
+	TimeSeconds = 0;
+	TimeMinites = 0;
+
 	// Check that a world can be found.
 	if (GetWorld())
 	{
@@ -21,7 +25,7 @@ void UTimerWidget_CPP::NativeConstruct()
 // Set the time to display, this is called every 10 milisceonds.
 void UTimerWidget_CPP::SetTime()
 {
-	// Increase TimeMiliseconds by 0.0f (our rate).
+	// Increase TimeMiliseconds by 0.01f (our rate).
 	TimeMiliseconds += fRate;
 
 	// Check if TimeMiliseconds has reached one seconds.
@@ -42,10 +46,21 @@ void UTimerWidget_CPP::SetTime()
 // Return Time in an array. Format minutes : seconds : milliseconds.
 TArray<int> UTimerWidget_CPP::ReturnTime()
 {
+	if (GetWorld())
+	{
+		GetWorld()->GetTimerManager().ClearTimer(TimerHandle);
+	}
+
 	// Convert TimeMiliseconds from float to an int for an int array.
-	TimeMiliseconds *= 100;
+	int temp = TimeMiliseconds * 100;
 	
 	// Tempery array to return.
-	TArray<int> tempArry = { TimeMinites, TimeSeconds, static_cast<int>(TimeMiliseconds) };
+	TArray<int> tempArry;
+	tempArry.Init(0, 3);
+
+	tempArry[0] = TimeMinites;
+	tempArry[1] = TimeSeconds;
+	tempArry[2] = temp;
+	
 	return(tempArry);
 }
