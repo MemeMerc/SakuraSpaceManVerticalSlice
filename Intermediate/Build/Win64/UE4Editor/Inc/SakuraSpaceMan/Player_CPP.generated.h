@@ -17,8 +17,8 @@ struct FHitResult;
 #endif
 #define SAKURASPACEMAN_Player_CPP_generated_h
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execDeactivateGlide); \
@@ -27,7 +27,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execClampedVectorSizeReturn); \
 	DECLARE_FUNCTION(execDeactivateGlide); \
@@ -36,7 +36,7 @@ struct FHitResult;
 	DECLARE_FUNCTION(execGrapple_OnBeginOverlap);
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS \
 	struct Player_CPP_eventClampedVectorSize_Parms \
 	{ \
 		FVector _Vector; \
@@ -45,8 +45,8 @@ struct FHitResult;
 	};
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -55,7 +55,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
 private: \
 	static void StaticRegisterNativesAPlayer_CPP(); \
 	friend struct Z_Construct_UClass_APlayer_CPP_Statics; \
@@ -64,7 +64,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer_CPP)
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APlayer_CPP(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APlayer_CPP) \
@@ -77,7 +77,7 @@ private: \
 public:
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APlayer_CPP(APlayer_CPP&&); \
@@ -88,13 +88,14 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayer_CPP)
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(APlayer_CPP, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(APlayer_CPP, Camera); } \
 	FORCEINLINE static uint32 __PPO__GrappleCollisionSphere() { return STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere); } \
 	FORCEINLINE static uint32 __PPO__bIsReelingIn() { return STRUCT_OFFSET(APlayer_CPP, bIsReelingIn); } \
 	FORCEINLINE static uint32 __PPO__bIsBoosting() { return STRUCT_OFFSET(APlayer_CPP, bIsBoosting); } \
 	FORCEINLINE static uint32 __PPO__bIsGrinding() { return STRUCT_OFFSET(APlayer_CPP, bIsGrinding); } \
+	FORCEINLINE static uint32 __PPO__GlideSound() { return STRUCT_OFFSET(APlayer_CPP, GlideSound); } \
 	FORCEINLINE static uint32 __PPO__fFriction() { return STRUCT_OFFSET(APlayer_CPP, fFriction); } \
 	FORCEINLINE static uint32 __PPO__fCameraClamp() { return STRUCT_OFFSET(APlayer_CPP, fCameraClamp); } \
 	FORCEINLINE static uint32 __PPO__iMaxJumpAmount() { return STRUCT_OFFSET(APlayer_CPP, iMaxJumpAmount); } \
@@ -104,32 +105,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayer_CPP); \
 	FORCEINLINE static uint32 __PPO__fDashCooldown() { return STRUCT_OFFSET(APlayer_CPP, fDashCooldown); }
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_9_PROLOG \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_EVENT_PARMS
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY_LEGACY \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY \
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
-	SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_PRIVATE_PROPERTY_OFFSET \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_SPARSE_DATA \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_CALLBACK_WRAPPERS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_INCLASS_NO_PURE_DECLS \
+	SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -137,7 +138,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SAKURASPACEMAN_API UClass* StaticClass<class APlayer_CPP>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID SSMVS_4_Source_SakuraSpaceMan_Public_Player_CPP_h
+#define CURRENT_FILE_ID SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_Player_CPP_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
