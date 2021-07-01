@@ -31,4 +31,18 @@ protected:
 
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* BestTime_Txt;
+
+	UPROPERTY(BlueprintReadOnly)
+		int TimeMilliseconds;
+	UPROPERTY(BlueprintReadOnly)
+		int TimeSeconds;
+	UPROPERTY(BlueprintReadOnly)
+		int TimeMinutes;
+
+	UPROPERTY(BlueprintReadOnly)
+		int BestTimeMilliseconds;
+	UPROPERTY(BlueprintReadOnly)
+		int BestTimeSeconds;
+	UPROPERTY(BlueprintReadOnly)
+		int BestTimeMinutes;
 };

@@ -36,11 +36,12 @@ public:
 	// Get the Players Score.
 	int GetPlayersScore() const;
 
-	// Get the Players Time.
 	TArray<int> GetPlayersTime();
-	void SetPlayersTime();
 
 	void CheckHighScore();
+
+	int GetHighScore();
+	TArray<int> GetBestPlayerTime();
 
 protected:
 
@@ -66,4 +67,6 @@ protected:
 	// HightScore
 	int BestPlayerScore;
 	TArray<int> BestPlayerTime;
+
+	class USaveGame_CPP* SaveGame;
 };
