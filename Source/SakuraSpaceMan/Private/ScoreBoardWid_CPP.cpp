@@ -14,8 +14,8 @@ void UScoreBoardWid_CPP::NativeConstruct()
 	ASakuraSpaceManGameModeBase* GameMode = Cast<ASakuraSpaceManGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 
 	int score = GameMode->GetPlayersScore();
-	float timer = GameMode->GetPlayersTime();
+	//float timer = GameMode->GetPlayersTime();
 
 	PlayersScore_Txt->SetText(FText::AsNumber(score));
-	Timer_Txt->SetText(FText::AsNumber(timer));
+	//Timer_Txt->SetText(FText::AsNumber(timer));
 }

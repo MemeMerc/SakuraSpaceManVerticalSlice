@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\SakuraSpaceMan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{6A2D0FE9-824B-4EE1-9B60-7711C2F459B7}</UniqueIdentifier>
+      <UniqueIdentifier>{AFCD6882-E619-4392-A374-2DA2F544C13B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{7EA20CB2-C9B6-4FA1-9FB3-011910C9B4F8}</UniqueIdentifier>
+      <UniqueIdentifier>{01CD9EFB-D2AA-4C4A-A67F-1D1F4A805D85}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\SakuraSpaceMan">
-      <UniqueIdentifier>{C5E65662-17FF-435D-983B-46505329E1C9}</UniqueIdentifier>
+      <UniqueIdentifier>{BD6CDC76-B2EC-4A8C-9132-E3FE8ACBB198}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\SakuraSpaceMan\SakuraSpaceMan.Build.cs">
       <Filter>Source\SakuraSpaceMan</Filter>
@@ -41,7 +41,7 @@
       <Filter>Source\SakuraSpaceMan</Filter>
     </ClInclude>
     <Filter Include="Source\SakuraSpaceMan\Private">
-      <UniqueIdentifier>{095C6A9E-8072-4979-B584-0AD5DE35D0CE}</UniqueIdentifier>
+      <UniqueIdentifier>{F7E106EA-59C0-4E87-B6DB-4182B9DC4C82}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\BasicCollectable_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
@@ -79,8 +79,11 @@
     <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\Teleporter_CPP.cpp">
       <Filter>Source\SakuraSpaceMan\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SakuraSpaceMan\Private\TimerWidget_CPP.cpp">
+      <Filter>Source\SakuraSpaceMan\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\SakuraSpaceMan\Public">
-      <UniqueIdentifier>{764A2F45-B5C9-4E9E-99A7-D15062AF3C5C}</UniqueIdentifier>
+      <UniqueIdentifier>{D5C8214C-6305-4B18-94D7-5FDD0DBB02BA}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\BasicCollectable_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
@@ -116,6 +119,9 @@
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\Teleporter_CPP.h">
+      <Filter>Source\SakuraSpaceMan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SakuraSpaceMan\Public\TimerWidget_CPP.h">
       <Filter>Source\SakuraSpaceMan\Public</Filter>
     </ClInclude>
   </ItemGroup>
