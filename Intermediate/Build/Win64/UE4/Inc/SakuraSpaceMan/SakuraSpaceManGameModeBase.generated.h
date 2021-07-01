@@ -14,16 +14,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SAKURASPACEMAN_SakuraSpaceManGameModeBase_generated_h
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_SPARSE_DATA
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execGetPlayersScore);
-
-
-#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execGetPlayersScore);
-
-
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS
+#define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASakuraSpaceManGameModeBase(); \
@@ -44,7 +36,7 @@ public: \
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASakuraSpaceManGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API ASakuraSpaceManGameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASakuraSpaceManGameModeBase); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
@@ -56,8 +48,6 @@ public:
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASakuraSpaceManGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASakuraSpaceManGameModeBase(ASakuraSpaceManGameModeBase&&); \
@@ -65,12 +55,12 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASakuraSpaceManGameModeBase); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASakuraSpaceManGameModeBase); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASakuraSpaceManGameModeBase)
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__GameHud_WidClass() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_WidClass); } \
-	FORCEINLINE static uint32 __PPO__GameHud_Wid() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, GameHud_Wid); }
+	FORCEINLINE static uint32 __PPO__Timer_WidClass() { return STRUCT_OFFSET(ASakuraSpaceManGameModeBase, Timer_WidClass); }
 
 
 #define SakuraSpaceManVerticalSlice_Source_SakuraSpaceMan_Public_SakuraSpaceManGameModeBase_h_13_PROLOG
