@@ -1,5 +1,5 @@
-D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
-D:\SakuraSpaceManVerticalSlice\Source\SakuraSpaceMan\Public\TimerWidget_CPP.h
+D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_4\Intermediate\Build\Win64\UE4Editor\Development\SakuraSpaceMan\Definitions.SakuraSpaceMan.h
+D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_4\Source\SakuraSpaceMan\Public\TimerWidget_CPP.h
 D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Blueprint/UserWidget.h
 D:\UE_4.26\Engine\Source\Runtime\UMG\Public\Components/SlateWrapperTypes.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\SlateWrapperTypes.generated.h
@@ -99,4 +99,4 @@ D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PropertyPath\PropertyPa
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\DynamicPropertyPath.generated.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetBlueprintGeneratedClass.generated.h
 D:\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
-D:\SakuraSpaceManVerticalSlice\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\TimerWidget_CPP.generated.h
+D:\Users\MDS00001VJ\Documents\GitHub\SSMVS_4\Intermediate\Build\Win64\UE4Editor\Inc\SakuraSpaceMan\TimerWidget_CPP.generated.h
