@@ -470,6 +470,11 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrappleCollisionSphere;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsGliding_MetaData[];
+#endif
+		static void NewProp_bIsGliding_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsGliding;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsReelingIn_MetaData[];
 #endif
 		static void NewProp_bIsReelingIn_SetBit(void* Obj);
@@ -570,6 +575,20 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere = { "GrappleCollisionSphere", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, GrappleCollisionSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "PlayerMovement" },
+		{ "Comment", "//Is Using the Sprint Function.\n" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+		{ "ToolTip", "Is Using the Sprint Function." },
+	};
+#endif
+	void Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding_SetBit(void* Obj)
+	{
+		((APlayer_CPP*)Obj)->bIsGliding = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding = { "bIsGliding", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayer_CPP), &Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
@@ -668,6 +687,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_Camera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GrappleCollisionSphere,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGliding,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding,
@@ -707,7 +727,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 2967108010);
+	IMPLEMENT_CLASS(APlayer_CPP, 571379651);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();

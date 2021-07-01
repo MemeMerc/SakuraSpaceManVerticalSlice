@@ -116,6 +116,7 @@ protected:
 
 	bool bIsSprinting;	//Is Using the Sprint Function.
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerMovement, meta = (AllowPrivateAccess = "true"))
 	bool bIsGliding;
 
 	bool bIsMoving;		//Is Moving In A Direction.
