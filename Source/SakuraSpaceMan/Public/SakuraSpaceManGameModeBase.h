@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Player_CPP.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/GameModeBase.h"
 #include "SakuraSpaceManGameModeBase.generated.h"
 
@@ -43,6 +44,10 @@ public:
 	int GetHighScore();
 	TArray<int> GetBestPlayerTime();
 
+	void SaveGame();
+
+	void loadGame();
+
 protected:
 
 	// Respawn locaton of the player.
@@ -64,9 +69,8 @@ protected:
 	int PlayersScore;
 	TArray<int> PlayerTime;
 
-	// HightScore
-	int BestPlayerScore;
+	int HighScore;
 	TArray<int> BestPlayerTime;
 
-	class USaveGame_CPP* SaveGame;
+
 };

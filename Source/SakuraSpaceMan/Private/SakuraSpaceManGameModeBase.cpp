@@ -10,8 +10,7 @@
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "TimerWidget_CPP.h"
 #include "Math/NumericLimits.h"
-#include "SaveGame_CPP.h"
-#include "Kismet/GameplayStatics.h"
+
 
 ASakuraSpaceManGameModeBase::ASakuraSpaceManGameModeBase()
 {
@@ -45,6 +44,9 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 	}
 
 	PlayerTime.Init(0, 3);
+	BestPlayerTime.Init(TNumericLimits<int32>::Max(), 3);
+
+	HighScore = 0;
 }
 
 
@@ -108,45 +110,32 @@ TArray<int> ASakuraSpaceManGameModeBase::GetPlayersTime()
 	return(PlayerTime);
 }
 
-// Compare this current result to the best result.
-void ASakuraSpaceManGameModeBase::CheckHighScore()
-{
-	if (SaveGame == nullptr)
-	{
-		SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::CreateSaveGameObject(USaveGame_CPP::StaticClass()));
-	}
-
-	if (PlayersScore > SaveGame->GetHighestScore())
-	{
-		SaveGame->SetHightestScore(PlayersScore);
-	}
-	
-
-	BestPlayerTime = SaveGame->GetBestTime();
-
-	for (int i = 0; i <= BestPlayerTime.Num(); i++)
-	{
-		// Compare Time.
-		if (PlayerTime[i]  <=  BestPlayerTime[i])
-		{
-			SaveGame->SetBestTime(PlayerTime);
-			break;
-		}
-	}
-
-	UGameplayStatics::SaveGameToSlot(SaveGame, TEXT("MySlot"), 0);
-}
 
 // Return the best score.
 int ASakuraSpaceManGameModeBase::GetHighScore()
 {
-	SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::LoadGameFromSlot("MySlot", 0));
-	return(SaveGame->GetHighestScore());
+	if (PlayersScore > HighScore)
+	{
+		HighScore = PlayersScore;
+	}
+	return(HighScore);
 }
 
 // Return the best time.
 TArray<int> ASakuraSpaceManGameModeBase::GetBestPlayerTime()
 {
-	SaveGame = Cast<USaveGame_CPP>(UGameplayStatics::LoadGameFromSlot("MySlot", 0));
-	return(SaveGame->GetBestTime());
+	PlayerTime = Timer_Wid->ReturnTime();
+
+	for (int i = 0; i <= BestPlayerTime.Num(); i++)
+	{
+		if (PlayerTime[i] < BestPlayerTime[i])
+		{
+			BestPlayerTime = PlayerTime;
+			return(BestPlayerTime);
+		}
+	}
+
+	
+	return(BestPlayerTime);
 }
+

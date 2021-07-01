@@ -27,18 +27,17 @@ void UScoreBoardWid_CPP::NativeConstruct()
 		PlayersScore_Txt->SetText(FText::AsNumber(score));
 
 		// Set best score and time.
-		GameMode->CheckHighScore();
 
 		score = GameMode->GetHighScore();
 		
 		BestScore_Txt->SetText(FText::AsNumber(score));
 		
 		TArray<int> temp_2 = GameMode->GetBestPlayerTime();
-
+	
 		BestTimeMinutes = temp_2[0];
 		BestTimeSeconds = temp_2[1];
 		BestTimeMilliseconds = temp_2[2];
-	
+		
 	}
 
 }
