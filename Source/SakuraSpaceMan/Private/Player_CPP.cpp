@@ -371,6 +371,7 @@ void APlayer_CPP::Jump()
 	if (Controller != nullptr && !bIsReelingIn && !bIsGrinding && iJumpAmount < iMaxJumpAmount)
 	{
 		DeactivateGlide();
+		UGameplayStatics::PlaySound2D(GetWorld(), GlideSound, 0.5f, 1.0f, 0);
 		fPrevSpeed = GetCharacterMovement()->Velocity.Size();
 		//Creates Launch Vector to allow player to jump
 		FVector vJump = FVector(this->GetActorForwardVector().X * GetCharacterMovement()->Velocity.Size() * 0.8f,
@@ -385,6 +386,7 @@ void APlayer_CPP::Jump()
 	else if (Controller != nullptr && bIsGrinding)
 	{
 		JumpOffRail();
+		UGameplayStatics::PlaySound2D(GetWorld(), GlideSound, 0.5f, 1.0f, 0);
 		iJumpAmount = 0;
 	}
 		
@@ -573,7 +575,7 @@ void APlayer_CPP::ActivateGlide()
 		//Play Glide Sound
 		if (GlideSound != nullptr && !bGlideSoundPlayed)
 		{
-			UGameplayStatics::PlaySound2D(GetWorld(), GlideSound, 0.5f, 1.0f, 0);
+			
 			PlayGlideSound();
 			bGlideSoundPlayed = true;
 		}
