@@ -8,6 +8,8 @@
 #include "Components/CanvasPanelSlot.h"
 #include "Components/WrapBox.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
+#include "TimerWidget_CPP.h"
+#include "Math/NumericLimits.h"
 
 ASakuraSpaceManGameModeBase::ASakuraSpaceManGameModeBase()
 {
@@ -32,15 +34,19 @@ void ASakuraSpaceManGameModeBase::BeginPlay()
 			GameHud_Wid->AddToViewport();
 			GameHud_Wid->SetPositionInViewport(GameHudLocation);
 		}
+
+		if (Timer_WidClass != nullptr)
+		{
+			Timer_Wid = CreateWidget<UTimerWidget_CPP>(GetWorld(), Timer_WidClass);
+			Timer_Wid->AddToViewport();
+		}
 	}
+
+	PlayerTime.Init(0, 3);
+	// Initialise BestPlayerTime to the highest number possible.
+	BestPlayerTime.Init(TNumericLimits<int32>::Max(), 3);
 }
 
-void ASakuraSpaceManGameModeBase::Tick(float DeltaSeconds)
-{
-	Super::Tick(DeltaSeconds);
-
-	Timer += DeltaSeconds;
-}
 
 // Set the respawm locaton of the player.
 void ASakuraSpaceManGameModeBase::SetRespawnLocation(FVector _RespawnLocation)
@@ -49,7 +55,7 @@ void ASakuraSpaceManGameModeBase::SetRespawnLocation(FVector _RespawnLocation)
 	RespawnLocation = _RespawnLocation;
 }
 
-// Return the saved respawn location,
+// Return the saved respawn location.
 FVector ASakuraSpaceManGameModeBase::GetRespawnLocation() const
 {
 	// Return players location.
@@ -95,20 +101,38 @@ FVector2D ASakuraSpaceManGameModeBase::GetGameHudLocation()
 	return(GameHudLocation);
 }
 
-float ASakuraSpaceManGameModeBase::GetPlayersTime() const
+// Set Players time from Timer_Wid.
+void ASakuraSpaceManGameModeBase::SetPlayersTime()
 {
-	return(Timer);
+	for (int i = 0; i <= Timer_Wid->ReturnTime().Num(); i++)
+	{
+		PlayerTime[i] = Timer_Wid->ReturnTime()[i];
+	}
 }
 
+// Return Time in an array. Format {minutes, seconds, milliseconds}.
+TArray<int> ASakuraSpaceManGameModeBase::GetPlayersTime()
+{
+	SetPlayersTime();
+
+	return(PlayerTime);
+}
+
+// Compare this current result to the best result.
 void ASakuraSpaceManGameModeBase::CheckHighScore()
 {
 	if (PlayersScore > BestPlayerScore)
 	{
 		BestPlayerScore = PlayersScore;
 	}
-
-	if (Timer > BestPlayerTime)
+	
+	for (int i = 0; i <= BestPlayerTime.Num(); i++)
 	{
-		BestPlayerTime = Timer;
+		// Compare Time.
+		if (BestPlayerTime[i] > PlayerTime[i])
+		{
+			BestPlayerTime = PlayerTime;
+			return;
+		}
 	}
 }

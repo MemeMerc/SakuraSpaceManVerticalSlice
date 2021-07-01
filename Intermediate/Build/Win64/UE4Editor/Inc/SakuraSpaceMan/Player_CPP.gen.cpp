@@ -24,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(APlayer_CPP::execClampedVectorSizeReturn)
 	{
@@ -84,6 +85,16 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	void APlayer_CPP::JumpOffRail()
 	{
 		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_JumpOffRail),NULL);
+	}
+	static FName NAME_APlayer_CPP_PlayGlideSound = FName(TEXT("PlayGlideSound"));
+	void APlayer_CPP::PlayGlideSound()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_PlayGlideSound),NULL);
+	}
+	static FName NAME_APlayer_CPP_StopGlideSound = FName(TEXT("StopGlideSound"));
+	void APlayer_CPP::StopGlideSound()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APlayer_CPP_StopGlideSound),NULL);
 	}
 	void APlayer_CPP::StaticRegisterNativesAPlayer_CPP()
 	{
@@ -356,6 +367,29 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "PlayGlideSound", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_PlayGlideSound()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_PlayGlideSound_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics
 	{
 		struct Player_CPP_eventReturnGrapple_Parms
@@ -386,6 +420,29 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_ReturnGrapple_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Properties" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer_CPP, nullptr, "StopGlideSound", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer_CPP_StopGlideSound()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer_CPP_StopGlideSound_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -427,6 +484,10 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 #endif
 		static void NewProp_bIsGrinding_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsGrinding;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GlideSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GlideSound;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_fFriction_MetaData[];
 #endif
@@ -472,7 +533,9 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnBeginOverlap, "Grapple_OnBeginOverlap" }, // 1185653497
 		{ &Z_Construct_UFunction_APlayer_CPP_Grapple_OnOverlapEnd, "Grapple_OnOverlapEnd" }, // 1775607993
 		{ &Z_Construct_UFunction_APlayer_CPP_JumpOffRail, "JumpOffRail" }, // 3475813588
+		{ &Z_Construct_UFunction_APlayer_CPP_PlayGlideSound, "PlayGlideSound" }, // 4012870414
 		{ &Z_Construct_UFunction_APlayer_CPP_ReturnGrapple, "ReturnGrapple" }, // 2298195885
+		{ &Z_Construct_UFunction_APlayer_CPP_StopGlideSound, "StopGlideSound" }, // 2276192993
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::Class_MetaDataParams[] = {
@@ -551,6 +614,13 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding = { "bIsGrinding", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APlayer_CPP), &Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding_SetBit, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GlideSound_MetaData[] = {
+		{ "Category", "Player_CPP" },
+		{ "ModuleRelativePath", "Public/Player_CPP.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GlideSound = { "GlideSound", nullptr, (EPropertyFlags)0x0020080000010005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer_CPP, GlideSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GlideSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GlideSound_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "PlayerMovement" },
@@ -627,6 +697,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsReelingIn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsBoosting,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_bIsGrinding,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_GlideSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fFriction,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_fCameraClamp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer_CPP_Statics::NewProp_iMaxJumpAmount,
@@ -664,7 +735,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer_CPP() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer_CPP, 1081765299);
+	IMPLEMENT_CLASS(APlayer_CPP, 270937543);
 	template<> SAKURASPACEMAN_API UClass* StaticClass<APlayer_CPP>()
 	{
 		return APlayer_CPP::StaticClass();
